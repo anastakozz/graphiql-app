@@ -1,10 +1,15 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
 import './index.css';
+import { RouterProvider } from 'react-router-dom';
+import ErrorBoundary from './components/ErrorBoundary.tsx';
+import ErrorPage from './pages/ErrorPage.tsx';
+import router from './lib/router.tsx';
+import Layout from './components/Layout.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <ErrorBoundary fallback={<ErrorPage />}>
+    <Layout>
+      <RouterProvider router={router} />
+    </Layout>
+  </ErrorBoundary>
 );
