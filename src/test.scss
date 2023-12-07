@@ -1,5 +1,6 @@
 // we need at least one scss file to avoid stylelint errors. Remove it when you will create really style file
 
 .test {
-  display: block;
+  flex: auto;
+  flex-grow: initial;
 }
