@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { RouterProvider } from 'react-router-dom';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
-import ErrorPage from './pages/ErrorPage.tsx';
+import { ErrorPage } from './pages';
 import router from './lib/router.tsx';
 import Layout from './components/Layout.tsx';
 

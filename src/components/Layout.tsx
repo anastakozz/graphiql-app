@@ -1,6 +1,5 @@
 import { ReactNode, useState } from 'react';
-import Footer from './Footer';
-import Header from './Header';
+import { Header, Footer } from './';
 import { Language } from '../lib/enum';
 import userContext from '../lib/context';
 

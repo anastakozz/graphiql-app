@@ -1,15 +1,13 @@
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
-import WelcomePage from '../pages/WelcomePage';
-import AuthentificationPage from '../pages/AuthentificationPage';
-import MainPage from '../pages/MainPage';
-import NotFoundPage from '../pages/NotFoundPage';
+import { WelcomePage, MainPage, NotFoundPage, SignInPage, SignUpPage } from '../pages';
 import ProtectedRoute from '../components/ProtectedRoute';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<WelcomePage />} />
-      <Route path="auth" element={<AuthentificationPage />}></Route>
+      <Route path="sign-in" element={<SignInPage />}></Route>
+      <Route path="sign-up" element={<SignUpPage />}></Route>
       <Route
         path="main"
         element={
@@ -17,7 +15,7 @@ const router = createBrowserRouter(
             <MainPage />
           </ProtectedRoute>
         }
-      ></Route>
+      />
       <Route path="*" element={<NotFoundPage />} />
     </>
   )
