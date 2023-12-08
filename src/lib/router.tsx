@@ -6,8 +6,8 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<WelcomePage />} />
-      <Route path="sign-in" element={<SignInPage />}></Route>
-      <Route path="sign-up" element={<SignUpPage />}></Route>
+      <Route path="sign-in" element={<SignInPage />} />
+      <Route path="sign-up" element={<SignUpPage />} />
       <Route
         path="main"
         element={
