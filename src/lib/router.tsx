@@ -13,7 +13,7 @@ const router = createBrowserRouter(
       <Route
         path="main"
         element={
-          <ProtectedRoute userIsLoggedIn={true}>
+          <ProtectedRoute>
             <MainPage />
           </ProtectedRoute>
         }
