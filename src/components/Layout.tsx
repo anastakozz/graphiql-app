@@ -13,7 +13,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <userContext.Provider value={{ isUserLoggedIn, setIsUSerLoggedIn, language, setLanguage }}>
-        <Header />
+        {/* <Header /> */}
         <main>{children}</main>
         <Footer />
       </userContext.Provider>

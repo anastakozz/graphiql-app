@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import userContext from '../lib/context';
 import { LocalizationData } from '../lib/interface';
 import { getJSON } from '../lib/utils';
+import { Header } from '../components';
 
 export default function WelcomePage() {
   const { isUserLoggedIn, language } = useContext(userContext);
@@ -22,6 +23,7 @@ export default function WelcomePage() {
     <>
       {data && (
         <>
+          <Header />
           <h1>{data.title}</h1>
           {!isUserLoggedIn ? (
             <>

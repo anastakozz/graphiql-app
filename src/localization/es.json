@@ -4,5 +4,8 @@
     "signIn": "Iniciar sesión",
     "signUp": "Registrarse",
     "toMain": "A la Página Principal"
+  },
+  "header": {
+    "signOut": "Desconectar"
   }
 }
