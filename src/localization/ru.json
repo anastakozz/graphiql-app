@@ -6,8 +6,8 @@
     "toMain": "на Главную Страницу"
   },
   "authorization": {
-    "titleSignIn": "Страница входа",
-    "titleSignUp": "Страница регистрации",
+    "signIn": "Войти",
+    "signUp": "Зарегистрироваться",
     "inputsTitle": {
       "email": "Электронная почта: ",
       "password": "Пароль: ",

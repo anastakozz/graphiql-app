@@ -1,16 +1,17 @@
 import { Dispatch, SetStateAction, createContext } from 'react';
-import { Language } from './enum';
+import en from '../localization/en.json';
+import { LocalizationData } from './interfaces';
 
 interface ContextProps {
   isUserLoggedIn: boolean;
   setIsUSerLoggedIn?: Dispatch<SetStateAction<boolean>>;
-  language: string;
-  setLanguage?: Dispatch<SetStateAction<Language>>;
+  localData?: LocalizationData;
+  changeLocalData?: (language: string) => void;
 }
 
 const userContext = createContext<ContextProps>({
   isUserLoggedIn: false,
-  language: Language.en,
+  localData: en,
 });
 
 export default userContext;

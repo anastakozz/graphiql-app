@@ -6,8 +6,8 @@
     "toMain": "to Main Page"
   },
   "authorization": {
-    "titleSignIn": "Sign in page",
-    "titleSignUp": "Sign up page",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
     "inputsTitle": {
       "email": "E-mail: ",
       "password": "Password: ",

@@ -1,17 +1,20 @@
-import { InputProps } from '../../lib/interfaces.ts';
+import { InputProps } from '../../lib/interfaces';
 import { useContext, useEffect, useState } from 'react';
-import userContext from '../../lib/context.ts';
-import { setErrors, setInputLabel } from '../../lib/utils.ts';
+import userContext from '../../lib/context';
 
 export default function Password({ register, error, setValue }: InputProps) {
-  const { language } = useContext(userContext);
+  const { localData } = useContext(userContext);
   const [labelName, setLabelName] = useState('');
   const [currentError, setCurrentError] = useState('');
 
   useEffect(() => {
-    setInputLabel({ setLabelName, component: 'password', language });
-    setErrors({ language, error, setCurrentError, fieldType: 'password' });
-  }, [language, error]);
+    if (localData && Object.entries(localData).length > 0) {
+      setLabelName(localData?.authorization.inputsTitle.password);
+      if (error) {
+        setCurrentError(localData?.authorization.errors.password[error]);
+      } else setCurrentError('');
+    }
+  }, [localData, error]);
 
   return (
     <div>

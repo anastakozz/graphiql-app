@@ -1,9 +1,11 @@
 import { Resolver, SubmitHandler, useForm } from 'react-hook-form';
 import { InputData } from '../lib/interfaces.ts';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { combinedSchema } from '../lib/validationSchema.ts';
+import { combinedSchema } from '../lib/validationSchema';
 import { Email, Password } from '../components';
-import ConfirmPassword from '../components/AuthInputs/ConfirmPassword.tsx';
+import ConfirmPassword from '../components/AuthInputs/ConfirmPassword';
+import { useContext } from 'react';
+import userContext from '../lib/context';
 
 export default function SignUpPage() {
   const {
@@ -15,6 +17,7 @@ export default function SignUpPage() {
     mode: 'onChange',
     resolver: yupResolver(combinedSchema) as Resolver<InputData> | undefined,
   });
+  const { localData } = useContext(userContext);
 
   const onSubmit: SubmitHandler<InputData> = (data) => {
     console.log(data);
@@ -22,7 +25,6 @@ export default function SignUpPage() {
 
   return (
     <>
-      <h1>Sign up form</h1>
       <form onSubmit={handleSubmit(onSubmit)} noValidate={true}>
         <Email register={register} error={errors.email?.message} setValue={setValue} />
         <Password register={register} error={errors.password?.message} setValue={setValue} />
@@ -32,7 +34,7 @@ export default function SignUpPage() {
           setValue={setValue}
         />
         <button type="submit" disabled={!isValid || isDirty}>
-          Sign up
+          {localData && localData.authorization.signUp}
         </button>
       </form>
     </>

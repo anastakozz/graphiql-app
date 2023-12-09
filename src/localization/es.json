@@ -6,8 +6,8 @@
     "toMain": "A la Página Principal"
   },
   "authorization": {
-    "titleSignIn": "Página de inicio de sesión",
-    "titleSignUp": "Página de registro",
+    "signIn": "Iniciar sesión",
+    "signUp": "Regístrate ahora",
     "inputsTitle": {
       "email": "Correo electrónico: ",
       "password": "Contraseña: ",

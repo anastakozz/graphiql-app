@@ -1,0 +1,19 @@
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/placeholders';
+
+@import 'base/reset';
+@import 'base/typography';
+
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/forms';
+
+// @import 'components/buttons';
+
+@import 'pages/error-page';
+@import 'pages/main-page';
+@import 'pages/not-found-page';
+@import 'pages/sign-in-page';
+@import 'pages/sign-up-page';
+@import 'pages/welcom-page';

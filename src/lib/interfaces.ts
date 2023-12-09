@@ -1,8 +1,22 @@
 import { UseFormRegister, UseFormSetValue } from 'react-hook-form';
 import React from 'react';
 
-export interface LocalizationData {
+export interface pageData {
   [key: string]: string;
+}
+
+export interface LocalizationData {
+  welcomePage: pageData,
+  authorization: {
+    signIn: string,
+    signUp: string,
+    inputsTitle: pageData,
+    errors: {
+      email: pageData,
+      password: pageData,
+      confirmPassword: pageData
+    }
+  }
 }
 
 export interface InputData {

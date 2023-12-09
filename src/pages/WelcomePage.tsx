@@ -1,22 +1,18 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import userContext from '../lib/context';
-import { LocalizationData } from '../lib/interfaces';
-import { getJSON } from '../lib/utils';
+import { pageData } from '../lib/interfaces';
 
 export default function WelcomePage() {
-  const { isUserLoggedIn, language } = useContext(userContext);
-  const [data, setData] = useState<LocalizationData | null>(null);
+  const { isUserLoggedIn, localData } = useContext(userContext);
+  const [data, setData] = useState<pageData | null>(null);
 
   useEffect(() => {
-    const getData = async () => {
-      const data = await getJSON(language, 'welcomePage');
-      console.log(data);
+    if (localData) {
+      const data = localData['welcomePage'];
       setData(data);
-    };
-
-    getData();
-  }, [language]);
+    }
+  }, [localData]);
 
   return (
     <>
@@ -29,7 +25,7 @@ export default function WelcomePage() {
               <Link to="sign-up">{data.signUp}</Link>
             </>
           ) : (
-            <Link to="main">{data.toMainPage}</Link>
+            <Link to="main">{data.toMain}</Link>
           )}
         </>
       )}
