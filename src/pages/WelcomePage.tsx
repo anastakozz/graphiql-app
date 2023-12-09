@@ -29,7 +29,7 @@ export default function WelcomePage() {
               <Link to="sign-up">{data.signUp}</Link>
             </>
           ) : (
-            <Link to="main">{data.toMainPage}</Link>
+            <Link to="main">{data.toMain}</Link>
           )}
         </>
       )}
