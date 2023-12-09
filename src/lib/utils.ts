@@ -1,7 +1,7 @@
-export const getJSON = async (language: string, page: string) => {
+export const getJSON = async (language: string) => {
   try {
     const res = await import(`../localization/${language}.json`);
-    return res[`${page}`];
+    return res;
   } catch (error) {
     console.error('Error loading JSON file:', error);
   }
