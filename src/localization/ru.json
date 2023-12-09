@@ -1,4 +1,7 @@
 {
+  "language": {
+    "code": "ru"
+  },
   "welcomePage": {
     "title": "Добро пожаловать!",
     "signIn": "Войти",

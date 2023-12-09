@@ -1,4 +1,7 @@
 {
+  "language": {
+    "code": "en"
+  },
   "welcomePage": {
     "title": "Welcome!",
     "signIn": "Sign In",

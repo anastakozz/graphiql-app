@@ -1,26 +1,22 @@
 import { Link, useNavigate } from 'react-router-dom';
 import LanguageSelect from '../LanguageSelect/LanguageSelect';
 import { useContext, useEffect, useState } from 'react';
-import { getJSON } from '../../lib/utils';
 import userContext from '../../lib/context';
-import { LocalizationData } from '../../lib/interface';
+import { pageData } from '../../lib/interface';
 import Button from '../Button/Button';
 
 export default function Header() {
-  const { isUserLoggedIn, language, setIsUSerLoggedIn } = useContext(userContext);
-  const [data, setData] = useState<LocalizationData | null>(null);
+  const { isUserLoggedIn, localData, setIsUSerLoggedIn } = useContext(userContext);
+  const [data, setData] = useState<pageData | null>(null);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getData = async () => {
-      const data = await getJSON(language, 'header');
-      console.log(data);
+    if (localData) {
+      const data = localData['header'];
       setData(data);
-    };
-
-    getData();
-  }, [language]);
+    }
+  }, [localData]);
 
   const handleSignOut = () => {
     setIsUSerLoggedIn && setIsUSerLoggedIn(false);
@@ -35,7 +31,7 @@ export default function Header() {
         </Link>
         <div className="header-right-part">
           <LanguageSelect />
-          {!isUserLoggedIn && (
+          {isUserLoggedIn && (
             <Button className="logout-button" onClick={handleSignOut}>
               {data.signOut}
             </Button>
