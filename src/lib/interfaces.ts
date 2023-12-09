@@ -6,17 +6,17 @@ export interface pageData {
 }
 
 export interface LocalizationData {
-  welcomePage: pageData,
+  welcomePage: pageData;
   authorization: {
-    signIn: string,
-    signUp: string,
-    inputsTitle: pageData,
+    signIn: string;
+    signUp: string;
+    inputsTitle: pageData;
     errors: {
-      email: pageData,
-      password: pageData,
-      confirmPassword: pageData
-    }
-  }
+      email: pageData;
+      password: pageData;
+      confirmPassword: pageData;
+    };
+  };
 }
 
 export interface InputData {
