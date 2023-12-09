@@ -1,5 +1,5 @@
 import { ReactNode, useState } from 'react';
-import { Header, Footer } from './';
+import { Footer } from './';
 import { Language } from '../lib/enum';
 import userContext from '../lib/context';
 
@@ -13,7 +13,6 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <userContext.Provider value={{ isUserLoggedIn, setIsUSerLoggedIn, language, setLanguage }}>
-        {/* <Header /> */}
         <main>{children}</main>
         <Footer />
       </userContext.Provider>
