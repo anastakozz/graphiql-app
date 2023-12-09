@@ -1,7 +1,7 @@
 import { InputProps } from '../../lib/interfaces.ts';
-import { useContext, useEffect, useState } from "react";
-import userContext from "../../lib/context.ts";
-import { setErrors, setInputLabel } from "../../lib/utils.ts";
+import { useContext, useEffect, useState } from 'react';
+import userContext from '../../lib/context.ts';
+import { setErrors, setInputLabel } from '../../lib/utils.ts';
 
 export default function ConfirmPassword({ register, error, setValue }: InputProps) {
   const { language } = useContext(userContext);
@@ -9,8 +9,8 @@ export default function ConfirmPassword({ register, error, setValue }: InputProp
   const [currentError, setCurrentError] = useState('');
 
   useEffect(() => {
-    setInputLabel({setLabelName, component: 'confirmPassword', language});
-    setErrors({language, error, setCurrentError, fieldType: 'confirmPassword'});
+    setInputLabel({ setLabelName, component: 'confirmPassword', language });
+    setErrors({ language, error, setCurrentError, fieldType: 'confirmPassword' });
   }, [language, error]);
 
   return (

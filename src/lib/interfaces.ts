@@ -1,5 +1,5 @@
 import { UseFormRegister, UseFormSetValue } from 'react-hook-form';
-import React from "react";
+import React from 'react';
 
 export interface LocalizationData {
   [key: string]: string;
