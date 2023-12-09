@@ -1,15 +1,28 @@
-import { InputProps } from "../../lib/interfaces.ts";
-import { ChangeEvent } from "react";
+import { InputProps } from '../../lib/interfaces.ts';
+import { useContext, useEffect, useState } from "react";
+import userContext from "../../lib/context.ts";
+import { setErrors, setInputLabel } from "../../lib/utils.ts";
 
-export default function ConfirmPassword({register, error, setValue}: InputProps) {
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    setValue('confirmPassword', e.target.value, { shouldValidate: true });
-  }
+export default function ConfirmPassword({ register, error, setValue }: InputProps) {
+  const { language } = useContext(userContext);
+  const [labelName, setLabelName] = useState('');
+  const [currentError, setCurrentError] = useState('');
+
+  useEffect(() => {
+    setInputLabel({setLabelName, component: 'confirmPassword', language});
+    setErrors({language, error, setCurrentError, fieldType: 'confirmPassword'});
+  }, [language, error]);
+
   return (
     <div>
-      <div>{error}</div>
-      <label htmlFor="password">Confirm password: </label>
-      <input {...register('confirmPassword')} type="password" id="confirmPassword" onChange={handleChange}/>
+      <div>{currentError}</div>
+      <label htmlFor="confirmPassword">{labelName}</label>
+      <input
+        {...register('confirmPassword')}
+        type="password"
+        id="confirmPassword"
+        onChange={(e) => setValue('confirmPassword', e.target.value, { shouldValidate: true })}
+      />
     </div>
-  )
+  );
 }

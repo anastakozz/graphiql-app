@@ -4,5 +4,31 @@
     "signIn": "Iniciar sesión",
     "signUp": "Registrarse",
     "toMain": "A la Página Principal"
+  },
+  "authorization": {
+    "titleSignIn": "Página de inicio de sesión",
+    "titleSignUp": "Página de registro",
+    "inputsTitle": {
+      "email": "Correo electrónico: ",
+      "password": "Contraseña: ",
+      "confirmPassword": "Confirmar contraseña: "
+    },
+    "errors": {
+      "email": {
+        "notValid": "El correo electrónico no es válido",
+        "required": "El campo no debe estar vacío"
+      },
+      "password": {
+        "mustHaveUpperCase": "La contraseña debe contener al menos una letra mayúscula",
+        "mustHaveLowerCase": "La contraseña debe contener al menos una letra minúscula",
+        "mustHaveNumber": "La contraseña debe contener al menos un número",
+        "mustHaveSpecial": "La contraseña debe contener al menos un carácter especial",
+        "required": "El campo no debe estar vacío"
+      },
+      "confirmPassword": {
+        "mustMatch": "Las contraseñas deben coincidir",
+        "required": "El campo no debe estar vacío"
+      }
+    }
   }
 }

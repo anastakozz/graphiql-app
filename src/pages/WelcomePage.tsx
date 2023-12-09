@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import userContext from '../lib/context';
-import { LocalizationData } from '../lib/interface';
+import { LocalizationData } from '../lib/interfaces';
 import { getJSON } from '../lib/utils';
 
 export default function WelcomePage() {

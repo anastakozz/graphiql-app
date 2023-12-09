@@ -1,15 +1,23 @@
-import { InputProps } from "../../lib/interfaces.ts";
-import { ChangeEvent } from 'react';
+import { InputProps } from '../../lib/interfaces.ts';
+import { useContext, useEffect, useState } from "react";
+import userContext from "../../lib/context.ts";
+import { setErrors, setInputLabel } from "../../lib/utils.ts";
 
-export default function Email({register, error, setValue}: InputProps ) {
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    setValue('email', e.target.value, { shouldValidate: true });
-  }
+export default function Email({ register, error, setValue }: InputProps) {
+  const { language } = useContext(userContext);
+  const [labelName, setLabelName] = useState('');
+  const [currentError, setCurrentError] = useState('');
+
+  useEffect(() => {
+    setInputLabel({setLabelName, component: 'email', language});
+    setErrors({language, error, setCurrentError, fieldType: 'email'});
+  }, [language, error]);
+
   return (
     <div>
-      <div>{error}</div>
-      <label htmlFor="email">E-mail: </label>
-      <input {...register('email')} type="email" id="email" onChange={handleChange}/>
+      <div>{currentError}</div>
+      <label htmlFor="email">{labelName}</label>
+      <input {...register('email')} type="email" id="email" onChange={(e) => setValue('email', e.target.value, { shouldValidate: true })}  />
     </div>
-  )
+  );
 }

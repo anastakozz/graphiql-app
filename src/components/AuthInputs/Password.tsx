@@ -1,15 +1,23 @@
-import { InputProps } from "../../lib/interfaces.ts";
-import { ChangeEvent } from "react";
+import { InputProps } from '../../lib/interfaces.ts';
+import { useContext, useEffect, useState } from "react";
+import userContext from "../../lib/context.ts";
+import { setErrors, setInputLabel } from "../../lib/utils.ts";
 
-export default function Password({register, error, setValue}: InputProps) {
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    setValue('password', e.target.value, { shouldValidate: true });
-  }
+export default function Password({ register, error, setValue }: InputProps) {
+  const { language } = useContext(userContext);
+  const [labelName, setLabelName] = useState('');
+  const [currentError, setCurrentError] = useState('');
+
+  useEffect(() => {
+    setInputLabel({setLabelName, component: 'password', language});
+    setErrors({language, error, setCurrentError, fieldType: 'password'});
+  }, [language, error]);
+
   return (
     <div>
-      <div>{error}</div>
-      <label htmlFor="password">Password: </label>
-      <input {...register('password')} type="password" id="password" onChange={handleChange}/>
+      <div>{currentError}</div>
+      <label htmlFor="password">{labelName}</label>
+      <input {...register('password')} type="password" id="password" onChange={(e) => setValue('password', e.target.value, { shouldValidate: true })} />
     </div>
-  )
+  );
 }
