@@ -1,9 +1,15 @@
 {
+  "language": {
+    "code": "ru"
+  },
   "welcomePage": {
     "title": "Добро пожаловать!",
     "signIn": "Войти",
     "signUp": "Зарегистрироваться",
     "toMain": "на Главную Страницу"
+  },
+  "header": {
+    "signOut": "Выход"
   },
   "authorization": {
     "signIn": "Войти",

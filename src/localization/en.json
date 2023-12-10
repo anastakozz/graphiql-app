@@ -1,9 +1,15 @@
 {
+  "language": {
+    "code": "en"
+  },
   "welcomePage": {
     "title": "Welcome!",
     "signIn": "Sign In",
     "signUp": "Sign Up",
     "toMain": "to Main Page"
+  },
+  "header": {
+    "signOut": "Sign Out"
   },
   "authorization": {
     "signIn": "Sign in",
