@@ -1,6 +1,6 @@
 import GithubLogo from '../../assets/github-logo';
 import { AboutUsType } from '../../lib/constants';
-import { pageData } from '../../lib/interface';
+import { pageData } from '../../lib/interfaces';
 
 export default function TeamBlock({
   data,
