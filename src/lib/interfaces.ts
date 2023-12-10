@@ -7,7 +7,10 @@ export interface pageData {
 
 export interface LocalizationData {
   language: { code: string };
-  header: { signOut: string };
+  header: {
+    signOut: string;
+    welcomePage: string;
+  };
   welcomePage: pageData;
   authorization: {
     signIn: string;

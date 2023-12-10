@@ -27,7 +27,7 @@ export default function Header() {
     data && (
       <header className="header">
         <Link className="logo-link" to="/">
-          GraphiQL | Welcome page
+          {data.welcomePage}
         </Link>
         <div className="header-right-part">
           <LanguageSelect />
