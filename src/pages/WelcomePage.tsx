@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import userContext from '../lib/context';
 import { pageData } from '../lib/interface';
 import { ABOUT_US } from '../lib/constants';
-import GithubLogo from '../assets/github-logo';
 import { Button } from '../components';
 import TeamBlock from '../components/TeamBlock/TeamBlock';
 
@@ -46,7 +45,7 @@ export default function WelcomePage() {
           <div className="our-team-section">
             <h2 className="secondary-title text-center">{data.aboutUsTitle}</h2>
             {ABOUT_US.map((item, index) => (
-              <TeamBlock data={data} item={item} index={index} />
+              <TeamBlock key={index} data={data} item={item} index={index} />
             ))}
           </div>
           <div className="information-section project-information-section">

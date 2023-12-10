@@ -17,14 +17,14 @@ export default function TeamBlock({
     >
       <div className="photo-container">
         <img className="team-mate-photo" src={item.img} alt="" />
-        <a className="github-link" target="_blank" href={item.github}>
+        <a className="github-link" target="_blank" rel="noreferrer" href={item.github}>
           <GithubLogo width="20px" />
         </a>
       </div>
       <div>
         <p className="team-mate-name">{data[item.nameKey]}</p>
         <p className="team-mate-role">{data[item.roleKey]}</p>
-        <p className="team-mate-bio">"{data[item.bioKey]}"</p>
+        <p className="team-mate-bio">&quot;{data[item.bioKey]}&quot;</p>
       </div>
     </div>
   );
