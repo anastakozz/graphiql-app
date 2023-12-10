@@ -1,16 +1,7 @@
 import GithubLogo from '../../assets/github-logo';
-import { AboutUsType } from '../../lib/constants';
-import { pageData } from '../../lib/interfaces';
+import { ITeamBlock } from '../../lib/interfaces';
 
-export default function TeamBlock({
-  data,
-  item,
-  index,
-}: {
-  data: pageData;
-  item: AboutUsType;
-  index: number;
-}) {
+export default function TeamBlock({ data, item, index }: ITeamBlock) {
   return (
     <div
       className={`our-team-section__item ${index % 2 != 0 ? ' our-team-section__item_revert' : ''}`}

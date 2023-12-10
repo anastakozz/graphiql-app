@@ -1,15 +1,7 @@
 import yuliyaPhoto from '../assets/photos/yulia_photo.jpg';
 import slavaPhoto from '../assets/photos/slava_photo.jpg';
 import nastyaPhoto from '../assets/photos/anastasia_photo.jpg';
-
-export type AboutUsType = {
-  fullName: string;
-  img: string;
-  github: string;
-  nameKey: string;
-  roleKey: string;
-  bioKey: string;
-};
+import { AboutUsType } from './types';
 
 export const ABOUT_US: AboutUsType[] = [
   {

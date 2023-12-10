@@ -1,5 +1,6 @@
 import { UseFormRegister, UseFormSetValue } from 'react-hook-form';
 import React from 'react';
+import { AboutUsType } from './types';
 
 export interface pageData {
   [key: string]: string;
@@ -47,4 +48,10 @@ export interface ISetInputLabels {
   setLabelName: React.Dispatch<React.SetStateAction<string>>;
   component: string;
   language: string;
+}
+
+export interface ITeamBlock {
+  data: pageData;
+  item: AboutUsType;
+  index: number;
 }
