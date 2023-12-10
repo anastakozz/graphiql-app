@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, createContext } from 'react';
 import en from '../localization/en.json';
-import { LocalizationData } from './interface';
+import { LocalizationData } from './interfaces';
 
 interface ContextProps {
   isUserLoggedIn: boolean;

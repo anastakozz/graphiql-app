@@ -10,5 +10,31 @@
   },
   "header": {
     "signOut": "Sign Out"
+  },
+  "authorization": {
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "inputsTitle": {
+      "email": "E-mail: ",
+      "password": "Password: ",
+      "confirmPassword": "Confirm password: "
+    },
+    "errors": {
+      "email": {
+        "notValid": "Email is not valid",
+        "required": "Field is required"
+      },
+      "password": {
+        "mustHaveUpperCase": "Password must contains at least one uppercase letter",
+        "mustHaveLowerCase": "Password must contains at least one lowercase letter",
+        "mustHaveNumber": "Password must contains at least one number",
+        "mustHaveSpecial": "Password must contains at least one special character",
+        "required": "Field is required"
+      },
+      "confirmPassword": {
+        "mustMatch": "Passwords must match",
+        "required": "Field is required"
+      }
+    }
   }
 }
