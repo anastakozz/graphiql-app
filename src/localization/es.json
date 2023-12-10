@@ -6,7 +6,21 @@
     "title": "¡Bienvenido!",
     "signIn": "Iniciar sesión",
     "signUp": "Registrarse",
-    "toMain": "A la Página Principal"
+    "toMain": "A la Página Principal",
+    "aboutUsTitle": "Nuestro equipo",
+    "yuliaName": "Yulia Kuzich",
+    "yuliaRole": "Ingeniera de software",
+    "yuliaBio": "En primer lugar, debo decir que no tengo una educación formal en el campo de TI, pero actualmente estoy tomando algunos de los mejores cursos disponibles. Me gradué en la Universidad Técnica de Brest como especialista en logística y también obtuve una maestría en Economía Mundial. Trabajé como logístico durante tres años. Ahora, mi objetivo es convertirme en un desarrollador front-end capacitado y conseguir un buen trabajo. Mis puntos fuertes incluyen la responsabilidad, la perseverancia, la determinación y la eficiencia. Por el momento no tengo experiencia laboral en el ámbito de TI, pero tengo muchas ganas de adquirirla.",
+    "anastasiyaName": "Kozlova Anastasiya",
+    "anastasiyaRole": "Ingeniera de software líder de equipo",
+    "anastasiyaBio": "Con una educación arquitectónica y una amplia experiencia en fabricación digital, comencé a codificar escribiendo scripts JavaScript (JS) para Adobe Illustrator y me enamoré del proceso. Decidí cambiar mi carrera y me sumergí en JS de la mano de Rolling Scopes School. Creo que la combinación única de habilidades y experiencia que posee cada especialista puede brillar en su propio lugar y espero encontrar mi lugar en el ámbito de las tecnologías de la información.",
+    "vyacheslavName": "Ryshkov Vyacheslav",
+    "vyacheslavRole": "Ingeniero de software",
+    "vyacheslavBio": "Mi lugar de trabajo anterior era una planta minera y procesadora, donde trabajé como electricista de turno durante los últimos siete años. Tengo estudios superiores en la especialidad de 'Automatización de Procesos Tecnológicos y de Producción'. Por diversas razones, decidí cambiar de trabajo y elegí el camino de TI. Como ya tenía experiencia en administración y promoción de sitios web, el desarrollo Frontend me pareció el más atractivo. Lo disfruto y espero convertirme en un especialista cualificado.",
+    "aboutProjectTitle": "Descripción del proyecto",
+    "projectInfo": "La tarea del proyecto es implementar una interfaz para trabajar con GraphQL. El área de juegos de GraphQL es una interfaz de usuario interactiva donde puede crear y probar las consultas que desea enviar a las API de GraphQL.",
+    "aboutCourseTitle": "Información del curso",
+    "courseInfo": "RS School es un programa educativo gratuito y comunitario llevado a cabo por la comunidad de desarrolladores de Rolling Scopes desde 2013. Todos pueden estudiar en RS School, independientemente de su edad, empleo profesional o lugar de residencia. Los mentores y formadores de nuestra escuela somos desarrolladores front-end y javascript de diferentes empresas y países."
   },
   "header": {
     "signOut": "Desconectar"

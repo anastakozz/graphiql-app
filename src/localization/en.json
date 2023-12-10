@@ -6,7 +6,21 @@
     "title": "Welcome!",
     "signIn": "Sign In",
     "signUp": "Sign Up",
-    "toMain": "to Main Page"
+    "toMain": "to Main Page",
+    "aboutUsTitle": "Our team",
+    "yuliaName": "Yulia Kuzich",
+    "yuliaRole": "Software engineer",
+    "yuliaBio": "First and foremost, I need to say that I do not have a formal education in the IT field, but I am currently taking some of the best courses available. I graduated from Brest Technical University as a specialist in logistics and also earned a Master degree in World Economics. I worked as a logistician for three years. Now, my goal is to become a skilled front-end developer and secure a good job. My strengths include responsibility, perseverance, determination, and efficiency. At the moment, I do not have any work experience in the IT sphere, but I am very eager to gain it.",
+    "anastasiyaName": "Kozlova Anastasiya",
+    "anastasiyaRole": "Team Lead software engineer",
+    "anastasiyaBio": "Having an architectural education and extensive experience in digital fabrication, I started coding by writing JavaScript (JS) scripts for Adobe Illustrator and fell in love with the process. I decided to change my career and immersed myself in JS with the help of Rolling Scopes School. I believe that the unique combination of skills and experience possessed by every specialist can shine brightly in its own place, and I hope to find my place in the IT sphere.",
+    "vyacheslavName": "Ryshkov Vyacheslav",
+    "vyacheslavRole": "Software engineer",
+    "vyacheslavBio": "My previous place of work was a mining and processing plant, where I worked as an electrician on duty for the last seven years. I have a higher education in the specialty of 'Automation of Technological Processes and Production.' For various reasons, I decided to change my job and chose the IT path. Since I already had experience in website administration and promotion, I found Frontend development to be the most appealing. I enjoy it, and I hope to become a skilled specialist.",
+    "aboutProjectTitle": "Project's description",
+    "projectInfo": "The task of the project is to implement an interface for working with GraphQL. The GraphQL playground is an interactive UI where you can build and test queries you want to send to the GraphQL APIs.",
+    "aboutCourseTitle": "Course information",
+    "courseInfo": "RS School is free-of-charge and community-based education program conducted by The Rolling Scopes developer community since 2013. Everyone can study at RS School, regardless of age, professional employment, or place of residence.The mentors and trainers of our school are front-end and javascript developers from different companies and countries."
   },
   "header": {
     "signOut": "Sign Out"

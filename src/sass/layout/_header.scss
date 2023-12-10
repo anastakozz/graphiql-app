@@ -2,11 +2,13 @@
   @include flex-row(center, space-between);
   padding: 10px 20px;
   position: sticky;
+  top: 0px;
   backdrop-filter: blur(10px);
   transition: 0.3s;
-  background: $base-background-light;
+  background: $header-background;
   margin: 5px;
   border-radius: 5px;
+  z-index: 2;
 
   .logo-link {
     font-family: $font-montserrat;
