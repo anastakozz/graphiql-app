@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import userContext from '../lib/context';
-import { pageData } from '../lib/interface';
 import { ABOUT_US } from '../lib/constants';
 import { Button } from '../components';
 import TeamBlock from '../components/TeamBlock/TeamBlock';
+import { pageData } from '../lib/interfaces';
 
 export default function WelcomePage() {
   const { isUserLoggedIn, localData } = useContext(userContext);

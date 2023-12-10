@@ -7,7 +7,7 @@ import { getJSON } from '../lib/utils';
 
 export default function Layout() {
   const [isUserLoggedIn, setIsUSerLoggedIn] = useState(false);
-  const [localData, setLocalData] = useState({});
+  const [localData, setLocalData] = useState();
 
   useEffect(() => {
     const getData = async () => {

@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import LanguageSelect from '../LanguageSelect/LanguageSelect';
 import { useContext, useEffect, useState } from 'react';
 import userContext from '../../lib/context';
-import { pageData } from '../../lib/interface';
+import { pageData } from '../../lib/interfaces';
 import Button from '../Button/Button';
 
 export default function Header() {
