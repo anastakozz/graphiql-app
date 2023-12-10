@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import userContext from '../lib/context';
-import { pageData } from '../lib/interface';
+import { pageData } from '../lib/interfaces';
 
 export default function WelcomePage() {
   const { isUserLoggedIn, localData } = useContext(userContext);
