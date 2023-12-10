@@ -1,6 +1,6 @@
 .footer {
   @include flex-row(flex-end, space-between);
-  padding: 20px;
+  padding: 10px;
   background: $base-background-light;
 
   .copyright {

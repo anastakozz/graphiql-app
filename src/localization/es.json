@@ -22,6 +22,11 @@
     "aboutCourseTitle": "Información del curso",
     "courseInfo": "RS School es un programa educativo gratuito y comunitario llevado a cabo por la comunidad de desarrolladores de Rolling Scopes desde 2013. Todos pueden estudiar en RS School, independientemente de su edad, empleo profesional o lugar de residencia. Los mentores y formadores de nuestra escuela somos desarrolladores front-end y javascript de diferentes empresas y países."
   },
+  "mainPage": {
+    "variables": "Variables",
+    "headers": "Encabezadas",
+    "docs": "Documentos"
+  },
   "header": {
     "welcomePage": "GraphiQL | Pagina de bienvenida",
     "signOut": "Desconectar"

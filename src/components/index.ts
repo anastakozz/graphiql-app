@@ -5,5 +5,6 @@ import Button from './Button/Button';
 import TeamBlock from './TeamBlock/TeamBlock';
 import Email from './AuthInputs/Email.tsx';
 import Password from './AuthInputs/Password.tsx';
+import BottomConsole from './BottomConsole/BottomConsole.tsx';
 
-export { Footer, Header, Email, Password, LanguageSelect, Button, TeamBlock };
+export { Footer, Header, Email, Password, LanguageSelect, Button, TeamBlock, BottomConsole };
