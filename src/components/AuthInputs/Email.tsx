@@ -10,9 +10,7 @@ export default function Email({ register, error, setValue }: InputProps) {
   useEffect(() => {
     if (localData && Object.entries(localData).length > 0) {
       setLabelName(localData.authorization.inputsTitle.email);
-      if (error) {
-        setCurrentError(localData.authorization.errors.email[error]);
-      } else setCurrentError('');
+      error ? setCurrentError(localData.authorization.errors.email[error]) : setCurrentError('');
     }
   }, [localData, error]);
 

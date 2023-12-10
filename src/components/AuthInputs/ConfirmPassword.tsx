@@ -10,9 +10,9 @@ export default function ConfirmPassword({ register, error, setValue }: InputProp
   useEffect(() => {
     if (localData && Object.entries(localData).length > 0) {
       setLabelName(localData?.authorization.inputsTitle.confirmPassword);
-      if (error) {
-        setCurrentError(localData?.authorization.errors.confirmPassword[error]);
-      } else setCurrentError('');
+      error
+        ? setCurrentError(localData.authorization.errors.confirmPassword[error])
+        : setCurrentError('');
     }
   }, [localData, error]);
 

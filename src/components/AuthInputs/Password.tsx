@@ -10,9 +10,7 @@ export default function Password({ register, error, setValue }: InputProps) {
   useEffect(() => {
     if (localData && Object.entries(localData).length > 0) {
       setLabelName(localData?.authorization.inputsTitle.password);
-      if (error) {
-        setCurrentError(localData?.authorization.errors.password[error]);
-      } else setCurrentError('');
+      error ? setCurrentError(localData.authorization.errors.password[error]) : setCurrentError('');
     }
   }, [localData, error]);
 
