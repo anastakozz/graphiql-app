@@ -1,5 +1,6 @@
 import { UseFormRegister, UseFormSetValue } from 'react-hook-form';
 import React from 'react';
+import { AboutUsType } from './types';
 
 export interface pageData {
   [key: string]: string;
@@ -7,7 +8,10 @@ export interface pageData {
 
 export interface LocalizationData {
   language: { code: string };
-  header: { signOut: string };
+  header: {
+    signOut: string;
+    welcomePage: string;
+  };
   welcomePage: pageData;
   authorization: {
     signIn: string;
@@ -44,4 +48,10 @@ export interface ISetInputLabels {
   setLabelName: React.Dispatch<React.SetStateAction<string>>;
   component: string;
   language: string;
+}
+
+export interface ITeamBlock {
+  data: pageData;
+  item: AboutUsType;
+  index: number;
 }

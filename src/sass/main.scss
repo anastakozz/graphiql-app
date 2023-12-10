@@ -5,16 +5,18 @@
 @import 'base/reset';
 @import 'base/typography';
 
+@import 'layout/container';
 @import 'layout/header';
 @import 'layout/footer';
 @import 'layout/forms';
 
 @import 'components/button';
 @import 'components/language-select';
+@import 'components/team-block';
 
 @import 'pages/error-page';
 @import 'pages/main-page';
 @import 'pages/not-found-page';
 @import 'pages/sign-in-page';
 @import 'pages/sign-up-page';
-@import 'pages/welcom-page';
+@import 'pages/welcome-page';
