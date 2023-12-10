@@ -6,6 +6,8 @@ export interface pageData {
 }
 
 export interface LocalizationData {
+  language: { code: string };
+  header: { signOut: string };
   welcomePage: pageData;
   authorization: {
     signIn: string;
