@@ -1,17 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Header, Footer } from './';
-import { Language } from '../lib/enum';
-import userContext from '../lib/context';
+import { Language, getJSON, userContext } from '../lib';
 import { Outlet } from 'react-router-dom';
-import { getJSON } from '../lib/utils';
 
 export default function Layout() {
-  const [isUserLoggedIn, setIsUSerLoggedIn] = useState(false);
   const [localData, setLocalData] = useState();
 
   useEffect(() => {
     const getData = async () => {
-      changeLocalData(Language.en);
+      await changeLocalData(Language.en);
     };
     getData();
   }, []);
@@ -25,7 +22,7 @@ export default function Layout() {
   };
 
   return (
-    <userContext.Provider value={{ isUserLoggedIn, setIsUSerLoggedIn, localData, changeLocalData }}>
+    <userContext.Provider value={{ localData, changeLocalData }}>
       <Header />
       <main>
         <Outlet />

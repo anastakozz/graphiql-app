@@ -44,7 +44,8 @@
         "mustHaveLowerCase": "Password must contains at least one lowercase letter",
         "mustHaveNumber": "Password must contains at least one number",
         "mustHaveSpecial": "Password must contains at least one special character",
-        "required": "Field is required"
+        "required": "Field is required",
+        "mustHave6Characters": "Password should be at least 6 characters"
       },
       "confirmPassword": {
         "mustMatch": "Passwords must match",

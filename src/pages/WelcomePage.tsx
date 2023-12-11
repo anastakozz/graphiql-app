@@ -1,17 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import userContext from '../lib/context';
-import { ABOUT_US } from '../lib/constants';
-import { Button } from '../components';
-import TeamBlock from '../components/TeamBlock/TeamBlock';
+import { ABOUT_US, setAuthListener, userContext } from '../lib';
+import { Button, TeamBlock } from '../components';
 import { pageData } from '../lib/interfaces';
 
 export default function WelcomePage() {
-  const { isUserLoggedIn, localData } = useContext(userContext);
+  const { localData } = useContext(userContext);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [data, setData] = useState<pageData | null>(null);
-
   const navigate = useNavigate();
 
+  useEffect(() => setAuthListener({ setIsUserLoggedIn }), []);
   useEffect(() => {
     if (localData) {
       const data = localData['welcomePage'];

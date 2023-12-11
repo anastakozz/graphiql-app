@@ -14,14 +14,15 @@
     "prepare": "husky install && npx husky add .husky/pre-commit \"npm run format & npm run lint\" && npx husky add .husky/pre-push \"npm run test -- --watch=false\""
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.2",
     "axios": "^1.6.2",
+    "firebase": "^10.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2",
     "react-router-dom": "^6.20.1",
     "sass": "^1.69.5",
-    "yup": "^1.3.2",
-    "@hookform/resolvers": "^3.3.2"
+    "yup": "^1.3.2"
   },
   "devDependencies": {
     "@testing-library/react": "^14.1.2",
