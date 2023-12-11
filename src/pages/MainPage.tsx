@@ -4,6 +4,7 @@ import { pageData } from '../lib/interfaces';
 import { PlayIcon } from '../assets/icons/play-icon';
 import { CodeIcon } from '../assets/icons/code-icon';
 import BottomConsole from '../components/BottomConsole/BottomConsole';
+import { URLInput } from '../components';
 
 const inputMock = `{
   test: {
@@ -35,9 +36,7 @@ export default function MainPage() {
     data && (
       <div className="main-section">
         <div className="request-section">
-          <div className="url-component">
-            <input placeholder="https://your-url" type="text" className="url-input" />
-          </div>
+          <URLInput />
           <textarea value={inputMock} name="request" className="json-input"></textarea>
           <BottomConsole data={data} />
           <div className="action-button run-button">
