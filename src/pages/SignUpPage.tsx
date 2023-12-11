@@ -26,6 +26,9 @@ export default function SignUpPage() {
       await createUserWithEmailAndPassword(auth, data.email, data.password);
       navigate('/main');
     } catch (e) {
+      if (e instanceof Error && 'code' in e && e.code === 'auth/email-already-in-use') {
+        alert('email already in use!');
+      }
       console.error(e);
     }
   };

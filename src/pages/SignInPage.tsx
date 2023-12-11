@@ -25,10 +25,10 @@ export default function SignInPage() {
       await signInWithEmailAndPassword(auth, data.email, data.password);
       navigate('/main');
     } catch (e) {
-      if (e instanceof Error && 'code' in e) {
-        console.error(e.code);
+      if (e instanceof Error && 'code' in e && e.code === 'auth/invalid-credential') {
         alert('Invalid login or password!');
       }
+      console.error(e);
     }
   };
 
