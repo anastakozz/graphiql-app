@@ -1,0 +1,25 @@
+.button {
+  border-radius: 5px;
+  transition: 300ms;
+  border: 0;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.button-contained {
+  background: $base-color;
+  color: #fff;
+
+  &:hover {
+    background: lighten($color: $base-color, $amount: 10%);
+  }
+}
+
+.button-link {
+  color: $base-color;
+  background: transparent;
+
+  &:hover {
+    background: $base-background-light;
+  }
+}

@@ -1,0 +1,20 @@
+.language-select {
+  @include flex-row();
+}
+
+.language-button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    color: $base-color;
+  }
+}
+
+.language-button-active {
+  color: $base-color;
+  border-bottom: 1px solid $base-color;
+  cursor: auto;
+}

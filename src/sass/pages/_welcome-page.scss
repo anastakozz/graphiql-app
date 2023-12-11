@@ -1,0 +1,12 @@
+.welcome-section {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.sign-links-container {
+  @include flex-row(center, flex-end);
+}
+
+.information-section {
+  margin-bottom: 50px;
+}
