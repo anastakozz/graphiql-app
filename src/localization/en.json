@@ -31,6 +31,9 @@
     "welcomePage": "GraphiQL | to Welcome page",
     "signOut": "Sign Out"
   },
+  "signInPage": {
+    "signInTitle": "Sign In"
+  },
   "authorization": {
     "signIn": "Sign in",
     "signUp": "Sign up",

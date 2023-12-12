@@ -31,6 +31,9 @@
     "welcomePage": "GraphiQL | на Начальную страницу",
     "signOut": "Выход"
   },
+  "signInPage": {
+    "signInTitle": "Войти в аккаунт"
+  },
   "authorization": {
     "signIn": "Войти",
     "signUp": "Зарегистрироваться",
