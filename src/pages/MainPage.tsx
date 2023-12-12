@@ -3,8 +3,7 @@ import userContext from '../lib/context';
 import { pageData } from '../lib/interfaces';
 import { PlayIcon } from '../assets/icons/play-icon';
 import { CodeIcon } from '../assets/icons/code-icon';
-import BottomConsole from '../components/BottomConsole/BottomConsole';
-import { URLInput } from '../components';
+import { URLInput, ApiErrorPopup, BottomConsole } from '../components';
 
 const inputMock = `{
   test: {
@@ -35,6 +34,7 @@ export default function MainPage() {
   return (
     data && (
       <div className="main-section">
+        <ApiErrorPopup />
         <div className="request-section">
           <URLInput />
           <textarea value={inputMock} name="request" className="json-input"></textarea>
