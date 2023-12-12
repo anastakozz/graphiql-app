@@ -11,7 +11,20 @@ export default function Header() {
   const [data, setData] = useState<pageData | null>(null);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   useEffect(() => setAuthListener({ setIsUserLoggedIn }), []);
+  const [scrolled, setScrolled] = useState<boolean>(false);
+
   const navigate = useNavigate();
+
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 0);
+  };
+
+  useEffect(() => {
+    document.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     if (localData) {
@@ -32,7 +45,7 @@ export default function Header() {
 
   return (
     data && (
-      <header className="header">
+      <header className={`header ${scrolled ? 'header-scroll' : ''}`}>
         <Link className="logo-link" to="/">
           {data.welcomePage}
         </Link>
