@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { pageData } from '../../lib/interfaces';
+import { pageData } from '../../lib/commonTypes/interfaces';
 import Button from '../Button/Button';
 
 export default function BottomConsole({ data }: { data: pageData }) {

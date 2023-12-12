@@ -1,13 +1,16 @@
 import { Link, useNavigate } from 'react-router-dom';
 import LanguageSelect from '../LanguageSelect/LanguageSelect';
 import { useContext, useEffect, useState } from 'react';
-import userContext from '../../lib/context';
-import { pageData } from '../../lib/interfaces';
+import { pageData } from '../../lib/commonTypes/interfaces';
 import Button from '../Button/Button';
+import { setAuthListener, auth, userContext } from '../../lib';
+import { signOut } from 'firebase/auth';
 
 export default function Header() {
-  const { isUserLoggedIn, localData, setIsUSerLoggedIn } = useContext(userContext);
+  const { localData } = useContext(userContext);
   const [data, setData] = useState<pageData | null>(null);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  useEffect(() => setAuthListener({ setIsUserLoggedIn }), []);
   const [scrolled, setScrolled] = useState<boolean>(false);
 
   const navigate = useNavigate();
@@ -30,9 +33,14 @@ export default function Header() {
     }
   }, [localData]);
 
-  const handleSignOut = () => {
-    setIsUSerLoggedIn && setIsUSerLoggedIn(false);
-    navigate('/sign-in');
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth);
+      setIsUserLoggedIn(false);
+      navigate('/sign-in');
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (

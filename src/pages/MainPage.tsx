@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import userContext from '../lib/context';
-import { pageData } from '../lib/interfaces';
+import { pageData } from '../lib/commonTypes/interfaces.ts';
 import { PlayIcon } from '../assets/icons/play-icon';
 import { CodeIcon } from '../assets/icons/code-icon';
 import BottomConsole from '../components/BottomConsole/BottomConsole';

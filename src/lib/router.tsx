@@ -1,6 +1,6 @@
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import { WelcomePage, MainPage, NotFoundPage, SignInPage, SignUpPage } from '../pages';
-import ProtectedRoute from '../components/ProtectedRoute';
+import { ProtectedRoute } from '../components/ProtectedRoutes/ProtectedRoutes';
 import Layout from '../components/Layout';
 
 const router = createBrowserRouter(
@@ -8,12 +8,26 @@ const router = createBrowserRouter(
     <>
       <Route path="/" element={<Layout />}>
         <Route index element={<WelcomePage />} />
-        <Route path="sign-in" element={<SignInPage />} />
-        <Route path="sign-up" element={<SignUpPage />} />
+        <Route
+          path="sign-in"
+          element={
+            <ProtectedRoute isAuthPath={true}>
+              <SignInPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="sign-up"
+          element={
+            <ProtectedRoute isAuthPath={true}>
+              <SignUpPage />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="main"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute isAuthPath={false}>
               <MainPage />
             </ProtectedRoute>
           }

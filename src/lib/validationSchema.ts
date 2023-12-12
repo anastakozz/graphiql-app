@@ -11,7 +11,8 @@ export const validationSchema = yup.object({
     .matches(/^(?=.*[а-яa-z])/, 'mustHaveLowerCase')
     .matches(/(?=.*[А-ЯA-Z])/, 'mustHaveUpperCase')
     .matches(/(?=.*\d)/, 'mustHaveNumber')
-    .matches(/(?=.*[@$!();-=№#"%*?&])/, 'mustHaveSpecial'),
+    .matches(/(?=.*[@$!();-=№#"%*?&])/, 'mustHaveSpecial')
+    .matches(/^.{6,}$/, 'mustHave6Characters'),
 });
 
 const confirmPasswordSchema = yup.object({
