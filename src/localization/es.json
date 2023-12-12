@@ -49,7 +49,8 @@
         "mustHaveLowerCase": "La contraseña debe contener al menos una letra minúscula",
         "mustHaveNumber": "La contraseña debe contener al menos un número",
         "mustHaveSpecial": "La contraseña debe contener al menos un carácter especial",
-        "required": "El campo no debe estar vacío"
+        "required": "El campo no debe estar vacío",
+        "mustHave6Characters": "La contraseña debe tener al menos 6 caracteres"
       },
       "confirmPassword": {
         "mustMatch": "Las contraseñas deben coincidir",

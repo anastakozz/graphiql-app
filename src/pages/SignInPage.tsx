@@ -1,12 +1,15 @@
 import { Email, Password } from '../components';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { validationSchema } from '../lib/validationSchema';
-import { InputData } from '../lib/interfaces';
+import { validationSchema, auth, userContext } from '../lib';
+import { InputData } from '../lib/commonTypes/interfaces';
 import { useContext } from 'react';
-import userContext from '../lib/context';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignInPage() {
+  const navigate = useNavigate();
+  const { localData } = useContext(userContext);
   const {
     register,
     setValue,
@@ -16,10 +19,17 @@ export default function SignInPage() {
     mode: 'onChange',
     resolver: yupResolver(validationSchema),
   });
-  const { localData } = useContext(userContext);
 
-  const onSubmit: SubmitHandler<InputData> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<InputData> = async (data) => {
+    try {
+      await signInWithEmailAndPassword(auth, data.email, data.password);
+      navigate('/main');
+    } catch (e) {
+      if (e instanceof Error && 'code' in e && e.code === 'auth/invalid-credential') {
+        alert('Invalid login or password!');
+      }
+      console.error(e);
+    }
   };
 
   return (

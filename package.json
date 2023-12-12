@@ -11,12 +11,13 @@
     "format": "prettier . --write",
     "test": "vitest",
     "preview": "vite preview",
-    "prepare": "husky install && npx husky add .husky/pre-commit \"npm run lint & npm run format\" && npx husky add .husky/pre-push \"npm run test -- --watch=false\""
+    "prepare": "husky install && npx husky add .husky/pre-commit \"npm run format & npm run lint\" && npx husky add .husky/pre-push \"npm run test -- --watch=false\""
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
     "@reduxjs/toolkit": "^2.0.1",
     "axios": "^1.6.2",
+    "firebase": "^10.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2",

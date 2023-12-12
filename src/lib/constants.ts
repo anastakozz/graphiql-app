@@ -1,7 +1,7 @@
 import yuliyaPhoto from '../assets/photos/yulia_photo.jpg';
 import slavaPhoto from '../assets/photos/slava_photo.jpg';
 import nastyaPhoto from '../assets/photos/anastasia_photo.jpg';
-import { AboutUsType } from './types';
+import { AboutUsType } from './commonTypes/types';
 
 export const ABOUT_US: AboutUsType[] = [
   {

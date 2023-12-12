@@ -1,13 +1,15 @@
 import { Resolver, SubmitHandler, useForm } from 'react-hook-form';
-import { InputData } from '../lib/interfaces.ts';
+import { InputData } from '../lib/commonTypes/interfaces';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { combinedSchema } from '../lib/validationSchema';
 import { Email, Password } from '../components';
 import ConfirmPassword from '../components/AuthInputs/ConfirmPassword';
 import { useContext } from 'react';
-import userContext from '../lib/context';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth, userContext, combinedSchema } from '../lib';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUpPage() {
+  const navigate = useNavigate();
   const {
     register,
     setValue,
@@ -19,8 +21,16 @@ export default function SignUpPage() {
   });
   const { localData } = useContext(userContext);
 
-  const onSubmit: SubmitHandler<InputData> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<InputData> = async (data) => {
+    try {
+      await createUserWithEmailAndPassword(auth, data.email, data.password);
+      navigate('/main');
+    } catch (e) {
+      if (e instanceof Error && 'code' in e && e.code === 'auth/email-already-in-use') {
+        alert('email already in use!');
+      }
+      console.error(e);
+    }
   };
 
   return (
