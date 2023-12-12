@@ -1,6 +1,6 @@
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import { WelcomePage, MainPage, NotFoundPage, SignInPage, SignUpPage } from '../pages';
-import { ProtectedRoute } from '../components/ProtectedRoutes';
+import { ProtectedRoute } from '../components/ProtectedRoutes/ProtectedRoutes';
 import Layout from '../components/Layout';
 
 const router = createBrowserRouter(

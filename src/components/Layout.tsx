@@ -4,7 +4,7 @@ import { Language, getJSON, userContext } from '../lib';
 import { Outlet } from 'react-router-dom';
 
 export default function Layout() {
-  const [localData, setLocalData] = useState();
+  const [localData, setLocalData] = useState(null);
 
   useEffect(() => {
     const getData = async () => {

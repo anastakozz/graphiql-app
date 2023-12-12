@@ -1,5 +1,5 @@
 import GithubLogo from '../../assets/github-logo';
-import { ITeamBlock } from '../../lib/interfaces';
+import { ITeamBlock } from '../../lib/commonTypes/interfaces';
 
 export default function TeamBlock({ data, item, index }: ITeamBlock) {
   return (

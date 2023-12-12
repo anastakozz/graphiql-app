@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import userContext from '../../lib/context';
-import { Language } from '../../lib/enum';
+import { Language } from '../../lib';
 
 export default function LanguageSelect() {
   const { localData, changeLocalData } = useContext(userContext);

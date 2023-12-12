@@ -1,5 +1,5 @@
 import { Resolver, SubmitHandler, useForm } from 'react-hook-form';
-import { InputData } from '../lib/interfaces.ts';
+import { InputData } from '../lib/commonTypes/interfaces';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Email, Password } from '../components';
 import ConfirmPassword from '../components/AuthInputs/ConfirmPassword';

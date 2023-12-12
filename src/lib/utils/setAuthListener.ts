@@ -9,7 +9,7 @@ interface IAuthListener {
 
 export function setAuthListener({ setIsUserLoggedIn, setHasCheckedAuth }: IAuthListener) {
   const unsubscribe = onAuthStateChanged(auth, (user) => {
-    setIsUserLoggedIn && setIsUserLoggedIn(!!user);
+    setIsUserLoggedIn(!!user);
     setHasCheckedAuth && setHasCheckedAuth(true);
   });
 

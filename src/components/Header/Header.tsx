@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import LanguageSelect from '../LanguageSelect/LanguageSelect';
 import { useContext, useEffect, useState } from 'react';
-import { pageData } from '../../lib/interfaces';
+import { pageData } from '../../lib/commonTypes/interfaces';
 import Button from '../Button/Button';
 import { setAuthListener, auth, userContext } from '../../lib';
 import { signOut } from 'firebase/auth';
@@ -23,7 +23,7 @@ export default function Header() {
   const handleSignOut = async () => {
     try {
       await signOut(auth);
-      setIsUserLoggedIn && setIsUserLoggedIn(false);
+      setIsUserLoggedIn(false);
       navigate('/sign-in');
     } catch (e) {
       console.error(e);

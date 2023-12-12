@@ -1,13 +1,9 @@
 import { Navigate } from 'react-router-dom';
-import { ReactNode, useEffect, useState } from 'react';
-import { setAuthListener } from '../lib';
+import { FC, useEffect, useState } from 'react';
+import { setAuthListener } from '../../lib';
+import { Props } from './protectedRoutes.types';
 
-interface Props {
-  children: ReactNode;
-  isAuthPath: boolean;
-}
-
-export const ProtectedRoute = ({ children, isAuthPath }: Props) => {
+export const ProtectedRoute: FC<Props> = ({ children, isAuthPath }) => {
   const [hasCheckedAuth, setHasCheckedAuth] = useState(false);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   useEffect(() => setAuthListener({ setIsUserLoggedIn, setHasCheckedAuth }), []);
@@ -15,7 +11,6 @@ export const ProtectedRoute = ({ children, isAuthPath }: Props) => {
 
   if (isAuthPath) {
     return isUserLoggedIn ? <Navigate to="/main" replace /> : <>{children}</>;
-  } else {
-    return isUserLoggedIn ? <>{children}</> : <Navigate to="/" replace />;
   }
+  return isUserLoggedIn ? <>{children}</> : <Navigate to="/" replace />;
 };

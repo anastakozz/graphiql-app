@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ABOUT_US, setAuthListener, userContext } from '../lib';
 import { Button, TeamBlock } from '../components';
-import { pageData } from '../lib/interfaces';
+import { pageData } from '../lib/commonTypes/interfaces';
 
 export default function WelcomePage() {
   const { localData } = useContext(userContext);

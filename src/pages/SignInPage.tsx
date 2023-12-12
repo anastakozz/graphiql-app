@@ -2,7 +2,7 @@ import { Email, Password } from '../components';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { validationSchema, auth, userContext } from '../lib';
-import { InputData } from '../lib/interfaces';
+import { InputData } from '../lib/commonTypes/interfaces';
 import { useContext } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';

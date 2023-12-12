@@ -1,4 +1,4 @@
-import { InputProps } from '../../lib/interfaces';
+import { InputProps } from '../../lib/commonTypes/interfaces';
 import { useContext, useEffect, useState } from 'react';
 import userContext from '../../lib/context';
 
