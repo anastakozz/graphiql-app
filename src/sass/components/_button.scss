@@ -13,6 +13,14 @@
   &:hover {
     background: lighten($color: $base-color, $amount: 10%);
   }
+
+  &:disabled {
+    background: lighten($color: $base-color, $amount: 30%);
+
+    &:hover {
+      cursor: auto;
+    }
+  }
 }
 
 .button-link {

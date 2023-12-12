@@ -7,6 +7,7 @@ import Email from './AuthInputs/Email.tsx';
 import Password from './AuthInputs/Password.tsx';
 import BottomConsole from './BottomConsole/BottomConsole.tsx';
 import URLInput from './URLInput/URLInput.tsx';
+import ApiErrorPopup from './ApiErrorPopup/ApiErrorPopup.tsx';
 
 export {
   Footer,
@@ -18,4 +19,5 @@ export {
   TeamBlock,
   BottomConsole,
   URLInput,
+  ApiErrorPopup,
 };
