@@ -10,7 +10,7 @@ interface ContextProps {
 }
 
 const userContext = createContext<ContextProps>({
-  isUserLoggedIn: false,
+  isUserLoggedIn: true,
   localData: en,
 });
 

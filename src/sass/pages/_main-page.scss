@@ -1,0 +1,107 @@
+.main-section {
+  @include flex-row();
+  position: relative;
+  height: calc(100vh - 114px);
+  background: $mian-background;
+}
+.request-section {
+  height: 100%;
+  width: 50%;
+  padding: 10px 10px;
+  position: relative;
+}
+.response-section {
+  height: 100%;
+  width: 50%;
+  padding: 10px 10px;
+}
+
+.json-input {
+  margin-top: 10px;
+  height: calc(100% - 51px);
+  width: 100%;
+  padding: 10px;
+  background: #fbf9ff;
+  color: #0696c4;
+  border-radius: 8px;
+  border: 0;
+  outline: 0;
+}
+
+.json-output {
+  height: calc(100% - 3px);
+  width: 100%;
+  padding: 10px;
+  background: #fbf9ff96;
+  color: #696969;
+  border-radius: 8px;
+  border: 0;
+  outline: 0;
+}
+
+.action-button {
+  @include flex-row(center, center);
+  position: absolute;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  border: 3px solid #fff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1882352941);
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.run-button {
+  top: 70px;
+  background: #45d1b5;
+  &:hover {
+    background: lighten($color: #45d1b5, $amount: 10);
+  }
+}
+.prettyfy-button {
+  top: 118px;
+  background: #4484ff;
+  &:hover {
+    background: lighten($color: #4484ff, $amount: 10);
+  }
+}
+
+.docs-badge {
+  position: absolute;
+  top: 100px;
+  right: -52px;
+  width: 140px;
+  border-radius: 5px 5px 0px 0px;
+  background-color: #45d1b5;
+  color: #fff;
+  padding: 10px 15px;
+  transform: rotate(-90deg);
+  cursor: pointer;
+  transition: 300ms;
+  &:hover {
+    background-color: lighten($color: #45d1b5, $amount: 10%);
+  }
+}
+
+.docs-section {
+  width: 0px;
+  overflow: hidden;
+  height: 100%;
+  padding: 10px 0px;
+  flex-shrink: 0;
+  transition: 300ms;
+}
+
+.docs-section-open {
+  width: 400px;
+  padding: 10px;
+}
+
+.docs-section-content {
+  width: 380px;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+}

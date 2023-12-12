@@ -13,6 +13,11 @@ export interface LocalizationData {
     welcomePage: string;
   };
   welcomePage: pageData;
+  mainPage: {
+    variables: string;
+    headers: string;
+    docs: string;
+  };
   authorization: {
     signIn: string;
     signUp: string;

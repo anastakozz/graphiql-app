@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom';
 import { getJSON } from '../lib/utils';
 
 export default function Layout() {
-  const [isUserLoggedIn, setIsUSerLoggedIn] = useState(false);
+  const [isUserLoggedIn, setIsUSerLoggedIn] = useState(true);
   const [localData, setLocalData] = useState();
 
   useEffect(() => {
