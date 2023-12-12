@@ -32,7 +32,11 @@
     "signOut": "Выход"
   },
   "signInPage": {
-    "signInTitle": "Войти в аккаунт"
+    "signInTitle": "Войти в аккаунт",
+    "account": "Еще не аккаунта?"
+  },
+  "signUpPage": {
+    "signUpTitle": "Регистрация"
   },
   "authorization": {
     "signIn": "Войти",

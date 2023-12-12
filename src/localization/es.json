@@ -32,7 +32,11 @@
     "signOut": "Desconectar"
   },
   "signInPage": {
-    "signInTitle": "Iniciar sesión"
+    "signInTitle": "Iniciar sesión",
+    "account": "Aún no tienes cuenta?"
+  },
+  "signUpPage": {
+    "signUpTitle": "Inscribirse"
   },
   "authorization": {
     "signIn": "Iniciar sesión",

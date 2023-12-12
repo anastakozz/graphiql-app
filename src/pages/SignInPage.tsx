@@ -50,13 +50,13 @@ export default function SignInPage() {
           <form onSubmit={handleSubmit(onSubmit)} noValidate={true}>
             <Email register={register} error={errors.email?.message} setValue={setValue} />
             <Password register={register} error={errors.password?.message} setValue={setValue} />
-            <Button type="submit" disabled={!isValid || isDirty} className="button-top-spacer ">
+            <Button type="submit" disabled={!isValid || isDirty} className="button-top-spacer">
               {localData && localData.authorization.signIn}
             </Button>
           </form>
         </div>
         <Link to="/sign-up" className="link-to-registration">
-          <p>Don&apos;t have account yet?</p>
+          <p>{data.account}</p>
         </Link>
       </div>
     )

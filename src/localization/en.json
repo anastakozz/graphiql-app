@@ -32,7 +32,11 @@
     "signOut": "Sign Out"
   },
   "signInPage": {
-    "signInTitle": "Sign In"
+    "signInTitle": "Sign In",
+    "account": "Don't have account yet?"
+  },
+  "signUpPage": {
+    "signUpTitle": "Sign Up"
   },
   "authorization": {
     "signIn": "Sign in",
