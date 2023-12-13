@@ -31,6 +31,10 @@
     "welcomePage": "GraphiQL | на Начальную страницу",
     "signOut": "Выход"
   },
+  "notFoundPage": {
+    "message": "Сираница не найдкна",
+    "buttonText": "на Начальную Страницу"
+  },
   "authorization": {
     "signIn": "Войти",
     "signUp": "Зарегистрироваться",
