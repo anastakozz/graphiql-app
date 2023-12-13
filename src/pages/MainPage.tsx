@@ -1,23 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import userContext from '../lib/context';
 import { pageData } from '../lib/commonTypes/interfaces.ts';
-import { PlayIcon } from '../assets/icons/play-icon';
-import { CodeIcon } from '../assets/icons/code-icon';
-import { URLInput, ApiErrorPopup, BottomConsole } from '../components';
-
-const inputMock = `{
-  test: {
-    firstKey: 'test value',
-    second: 'one more'
-  }
-}`;
-
-const responseMock = `{
-  someResponse: {
-    firstKey: 'test value',
-    second: 'one more'
-  }
-}`;
+import { URLInput, ApiErrorPopup, BottomConsole, JsonEditor } from '../components';
 
 export default function MainPage() {
   const { localData } = useContext(userContext);
@@ -37,17 +21,11 @@ export default function MainPage() {
         <ApiErrorPopup />
         <div className="request-section">
           <URLInput />
-          <textarea value={inputMock} name="request" className="json-input"></textarea>
+          <JsonEditor />
           <BottomConsole data={data} />
-          <div className="action-button run-button">
-            <PlayIcon />
-          </div>
-          <div className="action-button prettyfy-button">
-            <CodeIcon />
-          </div>
         </div>
         <div className="response-section">
-          <textarea value={responseMock} name="response" className="json-output" />
+          <JsonEditor viewMode={true} />
         </div>
         <div className={`docs-section ${showDocs ? 'docs-section-open' : ''}`}>
           <div className="docs-section-content">

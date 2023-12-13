@@ -8,6 +8,7 @@ import Password from './AuthInputs/Password.tsx';
 import BottomConsole from './BottomConsole/BottomConsole.tsx';
 import URLInput from './URLInput/URLInput.tsx';
 import ApiErrorPopup from './ApiErrorPopup/ApiErrorPopup.tsx';
+import JsonEditor from './JsonEditor/JsonEditor.tsx';
 
 export {
   Footer,
@@ -20,4 +21,5 @@ export {
   BottomConsole,
   URLInput,
   ApiErrorPopup,
+  JsonEditor,
 };

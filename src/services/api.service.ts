@@ -1,6 +1,6 @@
 // const apiUrl = 'https://rickandmortyapi.com/graphql';
 
-const makeRequest = async (apiUrl: string, query: string) => {
+export const makeRequest = async (apiUrl: string, query: string) => {
   try {
     const res = await fetch(apiUrl, {
       method: 'POST',
