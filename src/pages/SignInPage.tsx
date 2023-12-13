@@ -1,4 +1,4 @@
-import { Button, Email, Password } from '../components';
+import { Button, Email, ErrorPopUp, Password } from '../components';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { validationSchema, auth, userContext } from '../lib';
@@ -10,6 +10,9 @@ import { Link, useNavigate } from 'react-router-dom';
 export default function SignInPage() {
   const { localData } = useContext(userContext);
   const [data, setData] = useState<pageData | null>(null);
+  const [error, setError] = useState('');
+
+  const handleError = () => setError('');
 
   useEffect(() => {
     if (localData) {
@@ -36,7 +39,7 @@ export default function SignInPage() {
       navigate('/main');
     } catch (e) {
       if (e instanceof Error && 'code' in e && e.code === 'auth/invalid-credential') {
-        alert('Invalid login or password!');
+        setError('Invalid login or password!');
       }
       console.error(e);
     }
@@ -58,6 +61,7 @@ export default function SignInPage() {
         <Link to="/sign-up" className="link-to-registration">
           <p>{data.account}</p>
         </Link>
+        {error.length ? <ErrorPopUp onClick={handleError} error={error} /> : <></>}
       </div>
     )
   );
