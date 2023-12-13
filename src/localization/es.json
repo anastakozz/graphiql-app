@@ -33,7 +33,8 @@
   },
   "signInPage": {
     "signInTitle": "Iniciar sesión",
-    "account": "Aún no tienes cuenta?"
+    "account": "Aún no tienes cuenta?",
+    "error": "¡Clave o usuario inválido!"
   },
   "signUpPage": {
     "signUpTitle": "Inscribirse"

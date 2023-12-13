@@ -33,7 +33,8 @@
   },
   "signInPage": {
     "signInTitle": "Войти в аккаунт",
-    "account": "Еще не аккаунта?"
+    "account": "Еще не аккаунта?",
+    "error": "Неверный логин или пароль!"
   },
   "signUpPage": {
     "signUpTitle": "Регистрация"

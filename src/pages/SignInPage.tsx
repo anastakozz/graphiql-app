@@ -33,13 +33,13 @@ export default function SignInPage() {
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit: SubmitHandler<InputData> = async (data) => {
+  const onSubmit: SubmitHandler<InputData> = async (submitData) => {
     try {
-      await signInWithEmailAndPassword(auth, data.email, data.password);
+      await signInWithEmailAndPassword(auth, submitData.email, submitData.password);
       navigate('/main');
     } catch (e) {
       if (e instanceof Error && 'code' in e && e.code === 'auth/invalid-credential') {
-        setError('Invalid login or password!');
+        data && setError(data.error);
       }
       console.error(e);
     }
