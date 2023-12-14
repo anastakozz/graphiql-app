@@ -35,6 +35,14 @@
     "message": "Page not found",
     "buttonText": "to Welcome Page"
   },
+  "signInPage": {
+    "signInTitle": "Sign In",
+    "account": "Don't have account yet?",
+    "error": "Invalid login or password!"
+  },
+  "signUpPage": {
+    "signUpTitle": "Sign Up"
+  },
   "authorization": {
     "signIn": "Sign in",
     "signUp": "Sign up",

@@ -17,15 +17,22 @@ export default function ConfirmPassword({ register, error, setValue }: InputProp
   }, [localData, error]);
 
   return (
-    <div>
-      <div>{currentError}</div>
-      <label htmlFor="confirmPassword">{labelName}</label>
-      <input
-        {...register('confirmPassword')}
-        type="password"
-        id="confirmPassword"
-        onChange={(e) => setValue('confirmPassword', e.target.value, { shouldValidate: true })}
-      />
+    <div className="input-field">
+      <div className="error-message">
+        {currentError ? '⚠' : ''} {currentError}
+      </div>
+      <div className="input-row">
+        <label htmlFor="confirmPassword" className="label">
+          {labelName}
+        </label>
+        <input
+          className="input"
+          {...register('confirmPassword')}
+          type="password"
+          id="confirmPassword"
+          onChange={(e) => setValue('confirmPassword', e.target.value, { shouldValidate: true })}
+        />
+      </div>
     </div>
   );
 }
