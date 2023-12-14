@@ -8,6 +8,7 @@ import Password from './AuthInputs/Password.tsx';
 import BottomConsole from './BottomConsole/BottomConsole.tsx';
 import URLInput from './URLInput/URLInput.tsx';
 import ApiErrorPopup from './ApiErrorPopup/ApiErrorPopup.tsx';
+import ErrorPopUp from './ErrorPopUp/ErrorPopUp.tsx';
 import JsonEditor from './JsonEditor/JsonEditor.tsx';
 
 export {
@@ -21,5 +22,6 @@ export {
   BottomConsole,
   URLInput,
   ApiErrorPopup,
+  ErrorPopUp,
   JsonEditor,
 };

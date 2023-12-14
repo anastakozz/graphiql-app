@@ -17,6 +17,8 @@ export interface LocalizationData {
     headers: string;
     docs: string;
   };
+  signInPage: pageData;
+  signUpPage: pageData;
   authorization: {
     signIn: string;
     signUp: string;

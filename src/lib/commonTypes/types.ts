@@ -6,3 +6,8 @@ export type AboutUsType = {
   roleKey: string;
   bioKey: string;
 };
+
+export type ErrorPopUpProps = {
+  onClick: () => void;
+  error: string;
+};
