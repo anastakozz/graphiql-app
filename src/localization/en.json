@@ -57,5 +57,8 @@
         "required": "Field is required"
       }
     }
+  },
+  "apiResponse": {
+    "invalidUrl": "Please, provide valid GraphQL URL"
   }
 }

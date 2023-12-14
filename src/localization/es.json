@@ -57,5 +57,8 @@
         "required": "El campo no debe estar vacío"
       }
     }
+  },
+  "apiResponse": {
+    "invalidUrl": "Por favor, proporcione una URL válida de GraphQL"
   }
 }

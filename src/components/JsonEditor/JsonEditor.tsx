@@ -1,26 +1,31 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { PlayIcon } from '../../assets/icons/play-icon';
 import { CodeIcon } from '../../assets/icons/code-icon';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { makeRequest } from '../../services/api.service';
+import { introspectApi, makeRequest } from '../../services/api.service';
 import { updateEditorResponse } from '../../store/jsonSlice';
-import { updateApiError } from '../../store/apiSlice';
+import { updateApiError, updateApiSchema } from '../../store/apiSlice';
+import { userContext } from '../../lib';
 
 type Props = {
   viewMode?: boolean;
 };
 
 export default function JsonEditor({ viewMode = false }: Props) {
+  const { localData } = useContext(userContext);
+
   const dispatch = useAppDispatch();
   const url = useAppSelector((state) => state.api.apiUrl);
   const response = useAppSelector((state) => state.editor.jsonResponse);
   const [value, setValue] = useState('');
 
   const sendRequest = async () => {
-    const res = await makeRequest(url, value);
-    if (res instanceof Error) {
-      dispatch(updateApiError(res.message));
+    const data = await introspectApi(url);
+    if (data instanceof Error) {
+      dispatch(updateApiError(localData && localData.apiResponse.invalidUrl));
     } else {
+      dispatch(updateApiSchema(data));
+      const res = await makeRequest(url, value);
       dispatch(updateEditorResponse(res));
     }
   };
