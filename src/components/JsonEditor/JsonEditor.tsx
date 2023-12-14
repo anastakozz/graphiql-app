@@ -4,7 +4,7 @@ import { CodeIcon } from '../../assets/icons/code-icon';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { introspectApi, makeRequest } from '../../services/api.service';
 import { updateEditorResponse } from '../../store/jsonSlice';
-import { updateApiError, updateApiSchema } from '../../store/apiSlice';
+import { updateApiError } from '../../store/apiSlice';
 import { userContext } from '../../lib';
 
 type Props = {
@@ -24,9 +24,8 @@ export default function JsonEditor({ viewMode = false }: Props) {
     if (data instanceof Error) {
       dispatch(updateApiError(localData && localData.apiResponse.invalidUrl));
     } else {
-      dispatch(updateApiSchema(data));
       const res = await makeRequest(url, value);
-      dispatch(updateEditorResponse(res));
+      dispatch(updateEditorResponse(JSON.stringify(res)));
     }
   };
 
