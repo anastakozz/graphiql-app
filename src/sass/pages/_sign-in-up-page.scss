@@ -1,9 +1,3 @@
-.main-inner {
-  @include flex-colum();
-  position: relative;
-  height: calc(100vh - 114px);
-}
-
 .title-spacer {
   margin-bottom: 20px;
   line-height: 120%;

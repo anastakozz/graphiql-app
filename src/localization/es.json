@@ -31,6 +31,14 @@
     "welcomePage": "GraphiQL | a la Página de bienvenida",
     "signOut": "Desconectar"
   },
+  "notFoundPage": {
+    "message": "Página no encontrada",
+    "buttonText": "a la Página de bienvenida"
+  },
+  "errorPage": {
+    "message": "Ups... Algo salió mal",
+    "buttonText": "Recargar la pagina"
+  },
   "signInPage": {
     "signInTitle": "Iniciar sesión",
     "account": "Aún no tienes cuenta?",
