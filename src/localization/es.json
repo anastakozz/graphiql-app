@@ -31,6 +31,14 @@
     "welcomePage": "GraphiQL | a la Página de bienvenida",
     "signOut": "Desconectar"
   },
+  "signInPage": {
+    "signInTitle": "Iniciar sesión",
+    "account": "Aún no tienes cuenta?",
+    "error": "¡Clave o usuario inválido!"
+  },
+  "signUpPage": {
+    "signUpTitle": "Inscribirse"
+  },
   "authorization": {
     "signIn": "Iniciar sesión",
     "signUp": "Regístrate ahora",

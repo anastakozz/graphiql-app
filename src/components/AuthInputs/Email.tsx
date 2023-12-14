@@ -16,14 +16,21 @@ export default function Email({ register, error, setValue }: InputProps) {
 
   return (
     <div>
-      <div>{currentError}</div>
-      <label htmlFor="email">{labelName}</label>
-      <input
-        {...register('email')}
-        type="email"
-        id="email"
-        onChange={(e) => setValue('email', e.target.value, { shouldValidate: true })}
-      />
+      <div className="error-message">
+        {currentError ? '⚠' : ''} {currentError}
+      </div>
+      <div className="input-row">
+        <label htmlFor="email" className="label">
+          {labelName}
+        </label>
+        <input
+          className="input"
+          {...register('email')}
+          type="email"
+          id="email"
+          onChange={(e) => setValue('email', e.target.value, { shouldValidate: true })}
+        />
+      </div>
     </div>
   );
 }
