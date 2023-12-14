@@ -24,6 +24,7 @@ export default function App() {
       setLocalData(data);
     }
   };
+
   return (
     <userContext.Provider value={{ localData, changeLocalData }}>
       <ErrorBoundary fallback={<ErrorPage />}>

@@ -7,12 +7,14 @@ import { userContext } from '../lib';
 export default function NotFoundPage() {
   const { localData } = useContext(userContext);
   const [data, setData] = useState<pageData | null>(null);
+
   useEffect(() => {
     if (localData) {
       const data = localData['notFoundPage'];
       setData(data);
     }
   }, [localData]);
+
   return (
     data && (
       <div className="not-found-page">
