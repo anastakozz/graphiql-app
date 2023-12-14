@@ -35,6 +35,10 @@
     "message": "Page not found",
     "buttonText": "to Welcome Page"
   },
+  "errorPage": {
+    "message": "Ooops.. Something went wrong",
+    "buttonText": "Reload the page"
+  },
   "signInPage": {
     "signInTitle": "Sign In",
     "account": "Don't have account yet?",

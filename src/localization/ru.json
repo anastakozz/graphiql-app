@@ -32,8 +32,12 @@
     "signOut": "Выход"
   },
   "notFoundPage": {
-    "message": "Сираница не найдкна",
+    "message": "Страница не найдена",
     "buttonText": "на Начальную Страницу"
+  },
+  "errorPage": {
+    "message": "Ой... Что-то пошло не так",
+    "buttonText": "Перезагрузить страницу"
   },
   "signInPage": {
     "signInTitle": "Войти в аккаунт",

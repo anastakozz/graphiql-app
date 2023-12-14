@@ -33,7 +33,11 @@
   },
   "notFoundPage": {
     "message": "Página no encontrada",
-    "buttonText": "ta la Página de bienvenida"
+    "buttonText": "a la Página de bienvenida"
+  },
+  "errorPage": {
+    "message": "Ups... Algo salió mal",
+    "buttonText": "Recargar la pagina"
   },
   "signInPage": {
     "signInTitle": "Iniciar sesión",

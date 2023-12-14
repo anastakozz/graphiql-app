@@ -42,3 +42,9 @@
 .spacer {
   flex: 1;
 }
+
+.main-inner {
+  @include flex-colum();
+  position: relative;
+  height: calc(100vh - 114px);
+}
