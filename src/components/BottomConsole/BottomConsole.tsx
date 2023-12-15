@@ -31,13 +31,11 @@ export default function BottomConsole({
   function handleVariables() {
     setOpen(true);
     setSelectedTab(1);
-    console.log(handleVariables);
   }
 
   function handleHeaders() {
     setOpen(true);
     setSelectedTab(2);
-    console.log(handleHeaders);
   }
   return (
     data && (

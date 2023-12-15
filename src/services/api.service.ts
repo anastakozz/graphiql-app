@@ -2,7 +2,7 @@ export const makeRequest = async (
   apiUrl: string,
   query: string,
   variables?: string,
-  customHeaders?: Record<string, string>
+  customHeaders?: string
 ) => {
   try {
     const parsedVariables = variables ? JSON.parse(variables) : {};
@@ -11,11 +11,13 @@ export const makeRequest = async (
       variables: parsedVariables || {},
     };
 
+    const parsedCustomHeaders = customHeaders ? JSON.parse(customHeaders) : {};
+
     const res = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
-        ...customHeaders,
+        ...parsedCustomHeaders,
       },
       body: JSON.stringify(requestBody),
     });

@@ -8,7 +8,6 @@ import { introspectApi, makeRequest } from '../../../services/api.service';
 import { updateApiError } from '../../../store/apiSlice';
 import { updateEditorResponse } from '../../../store/jsonSlice';
 
-
 export default function RequestBlock() {
   const { localData } = useContext(userContext);
 
@@ -18,15 +17,15 @@ export default function RequestBlock() {
 
   const [value, setValue] = useState(`query ($filter: FilterCharacter) {
     characters(filter: $filter){info{count}}}`);
-  const [variables, setVariables] = useState('{"filter":  {"name": "ho"} }');
-  const [headers, setHeaders] = useState('');
+  const [variables, setVariables] = useState('{"filter":  {"name": "h"} }');
+  const [headers, setHeaders] = useState('{"Content-Language": "en-US"}');
 
   const sendRequest = async () => {
     const data = await introspectApi(url);
     if (data instanceof Error) {
       dispatch(updateApiError(localData && localData.apiResponse.invalidUrl));
     } else {
-      const res = await makeRequest(url, value, variables);
+      const res = await makeRequest(url, value, variables, headers);
       dispatch(updateEditorResponse(JSON.stringify(res)));
     }
   };
