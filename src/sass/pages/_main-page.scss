@@ -85,17 +85,19 @@
 }
 
 .docs-section {
-  width: 0px;
+  display: flex;
+  width: 0;
   overflow: hidden;
   height: 100%;
-  padding: 10px 0px;
+  padding: 10px 0;
   flex-shrink: 0;
   transition: 300ms;
 }
 
 .docs-section-open {
-  width: 400px;
+  width: initial;
   padding: 10px;
+  overflow: scroll;
 }
 
 .docs-section-content {
@@ -103,5 +105,6 @@
   height: 100%;
   background-color: #fff;
   border-radius: 8px;
+  margin-right: 10px;
   padding: 20px;
 }

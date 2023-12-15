@@ -15,7 +15,12 @@ export interface LocalizationData {
   mainPage: {
     variables: string;
     headers: string;
-    docs: string;
+    docs: {
+      button: string;
+      queries: string;
+      typeDetails: string;
+      arguments: string;
+    };
   };
   authorization: {
     signIn: string;

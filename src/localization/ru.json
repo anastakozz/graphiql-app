@@ -25,7 +25,12 @@
   "mainPage": {
     "variables": "Переменные",
     "headers": "Заголовки",
-    "docs": "Документация"
+    "docs": {
+      "button": "ДОКУМЕНТАЦИЯ",
+      "queries": "ЗАПРОСЫ",
+      "typeDetails": "СВЕДЕНИЯ О ТИПЕ",
+      "arguments": "АРГУМЕНТЫ"
+    }
   },
   "header": {
     "welcomePage": "GraphiQL | на Начальную страницу",

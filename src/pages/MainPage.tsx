@@ -4,6 +4,7 @@ import { pageData } from '../lib/commonTypes/interfaces.ts';
 import { PlayIcon } from '../assets/icons/play-icon';
 import { CodeIcon } from '../assets/icons/code-icon';
 import { URLInput, ApiErrorPopup, BottomConsole } from '../components';
+import { Documentation } from '../components/Documentation/Documentation.tsx';
 
 const inputMock = `{
   test: {
@@ -26,7 +27,7 @@ export default function MainPage() {
 
   useEffect(() => {
     if (localData) {
-      const data = localData['mainPage'];
+      const data = localData.mainPage.docs;
       setData(data);
     }
   }, [localData]);
@@ -49,14 +50,9 @@ export default function MainPage() {
         <div className="response-section">
           <textarea value={responseMock} name="response" className="json-output" />
         </div>
-        <div className={`docs-section ${showDocs ? 'docs-section-open' : ''}`}>
-          <div className="docs-section-content">
-            <h2>{data.docs}</h2>
-            <p>some contents here...</p>
-          </div>
-        </div>
+        <Documentation showDocs={showDocs} />
         <div onClick={() => setShowDocs(!showDocs)} className="docs-badge">
-          <p>{data.docs}</p>
+          <p>{data.button}</p>
         </div>
       </div>
     )
