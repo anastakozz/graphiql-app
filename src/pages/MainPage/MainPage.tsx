@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
-import userContext from '../lib/context';
-import { pageData } from '../lib/commonTypes/interfaces.ts';
-import { URLInput, ApiErrorPopup, BottomConsole, JsonEditor } from '../components';
+import userContext from '../../lib/context.ts';
+import { pageData } from '../../lib/commonTypes/interfaces.ts';
+import { ApiErrorPopup, JsonEditor, URLInput } from '../../components/index.ts';
+import RequestBlock from './RequestBlock.tsx/RequestBlock.tsx';
 
 export default function MainPage() {
   const { localData } = useContext(userContext);
@@ -21,9 +22,9 @@ export default function MainPage() {
         <ApiErrorPopup />
         <div className="request-section">
           <URLInput />
-          <JsonEditor />
-          <BottomConsole data={data} />
+          <RequestBlock />
         </div>
+
         <div className="response-section">
           <JsonEditor viewMode={true} />
         </div>
