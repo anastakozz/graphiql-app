@@ -1,5 +1,5 @@
 import ErrorPage from './ErrorPage';
-import MainPage from './MainPage';
+import MainPage from './MainPage/MainPage';
 import NotFoundPage from './NotFoundPage';
 import SignInPage from './SignInPage';
 import SignUpPage from './SignUpPage';

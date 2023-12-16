@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import apiReducer from './apiSlice';
+import editorReducer from './jsonSlice';
 
 const store = configureStore({
   reducer: {
     api: apiReducer,
+    editor: editorReducer,
   },
 });
 
