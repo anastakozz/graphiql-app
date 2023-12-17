@@ -24,7 +24,7 @@
   cursor: pointer;
 
   &:hover {
-    color: darken($color: $base-color, $amount: 10);
+    color: darken($color: $base-color, $amount: 20);
   }
   @media screen and (max-width: $additional-size) {
     margin-bottom: 10px;

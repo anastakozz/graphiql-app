@@ -47,4 +47,10 @@
   @include flex-colum();
   position: relative;
   height: calc(100vh - 114px);
+  @media screen and (max-width: $additional-size) {
+    height: calc(100vh - 142px);
+  }
+  @media screen and (max-width: $mobile) {
+    height: calc(100vh - 138px);
+  }
 }
