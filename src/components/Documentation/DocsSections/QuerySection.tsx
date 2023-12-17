@@ -1,6 +1,7 @@
 import { IDocsData, IQuerySection } from '../documentation.types.ts';
 import { useContext, useEffect, useState } from 'react';
 import userContext from '../../../lib/context.ts';
+import { getTypeName } from '../../../lib/utils/getTypeName.ts';
 
 export function QuerySection({ fields, setOpenedTypes }: IQuerySection) {
   const [docsData, setDocsData] = useState<IDocsData | null>(null);
@@ -25,9 +26,11 @@ export function QuerySection({ fields, setOpenedTypes }: IQuerySection) {
               style={{ margin: '10px 0', cursor: 'pointer' }}
               key={index}
             >
-              {type?.type?.name
-                ? `${type.name}(...): ${type?.type?.name}`
-                : `${type.name}(...): [${type?.type?.ofType?.name}]`}
+              {type.args.length === 0 ? (
+                <>{`${type.name}: ${getTypeName(type.type)}`}</>
+              ) : (
+                <>{`${type.name}(...): ${getTypeName(type.type)}`}</>
+              )}
             </li>
           ))}
       </ul>

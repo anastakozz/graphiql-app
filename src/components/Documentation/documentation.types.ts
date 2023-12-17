@@ -24,25 +24,20 @@ export interface IApiSchema {
 
 export interface IOfType {
   name: string;
+  kind: string;
   ofType?: {
     name: string;
+    kind: string;
     ofType?: IOfType;
   };
 }
 
 export interface ITypeObject {
   name: string;
-  type?: {
-    name: string;
-    ofType: {
-      name: string;
-    };
-  };
+  kind: string;
+  type?: IOfType;
   description: string;
-  args: Array<{
-    name: string;
-    type: IOfType;
-  }>;
+  args: Array<ITypeObject>;
 }
 
 export type IFields = Array<ITypeObject>;
@@ -53,8 +48,8 @@ export interface IQuerySection {
 }
 
 export interface IDocsSection {
-  fields: IFields | undefined;
-  typeObject: ITypeObject;
+  targetTypeObject: IFieldsArray | undefined;
+  openedType: ITypeObject;
   setOpenedTypes: React.Dispatch<React.SetStateAction<Array<ITypeObject>>>;
   mainIndex: number;
 }
@@ -63,4 +58,10 @@ export interface IFieldsArray {
   name: string;
   description?: string;
   fields: IFields;
+}
+
+export interface IScalarSection {
+  openedType: ITypeObject;
+  typeObject: IFieldsArray | undefined;
+  data: IDocsData | null;
 }

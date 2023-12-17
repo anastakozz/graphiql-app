@@ -1,6 +1,6 @@
 import { IApiSchema, IDocumentation, IFieldsArray, ITypeObject } from './documentation.types.ts';
 import { useAppSelector } from '../../hooks.ts';
-import { TypesSection } from './DocsSections/TypesSection.tsx';
+import { TypesSection } from './DocsSections/TypesSections/TypesSection.tsx';
 import { useEffect, useState } from 'react';
 import { QuerySection } from './DocsSections/QuerySection.tsx';
 import { getTypeName } from '../../lib/utils/getTypeName.ts';
@@ -14,7 +14,7 @@ export function Documentation({ showDocs }: IDocumentation) {
 
   useEffect(() => {
     const newFieldsArray = openedTypes.map((type) => {
-      return types?.find((field) => type.type && field.name === getTypeName(type.type));
+      return types?.find((field) => type.type && field.name === getTypeName(type.type, true));
     });
     setFieldsArray(newFieldsArray);
   }, [openedTypes, types]);
@@ -22,7 +22,6 @@ export function Documentation({ showDocs }: IDocumentation) {
   useEffect(() => {
     setFieldsArray([]);
   }, [apiSchema]);
-  console.log(fieldsArray);
 
   return (
     <div className={`docs-section ${showDocs ? 'docs-section-open' : ''}`}>
@@ -33,8 +32,8 @@ export function Documentation({ showDocs }: IDocumentation) {
           <TypesSection
             mainIndex={index}
             key={index}
-            fields={targetTypeObj?.fields}
-            typeObject={openedTypes[index]}
+            targetTypeObject={targetTypeObj}
+            openedType={openedTypes[index]}
             setOpenedTypes={setOpenedTypes}
           />
         ))}
