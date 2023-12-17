@@ -40,6 +40,9 @@
   @media (max-width: $additional-size) {
     width: 200px;
   }
+  @media (max-width: $mobile) {
+    width: 150px;
+  }
 }
 .link-to-registration {
   margin-top: 10px;

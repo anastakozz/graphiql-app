@@ -40,8 +40,8 @@
     "buttonText": "Перезагрузить страницу"
   },
   "signInPage": {
-    "signInTitle": "Войти в аккаунт",
-    "account": "Еще не аккаунта?",
+    "signInTitle": "Войти",
+    "account": "Еще нет аккаунта?",
     "error": "Неверный логин или пароль!"
   },
   "signUpPage": {
