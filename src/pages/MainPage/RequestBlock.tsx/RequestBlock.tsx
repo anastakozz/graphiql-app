@@ -3,44 +3,51 @@ import { CodeIcon } from '../../../assets/icons/code-icon';
 import { PlayIcon } from '../../../assets/icons/play-icon';
 import { BottomConsole, JsonEditor } from '../../../components';
 import { userContext } from '../../../lib';
-import { useAppDispatch } from '../../../hooks';
+import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { introspectApi, makeRequest } from '../../../services/api.service';
 import { updateApiError } from '../../../store/apiSlice';
 import { updateEditorResponse } from '../../../store/jsonSlice';
+import { prettifyString } from '../../../lib/utils/prettify';
 
 export default function RequestBlock() {
   const { localData } = useContext(userContext);
 
   const dispatch = useAppDispatch();
-  //   const url = useAppSelector((state) => state.api.apiUrl);
-  const url = 'https://rickandmortyapi.com/graphql';
+  const url = useAppSelector((state) => state.api.apiUrl);
 
-  const [value, setValue] = useState(`query ($filter: FilterCharacter) {
-    characters(filter: $filter){info{count}}}`);
-  const [variables, setVariables] = useState('{"filter":  {"name": "h"} }');
-  const [headers, setHeaders] = useState('{"Content-Language": "en-US"}');
+  const [query, setQuery] = useState('');
+  const [variables, setVariables] = useState('');
+  const [headers, setHeaders] = useState('');
+
+  const prettify = () => {
+    const prettyQuery = prettifyString(query);
+    setQuery(prettyQuery);
+
+    const prettyVariables = prettifyString(variables);
+    setVariables(prettyVariables);
+
+    const prettyHeaders = prettifyString(headers);
+    setHeaders(prettyHeaders);
+  };
 
   const sendRequest = async () => {
     const data = await introspectApi(url);
     if (data instanceof Error) {
       dispatch(updateApiError(localData && localData.apiResponse.invalidUrl));
     } else {
-      const res = await makeRequest(url, value, variables, headers);
-      dispatch(updateEditorResponse(JSON.stringify(res)));
+      const response = await makeRequest(url, query, variables, headers);
+      const prettyResponse = prettifyString(JSON.stringify(response));
+      dispatch(updateEditorResponse(prettyResponse));
     }
   };
 
-  const prettify = () => {
-    console.log('prettify code in editor');
-  };
-
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setValue(event.target.value);
+    setQuery(event.target.value);
   };
 
   return (
     <>
-      <JsonEditor value={value} onChange={handleChange} />
+      <JsonEditor value={query} onChange={handleChange} />
       <div className="action-button run-button" onClick={sendRequest}>
         <PlayIcon />
       </div>
