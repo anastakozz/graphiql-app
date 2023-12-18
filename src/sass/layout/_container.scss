@@ -24,6 +24,9 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  @media (max-width: $additional-size) {
+    font-size: 35px;
+  }
 }
 
 .secondary-title {
