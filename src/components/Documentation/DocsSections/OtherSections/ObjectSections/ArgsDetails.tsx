@@ -1,5 +1,5 @@
-import { getTypeName } from '../../../../../lib/utils/getTypeName.ts';
-import { IArgsProps } from '../../../documentation.types.ts';
+import { getTypeName } from '../../../../../lib/utils/getTypeName';
+import { IArgsProps } from '../../../documentation.types';
 
 export function ArgsDetails({ openedType, setOpenedTypes, mainIndex, data }: IArgsProps) {
   return (
@@ -18,7 +18,7 @@ export function ArgsDetails({ openedType, setOpenedTypes, mainIndex, data }: IAr
                 });
               }}
             >
-              {arg.name}: {getTypeName(arg.type)}
+              {arg.name}: {getTypeName(arg.type)}{' '}
             </div>
           ))}
         </>

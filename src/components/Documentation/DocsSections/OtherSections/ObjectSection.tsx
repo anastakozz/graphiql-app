@@ -1,10 +1,10 @@
-import { IDocsData, IObjectProps } from '../../documentation.types.ts';
+import { IDocsData, IObjectProps } from '../../documentation.types';
 import { useContext, useEffect, useState } from 'react';
-import { getTypeFields } from '../../../../lib/utils/getTypeFields.ts';
-import userContext from '../../../../lib/context.ts';
-import { ObjectHeader } from './ObjectSections/ObjectHeader.tsx';
-import { TypeDetails } from './ObjectSections/TypeDetails.tsx';
-import { ArgsDetails } from './ObjectSections/ArgsDetails.tsx';
+import { getTypeFields } from '../../../../lib/utils/getTypeFields';
+import userContext from '../../../../lib/context';
+import { ObjectHeader } from './ObjectSections/ObjectHeader';
+import { TypeDetails } from './ObjectSections/TypeDetails';
+import { ArgsDetails } from './ObjectSections/ArgsDetails';
 
 export function ObjectSection({ openedType, setOpenedTypes, mainIndex }: IObjectProps) {
   const [data, setData] = useState<IDocsData | null>(null);

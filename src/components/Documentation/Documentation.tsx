@@ -3,7 +3,7 @@ import { useAppSelector } from '../../hooks';
 import { useEffect, useState } from 'react';
 import { buildClientSchema } from 'graphql/utilities';
 import { fetchSchema } from '../../services/api.service';
-import { OtherSectionsBlock } from './DocsSections/OtherSections/OtherSectionsBlock.tsx';
+import { OtherSectionsBlock } from './DocsSections/OtherSections/OtherSectionsBlock';
 import { MainSectionList } from './DocsSections/MainSection/MainSectionList';
 import { GraphQLFieldMap } from 'graphql/type';
 
@@ -33,7 +33,7 @@ function Documentation({ showDocs, setIsSchemaLoaded, isSchemaLoaded }: IDocumen
       setIsSchemaLoaded(true);
     };
     parseSchema(apiUrl);
-  }, [apiUrl]);
+  }, [apiUrl, setIsSchemaLoaded]);
   if (!isSchemaLoaded) return;
   return (
     <div className={`docs-section ${showDocs ? 'docs-section-open' : ''}`}>

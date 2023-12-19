@@ -1,5 +1,5 @@
-import { getTypeName } from '../../../../../lib/utils/getTypeName.ts';
-import { ITypeObject } from '../../../documentation.types.ts';
+import { getTypeName } from '../../../../../lib/utils/getTypeName';
+import { ITypeObject } from '../../../documentation.types';
 
 export function ObjectHeader({ openedType }: { openedType: ITypeObject }) {
   return (
@@ -13,7 +13,7 @@ export function ObjectHeader({ openedType }: { openedType: ITypeObject }) {
           <div>{openedType.name} (</div>
           {openedType.args.map((arg) => (
             <div key={arg.name}>
-              {arg.name}: {getTypeName(arg.type)}
+              {arg.name}: {getTypeName(arg.type)}{' '}
             </div>
           ))}
           <div>): {openedType.type && getTypeName(openedType.type)}</div>

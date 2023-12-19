@@ -1,15 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
-import userContext from '../../lib/context.ts';
-import { pageData } from '../../lib/commonTypes/interfaces.ts';
-import { ApiErrorPopup, JsonEditor, URLInput } from '../../components/index.ts';
-import RequestBlock from './RequestBlock.tsx/RequestBlock.tsx';
+import userContext from '../../lib/context';
+import { pageData } from '../../lib/commonTypes/interfaces';
+import { ApiErrorPopup, JsonEditor, URLInput } from '../../components/index';
+import RequestBlock from './RequestBlock.tsx/RequestBlock';
 import { lazy, Suspense } from 'react';
 
 export default function MainPage() {
   const { localData } = useContext(userContext);
   const [data, setData] = useState<pageData | null>(null);
   const [showDocs, setShowDocs] = useState<boolean>(false);
-  const DocumentationLazy = lazy(() => import('../components/Documentation/Documentation'));
+  const DocumentationLazy = lazy(() => import('../../components/Documentation/Documentation'));
   const [isSchemaLoaded, setIsSchemaLoaded] = useState(false);
 
   useEffect(() => {
