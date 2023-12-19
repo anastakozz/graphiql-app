@@ -1,5 +1,3 @@
-// const apiUrl = 'https://rickandmortyapi.com/graphql';
-
 import { getIntrospectionQuery } from 'graphql';
 
 export const makeRequest = async (

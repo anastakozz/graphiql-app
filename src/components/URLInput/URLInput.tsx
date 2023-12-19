@@ -1,18 +1,20 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { EnterIcon } from '../../assets/icons/enter-icon';
 import { useAppDispatch } from '../../hooks';
 import { introspectApi } from '../../services/api.service';
 import Button from '../Button/Button';
 import { updateApiSchema, updateApiUrl, updateApiError } from '../../store/apiSlice';
+import { userContext } from '../../lib';
 
 export default function URLInput() {
+  const { localData } = useContext(userContext);
   const dispatch = useAppDispatch();
   const [value, setValue] = useState('');
 
   const getSchema = async () => {
     const data = await introspectApi(value);
     if (data instanceof Error) {
-      dispatch(updateApiError(data.message));
+      dispatch(updateApiError(localData && localData.apiResponse.invalidUrl));
     } else {
       dispatch(updateApiSchema(data));
       dispatch(updateApiUrl(value));

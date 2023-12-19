@@ -22,8 +22,12 @@ const apiSlice = createSlice({
     updateApiSchema(state, action: PayloadAction<object>) {
       state.apiSchema = action.payload;
     },
-    updateApiError(state, action: PayloadAction<string | null>) {
-      state.apiError = action.payload;
+    updateApiError(state, action: PayloadAction<string | null | undefined>) {
+      if (action.payload !== undefined) {
+        state.apiError = action.payload;
+      } else {
+        state.apiError = 'Localization Error';
+      }
     },
   },
 });

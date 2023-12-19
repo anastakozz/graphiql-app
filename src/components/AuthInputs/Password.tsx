@@ -15,15 +15,22 @@ export default function Password({ register, error, setValue }: InputProps) {
   }, [localData, error]);
 
   return (
-    <div>
-      <div>{currentError}</div>
-      <label htmlFor="password">{labelName}</label>
-      <input
-        {...register('password')}
-        type="password"
-        id="password"
-        onChange={(e) => setValue('password', e.target.value, { shouldValidate: true })}
-      />
+    <div className="input-field">
+      <div className="error-message">
+        {currentError ? '⚠' : ''} {currentError}
+      </div>
+      <div className="input-row">
+        <label htmlFor="password" className="label">
+          {labelName}
+        </label>
+        <input
+          className="input"
+          {...register('password')}
+          type="password"
+          id="password"
+          onChange={(e) => setValue('password', e.target.value, { shouldValidate: true })}
+        />
+      </div>
     </div>
   );
 }

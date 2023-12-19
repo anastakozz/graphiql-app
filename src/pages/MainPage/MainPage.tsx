@@ -1,24 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
-import userContext from '../lib/context';
-import { pageData } from '../lib/commonTypes/interfaces.ts';
-import { PlayIcon } from '../assets/icons/play-icon';
-import { CodeIcon } from '../assets/icons/code-icon';
-import { URLInput, ApiErrorPopup, BottomConsole } from '../components';
+import userContext from '../../lib/context.ts';
+import { pageData } from '../../lib/commonTypes/interfaces.ts';
+import { ApiErrorPopup, JsonEditor, URLInput } from '../../components/index.ts';
+import RequestBlock from './RequestBlock.tsx/RequestBlock.tsx';
 import { lazy, Suspense } from 'react';
-
-const inputMock = `{
-  test: {
-    firstKey: 'test value',
-    second: 'one more'
-  }
-}`;
-
-const responseMock = `{
-  someResponse: {
-    firstKey: 'test value',
-    second: 'one more'
-  }
-}`;
 
 export default function MainPage() {
   const { localData } = useContext(userContext);
@@ -40,17 +25,11 @@ export default function MainPage() {
         <ApiErrorPopup />
         <div className="request-section">
           <URLInput />
-          <textarea value={inputMock} name="request" className="json-input"></textarea>
-          <BottomConsole data={data} />
-          <div className="action-button run-button">
-            <PlayIcon />
-          </div>
-          <div className="action-button prettyfy-button">
-            <CodeIcon />
-          </div>
+          <RequestBlock />
         </div>
+
         <div className="response-section">
-          <textarea value={responseMock} name="response" className="json-output" />
+          <JsonEditor viewMode={true} />
         </div>
         <Suspense>
           <DocumentationLazy

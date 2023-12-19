@@ -22,6 +22,10 @@ export interface LocalizationData {
       arguments: string;
     };
   };
+  notFoundPage: pageData;
+  errorPage: pageData;
+  signInPage: pageData;
+  signUpPage: pageData;
   authorization: {
     signIn: string;
     signUp: string;
@@ -31,6 +35,9 @@ export interface LocalizationData {
       password: pageData;
       confirmPassword: pageData;
     };
+  };
+  apiResponse: {
+    invalidUrl: string;
   };
 }
 

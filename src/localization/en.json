@@ -38,6 +38,22 @@
     "welcomePage": "GraphiQL | to Welcome page",
     "signOut": "Sign Out"
   },
+  "notFoundPage": {
+    "message": "Page not found",
+    "buttonText": "to Welcome Page"
+  },
+  "errorPage": {
+    "message": "Ooops.. Something went wrong",
+    "buttonText": "Reload the page"
+  },
+  "signInPage": {
+    "signInTitle": "Sign In",
+    "account": "Don't have account yet?",
+    "error": "Invalid login or password!"
+  },
+  "signUpPage": {
+    "signUpTitle": "Sign Up"
+  },
   "authorization": {
     "signIn": "Sign in",
     "signUp": "Sign up",
@@ -64,5 +80,8 @@
         "required": "Field is required"
       }
     }
+  },
+  "apiResponse": {
+    "invalidUrl": "Please, provide valid GraphQL URL"
   }
 }

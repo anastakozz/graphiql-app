@@ -38,6 +38,22 @@
     "welcomePage": "GraphiQL | a la Página de bienvenida",
     "signOut": "Desconectar"
   },
+  "notFoundPage": {
+    "message": "Página no encontrada",
+    "buttonText": "a la Página de bienvenida"
+  },
+  "errorPage": {
+    "message": "Ups... Algo salió mal",
+    "buttonText": "Recargar la pagina"
+  },
+  "signInPage": {
+    "signInTitle": "Iniciar sesión",
+    "account": "Aún no tienes cuenta?",
+    "error": "¡Clave o usuario inválido!"
+  },
+  "signUpPage": {
+    "signUpTitle": "Inscribirse"
+  },
   "authorization": {
     "signIn": "Iniciar sesión",
     "signUp": "Regístrate ahora",
@@ -64,5 +80,8 @@
         "required": "El campo no debe estar vacío"
       }
     }
+  },
+  "apiResponse": {
+    "invalidUrl": "Por favor, proporcione una URL válida de GraphQL"
   }
 }

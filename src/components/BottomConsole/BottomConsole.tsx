@@ -1,26 +1,44 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { pageData } from '../../lib/commonTypes/interfaces';
 import Button from '../Button/Button';
+import { userContext } from '../../lib';
 
-export default function BottomConsole({ data }: { data: pageData }) {
+interface BottomConsoleProps {
+  variables: string;
+  headers: string;
+  setVariables: React.Dispatch<React.SetStateAction<string>>;
+  setHeaders: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function BottomConsole({
+  variables,
+  setVariables,
+  headers,
+  setHeaders,
+}: BottomConsoleProps) {
+  const { localData } = useContext(userContext);
+
+  const [data, setData] = useState<pageData>();
   const [open, setOpen] = useState(false);
   const [selectedTab, setSelectedTab] = useState(1);
-  const [variables, setVariables] = useState('');
-  const [headers, setHeaders] = useState('');
+
+  useEffect(() => {
+    if (localData) {
+      setData(localData.mainPage);
+    }
+  }, [localData]);
 
   function handleVariables() {
     setOpen(true);
     setSelectedTab(1);
-    console.log(handleVariables);
   }
 
   function handleHeaders() {
     setOpen(true);
     setSelectedTab(2);
-    console.log(handleHeaders);
   }
   return (
-    <>
+    data && (
       <div className={`bottom-console ${open ? 'bottom-console-open' : ''}`}>
         <div className="bottom-console__header">
           <Button
@@ -66,6 +84,6 @@ export default function BottomConsole({ data }: { data: pageData }) {
           )}
         </div>
       </div>
-    </>
+    )
   );
 }
