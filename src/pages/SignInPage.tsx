@@ -50,7 +50,6 @@ export default function SignInPage() {
       <div className="container main-inner">
         <h1 className="main-title title-spacer text-center">{data.signInTitle}</h1>
         <div className="sign-container">
-          <Link to={'/ololo'}>to stars</Link>
           <form onSubmit={handleSubmit(onSubmit)} noValidate={true}>
             <Email register={register} error={errors.email?.message} setValue={setValue} />
             <Password register={register} error={errors.password?.message} setValue={setValue} />
