@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { pageData } from '../../lib/commonTypes/interfaces';
+import { IMainPage } from '../../lib/commonTypes/interfaces';
 import Button from '../Button/Button';
 import { userContext } from '../../lib';
 
@@ -18,7 +18,7 @@ export default function BottomConsole({
 }: BottomConsoleProps) {
   const { localData } = useContext(userContext);
 
-  const [data, setData] = useState<pageData>();
+  const [data, setData] = useState<IMainPage>();
   const [open, setOpen] = useState(false);
   const [selectedTab, setSelectedTab] = useState(1);
 
