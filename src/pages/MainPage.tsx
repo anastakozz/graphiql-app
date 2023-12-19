@@ -4,7 +4,7 @@ import { pageData } from '../lib/commonTypes/interfaces.ts';
 import { PlayIcon } from '../assets/icons/play-icon';
 import { CodeIcon } from '../assets/icons/code-icon';
 import { URLInput, ApiErrorPopup, BottomConsole } from '../components';
-import { Documentation } from '../components/Documentation/Documentation.tsx';
+import { lazy, Suspense } from 'react';
 
 const inputMock = `{
   test: {
@@ -24,6 +24,8 @@ export default function MainPage() {
   const { localData } = useContext(userContext);
   const [data, setData] = useState<pageData | null>(null);
   const [showDocs, setShowDocs] = useState<boolean>(false);
+  const DocumentationLazy = lazy(() => import('../components/Documentation/Documentation'));
+  const [isSchemaLoaded, setIsSchemaLoaded] = useState(false);
 
   useEffect(() => {
     if (localData) {
@@ -50,8 +52,14 @@ export default function MainPage() {
         <div className="response-section">
           <textarea value={responseMock} name="response" className="json-output" />
         </div>
-        <Documentation showDocs={showDocs} />
-        <div onClick={() => setShowDocs(!showDocs)} className="docs-badge">
+        <Suspense>
+          <DocumentationLazy
+            showDocs={showDocs}
+            isSchemaLoaded={isSchemaLoaded}
+            setIsSchemaLoaded={setIsSchemaLoaded}
+          />
+        </Suspense>
+        <div onClick={() => isSchemaLoaded && setShowDocs(!showDocs)} className="docs-badge">
           <p>{data.button}</p>
         </div>
       </div>

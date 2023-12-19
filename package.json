@@ -14,6 +14,8 @@
     "prepare": "husky install && npx husky add .husky/pre-commit \"npm run format & npm run lint\" && npx husky add .husky/pre-push \"npm run test -- --watch=false\""
   },
   "dependencies": {
+    "@graphiql/react": "^0.20.2",
+    "@graphiql/toolkit": "^0.9.1",
     "@hookform/resolvers": "^3.3.2",
     "@reduxjs/toolkit": "^2.0.1",
     "axios": "^1.6.2",

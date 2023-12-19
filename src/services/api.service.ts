@@ -1,13 +1,29 @@
 // const apiUrl = 'https://rickandmortyapi.com/graphql';
 
-const makeRequest = async (apiUrl: string, query: string) => {
+import { getIntrospectionQuery } from 'graphql';
+
+export const makeRequest = async (
+  apiUrl: string,
+  query: string,
+  variables?: string,
+  customHeaders?: string
+) => {
   try {
+    const parsedVariables = variables ? JSON.parse(variables) : {};
+    const requestBody = {
+      query,
+      variables: parsedVariables || {},
+    };
+
+    const parsedCustomHeaders = customHeaders ? JSON.parse(customHeaders) : {};
+
     const res = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
+        ...parsedCustomHeaders,
       },
-      body: JSON.stringify({ query }),
+      body: JSON.stringify(requestBody),
     });
     return await res.json();
   } catch (error) {
@@ -17,109 +33,42 @@ const makeRequest = async (apiUrl: string, query: string) => {
 
 export const introspectApi = async (apiUrl: string) => {
   const introspectionQuery = `query IntrospectionQuery {
-  __schema {
-    queryType {
-      name
-    }
-    mutationType {
-      name
-    }
-    subscriptionType {
-      name
-    }
-    types {
-      ...FullType
-    }
-    directives {
-      name
-      description
-      locations
-      args {
-        ...InputValue
-      }
-    }
-  }
-}
-
-fragment FullType on __Type {
-  kind
-  name
-  description
-  fields(includeDeprecated: true) {
-    name
-    description
-    args {
-      ...InputValue
-    }
-    type {
-      ...TypeRef
-    }
-    isDeprecated
-    deprecationReason
-  }
-  inputFields {
-    ...InputValue
-  }
-  interfaces {
-    ...TypeRef
-  }
-  enumValues(includeDeprecated: true) {
-    name
-    description
-    isDeprecated
-    deprecationReason
-  }
-  possibleTypes {
-    ...TypeRef
-  }
-}
-
-fragment InputValue on __InputValue {
-  name
-  description
-  type {
-    ...TypeRef
-  }
-  defaultValue
-}
-
-fragment TypeRef on __Type {
-  kind
-  name
-  ofType {
-    kind
-    name
-    ofType {
-      kind
-      name
-      ofType {
-        kind
-        name
-        ofType {
-          kind
+      __schema {
+        types {
           name
-          ofType {
-            kind
-            name
-            ofType {
-              kind
-              name
-              ofType {
-                kind
-                name
-              }
-            }
-          }
+        }
+        queryType {
+          name
+        }
+        mutationType {
+          name
+        }
+        subscriptionType {
+          name
+        }
+        directives {
+          name
         }
       }
-    }
-  }
-}
-`;
+    }`;
 
   try {
-    return await makeRequest(apiUrl, introspectionQuery);
+    const res = await makeRequest(apiUrl, introspectionQuery);
+    return res;
   } catch (error) {
     return error;
   }
+};
+
+export const fetchSchema = async (urlApi: string) => {
+  if (!urlApi) return;
+  const response = await fetch(urlApi, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ query: getIntrospectionQuery() }),
+  });
+
+  return await response.json();
 };

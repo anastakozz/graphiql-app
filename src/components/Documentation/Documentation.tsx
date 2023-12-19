@@ -1,42 +1,69 @@
-import { IApiSchema, IDocumentation, IFieldsArray, ITypeObject } from './documentation.types.ts';
-import { useAppSelector } from '../../hooks.ts';
-import { TypesSection } from './DocsSections/TypesSections/TypesSection.tsx';
+import { IDocumentation, IOfType, ITypeObject } from './documentation.types';
+import { useAppSelector } from '../../hooks';
 import { useEffect, useState } from 'react';
-import { QuerySection } from './DocsSections/QuerySection.tsx';
-import { getTypeName } from '../../lib/utils/getTypeName.ts';
+import { buildClientSchema } from 'graphql/utilities';
+import { fetchSchema } from '../../services/api.service';
+import { OtherSectionsBlock } from './DocsSections/OtherSections/OtherSectionsBlock.tsx';
+import { MainSectionList } from './DocsSections/MainSection/MainSectionList';
+import { GraphQLFieldMap } from 'graphql/type';
 
-export function Documentation({ showDocs }: IDocumentation) {
+function Documentation({ showDocs, setIsSchemaLoaded, isSchemaLoaded }: IDocumentation) {
   const [openedTypes, setOpenedTypes] = useState<Array<ITypeObject>>([]);
-  const [fieldsArray, setFieldsArray] = useState<Array<IFieldsArray | undefined>>([]);
-  const apiSchema: IApiSchema = useAppSelector((state) => state.api.apiSchema);
-  const types = apiSchema.data?.__schema.types;
-  const queryFields = apiSchema.data?.__schema.types[0].fields;
+  const apiUrl = useAppSelector((state) => state.api.apiUrl);
+  const [queries, setQueries] = useState<GraphQLFieldMap<ITypeObject, IOfType>>();
+  const [mutations, setMutations] = useState<GraphQLFieldMap<ITypeObject, IOfType>>();
+  const [subscriptions, setSubscriptions] = useState<GraphQLFieldMap<ITypeObject, IOfType>>();
 
   useEffect(() => {
-    const newFieldsArray = openedTypes.map((type) => {
-      return types?.find((field) => type.type && field.name === getTypeName(type.type, true));
-    });
-    setFieldsArray(newFieldsArray);
-  }, [openedTypes, types]);
-
-  useEffect(() => {
-    setFieldsArray([]);
-  }, [apiSchema]);
-
+    setOpenedTypes([]);
+    const parseSchema = async (apiUrl: string) => {
+      setIsSchemaLoaded(false);
+      const introspectionData = await fetchSchema(apiUrl);
+      if (!introspectionData?.data) return;
+      const schema = introspectionData?.data && buildClientSchema(introspectionData.data);
+      const queryType = schema.getQueryType();
+      const mutationType = schema.getMutationType();
+      const subscriptionsType = schema.getSubscriptionType();
+      const queries = queryType?.getFields();
+      const mutations = mutationType?.getFields();
+      const subscriptions = subscriptionsType?.getFields();
+      setQueries(queries);
+      setMutations(mutations);
+      setSubscriptions(subscriptions);
+      setIsSchemaLoaded(true);
+    };
+    parseSchema(apiUrl);
+  }, [apiUrl]);
+  if (!isSchemaLoaded) return;
   return (
     <div className={`docs-section ${showDocs ? 'docs-section-open' : ''}`}>
-      <QuerySection fields={queryFields} setOpenedTypes={setOpenedTypes} />
+      <div className="docs-section-content">
+        {queries && (
+          <MainSectionList type={queries} setOpenedTypes={setOpenedTypes} header="queries" />
+        )}
+        {mutations && (
+          <MainSectionList type={mutations} setOpenedTypes={setOpenedTypes} header="mutations" />
+        )}
+        {subscriptions && (
+          <MainSectionList
+            type={subscriptions}
+            setOpenedTypes={setOpenedTypes}
+            header="subscriptions"
+          />
+        )}
+      </div>
 
-      {fieldsArray.length > 0 &&
-        fieldsArray.map((targetTypeObj, index) => (
-          <TypesSection
+      {openedTypes.length > 0 &&
+        openedTypes.map((type, index) => (
+          <OtherSectionsBlock
             mainIndex={index}
             key={index}
-            targetTypeObject={targetTypeObj}
-            openedType={openedTypes[index]}
+            openedType={type}
             setOpenedTypes={setOpenedTypes}
           />
         ))}
     </div>
   );
 }
+
+export default Documentation;

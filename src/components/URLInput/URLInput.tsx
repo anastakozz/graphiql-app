@@ -11,7 +11,6 @@ export default function URLInput() {
 
   const getSchema = async () => {
     const data = await introspectApi(value);
-    console.log(data);
     if (data instanceof Error) {
       dispatch(updateApiError(data.message));
     } else {
