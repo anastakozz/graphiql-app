@@ -14,7 +14,7 @@ export default function RequestBlock() {
 
   const dispatch = useAppDispatch();
   const url = useAppSelector((state) => state.api.apiUrl);
-
+  
   const [query, setQuery] = useState('');
   const [variables, setVariables] = useState('');
   const [headers, setHeaders] = useState('');
@@ -41,8 +41,8 @@ export default function RequestBlock() {
     }
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setQuery(event.target.value);
+  const handleChange = (value: string) => {
+    setQuery(value);
   };
 
   return (

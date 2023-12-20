@@ -2,6 +2,9 @@ import { useContext, useEffect, useState } from 'react';
 import { pageData } from '../../lib/commonTypes/interfaces';
 import Button from '../Button/Button';
 import { userContext } from '../../lib';
+import CodeMirror from '@uiw/react-codemirror';
+import { settingsCodemirror } from '../../lib/constants';
+import { materialLightInit } from '@uiw/codemirror-themes-all';
 
 interface BottomConsoleProps {
   variables: string;
@@ -67,20 +70,24 @@ export default function BottomConsole({
         </div>
         <div className="bottom-console__inner">
           {selectedTab == 1 && (
-            <textarea
-              name="vars"
+            <CodeMirror
+              theme={materialLightInit({
+                settings: { foreground: '#6182B8', ...settingsCodemirror },
+              })}
               value={variables}
-              onChange={(e) => setVariables(e.target.value)}
+              onChange={(value) => setVariables(value)}
               className="vars-input"
-            ></textarea>
+            />
           )}
           {selectedTab == 2 && (
-            <textarea
-              name="headers"
+            <CodeMirror
+              theme={materialLightInit({
+                settings: { foreground: '#6182B8', ...settingsCodemirror },
+              })}
               value={headers}
-              onChange={(e) => setHeaders(e.target.value)}
+              onChange={(value) => setHeaders(value)}
               className="headers-input"
-            ></textarea>
+            />
           )}
         </div>
       </div>

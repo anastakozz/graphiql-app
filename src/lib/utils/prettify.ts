@@ -13,6 +13,9 @@ export function prettifyString(input: string): string {
     } else if (char === '}') {
       indentationLevel--;
       formattedJson += '\n' + '  '.repeat(indentationLevel) + '}';
+      if (jsonString[i + 1] !== '}') {
+        formattedJson += '\n';
+      }
       continue;
     } else if (char === ':' && jsonString[i + 1] !== '{') {
       formattedJson += ': ';
