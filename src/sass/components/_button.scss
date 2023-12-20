@@ -8,7 +8,7 @@
 
 .button-contained {
   background: $base-color;
-  color: #fff;
+  color: $white;
 
   &:hover {
     background: lighten($color: $base-color, $amount: 10%);
