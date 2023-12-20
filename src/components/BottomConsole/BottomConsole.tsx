@@ -5,6 +5,7 @@ import { userContext } from '../../lib';
 import CodeMirror from '@uiw/react-codemirror';
 import { settingsCodemirror } from '../../lib/constants';
 import { materialLightInit } from '@uiw/codemirror-themes-all';
+import { jsonLanguage } from '@codemirror/lang-json';
 
 interface BottomConsoleProps {
   variables: string;
@@ -72,21 +73,23 @@ export default function BottomConsole({
           {selectedTab == 1 && (
             <CodeMirror
               theme={materialLightInit({
-                settings: { foreground: '#6182B8', ...settingsCodemirror },
+                settings: settingsCodemirror,
               })}
               value={variables}
               onChange={(value) => setVariables(value)}
               className="vars-input"
+              extensions={[jsonLanguage]}
             />
           )}
           {selectedTab == 2 && (
             <CodeMirror
               theme={materialLightInit({
-                settings: { foreground: '#6182B8', ...settingsCodemirror },
+                settings: settingsCodemirror,
               })}
               value={headers}
               onChange={(value) => setHeaders(value)}
               className="headers-input"
+              extensions={[jsonLanguage]}
             />
           )}
         </div>
