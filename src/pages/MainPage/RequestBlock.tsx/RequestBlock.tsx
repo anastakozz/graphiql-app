@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { introspectApi, makeRequest } from '../../../services/api.service';
 import { updateApiError } from '../../../store/apiSlice';
 import { updateEditorResponse } from '../../../store/jsonSlice';
-import { prettifyString } from '../../../lib/utils/prettify';
+import { prettifyString } from '../../../lib/utils/prettifyString';
 
 export default function RequestBlock() {
   const { localData } = useContext(userContext);
