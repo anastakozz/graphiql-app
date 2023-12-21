@@ -35,7 +35,7 @@
   background: #fbf9ff;
   border-radius: 8px;
   border: 0;
-  outline: 0;
+  outline: none;
 }
 
 .json-output {
@@ -45,7 +45,7 @@
   background: lighten($mian-background, $amount: 8);
   border-radius: 8px;
   border: 0;
-  outline: 0;
+  outline: none;
 }
 
 .action-button {
