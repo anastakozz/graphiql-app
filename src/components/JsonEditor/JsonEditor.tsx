@@ -3,6 +3,7 @@ import CodeMirror from '@uiw/react-codemirror';
 import { jsonLanguage } from '@codemirror/lang-json';
 import { materialLightInit } from '@uiw/codemirror-themes-all';
 import { settingsCodemirror } from '../../lib/constants';
+import { graphql } from 'cm6-graphql';
 
 type Props = {
   viewMode: boolean;
@@ -30,12 +31,13 @@ export default function JsonEditor({ viewMode = false, value, onChange }: Partia
   return (
     <CodeMirror
       theme={materialLightInit({
-        settings: { foreground: '#6182B8', ...settingsCodemirror },
+        settings: settingsCodemirror,
       })}
       value={value}
       readOnly={false}
       className="json-input"
       onChange={(value) => onChange && onChange(value)}
+      extensions={[graphql()]}
     />
   );
 }
