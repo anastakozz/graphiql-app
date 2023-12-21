@@ -34,5 +34,5 @@ export const settingsCodemirror = {
   caret: '',
   lineHighlight: '',
   gutterBackground: '',
-  background: ''
+  background: '',
 };
