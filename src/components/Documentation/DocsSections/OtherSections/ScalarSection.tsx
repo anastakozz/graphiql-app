@@ -16,12 +16,18 @@ export function ScalarSection({ openedType }: IScalarSection) {
 
   return (
     <div className="docs-section-content">
-      <div style={{ marginBottom: '30px' }}>
-        {openedType?.name}: {openedType.type && getTypeName(openedType.type, true)}
+      <div className="header-name">
+        <span className="red-color">{openedType?.name}</span>:
+        <span className="green-color">
+          {' '}
+          {openedType.type && getTypeName(openedType.type, true)}
+        </span>
       </div>
       <h2>{data?.typeDetails}</h2>
-      <p style={{ marginBottom: '30px' }}>{getTypeName(openedType.type, true, 'description')}</p>
-      <p>scalar {getTypeName(openedType.type, true)}</p>
+      <p className="description">{getTypeName(openedType.type, true, 'description')}</p>
+      <p className="base-color">
+        scalar <span className="green-color">{getTypeName(openedType.type, true)}</span>
+      </p>
     </div>
   );
 }

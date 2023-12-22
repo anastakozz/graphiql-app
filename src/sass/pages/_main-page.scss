@@ -3,17 +3,28 @@
   position: relative;
   height: calc(100vh - 114px);
   background: $mian-background;
+  @media screen and (max-width: $tablet) {
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+  }
 }
 .request-section {
   height: 100%;
   width: 50%;
   padding: 10px 10px;
   position: relative;
+  @media screen and (max-width: $tablet) {
+    width: 100%;
+  }
 }
 .response-section {
   height: 100%;
   width: 50%;
   padding: 10px 10px;
+  @media screen and (max-width: $tablet) {
+    width: 100%;
+  }
 }
 
 .json-input {
@@ -79,32 +90,43 @@
   transform: rotate(-90deg);
   cursor: pointer;
   transition: 300ms;
+  z-index: 10;
   &:hover {
     background-color: lighten($color: #45d1b5, $amount: 10%);
+  }
+  @media screen and (max-width: $tablet) {
+    top: 450px;
   }
 }
 
 .docs-section {
+  position: absolute;
+  right: 0;
   display: flex;
+  align-items: stretch;
   width: 0;
   overflow: hidden;
   height: 100%;
-  padding: 10px 0;
+  padding: 0;
   flex-shrink: 0;
   transition: 300ms;
-}
+  background: $transparent-dark;
+  border-radius: 10px;
 
-.docs-section-open {
-  width: initial;
-  padding: 10px;
-  overflow: scroll;
-}
 
-.docs-section-content {
-  width: 380px;
-  height: 100%;
-  background-color: #fff;
-  border-radius: 8px;
-  margin-right: 10px;
-  padding: 20px;
+  &.docs-section-open {
+    padding: 10px;
+    overflow: auto;
+  }
+
+  .docs-section-content {
+    min-width: 300px;
+    max-width: 300px;
+    height: fit-content;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-right: 10px;
+    padding: 20px;
+    white-space: normal;
+  }
 }

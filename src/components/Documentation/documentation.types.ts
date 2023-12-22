@@ -38,12 +38,16 @@ export interface IObjectProps {
   openedType: ITypeObject;
   setOpenedTypes: React.Dispatch<React.SetStateAction<ITypeObject[]>>;
   mainIndex: number;
+  typesActive: string[];
+  setTypesActive: React.Dispatch<React.SetStateAction<Array<string>>>;
 }
 
 export interface IDocsSection {
   openedType: ITypeObject;
   setOpenedTypes: React.Dispatch<React.SetStateAction<Array<ITypeObject>>>;
   mainIndex: number;
+  typesActive: string[];
+  setTypesActive: React.Dispatch<React.SetStateAction<Array<string>>>;
 }
 
 export interface IScalarSection {
@@ -65,6 +69,8 @@ export interface IMainSection {
   type: IGraphQL;
   setOpenedTypes: React.Dispatch<React.SetStateAction<Array<ITypeObject>>>;
   header: 'queries' | 'mutations' | 'subscriptions';
+  typeActive: IGraphQL | undefined;
+  setTypeActive: React.Dispatch<React.SetStateAction<IGraphQL | undefined>>;
 }
 
 export interface IArgsProps {
@@ -72,6 +78,8 @@ export interface IArgsProps {
   setOpenedTypes: React.Dispatch<React.SetStateAction<ITypeObject[]>>;
   mainIndex: number;
   data: IDocsData | null;
+  typesActive: string[];
+  setTypesActive: React.Dispatch<React.SetStateAction<Array<string>>>;
 }
 
 export interface ITypeDetailsProps {
@@ -80,4 +88,6 @@ export interface ITypeDetailsProps {
   mainIndex: number;
   data: IDocsData | null;
   fields: IOfType | string;
+  typesActive: string[];
+  setTypesActive: React.Dispatch<React.SetStateAction<Array<string>>>;
 }

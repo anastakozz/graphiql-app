@@ -7,38 +7,60 @@ export function TypeDetails({
   fields,
   mainIndex,
   setOpenedTypes,
+  typesActive,
+  setTypesActive,
 }: ITypeDetailsProps) {
   return (
     <>
       <h2>{data?.typeDetails}</h2>
-      <p style={{ marginBottom: '30px' }}>{getTypeName(openedType.type, true, 'description')}</p>
-      <ul style={{ marginBottom: '30px' }}>
-        <li>type {openedType.type && getTypeName(openedType.type, true)} &#123;</li>
+      <p className="description">{getTypeName(openedType.type, true, 'description')}</p>
+      <ul className="types-list">
+        <li className="mb10">
+          <span className="base-color">type </span>
+          <span className="red-color">
+            {openedType.type && getTypeName(openedType.type, true)}
+          </span>{' '}
+          &#123;
+        </li>
         {fields &&
           Object.values(fields).map((type) => (
             <div key={type.name}>
               {type.deprecationReason && (
-                <li style={{ fontStyle: 'italic' }}>#Deprecated: {type.deprecationReason}</li>
+                <li className="deprecated">#Deprecated: {type.deprecationReason}</li>
               )}
               <li
+                className="list-item types-item"
                 onClick={() => {
                   setOpenedTypes((prevOpenedTypes): ITypeObject[] => {
                     const newArr = prevOpenedTypes.slice(0, mainIndex + 1);
                     return [...newArr, type];
                   });
+
+                  setTypesActive((prevTypesActive): string[] => {
+                    const newTypeActive = prevTypesActive.slice(0, mainIndex);
+                    return [...newTypeActive, type.name];
+                  });
                 }}
-                style={{ margin: '10px 0', cursor: 'pointer' }}
+                style={{
+                  backgroundColor: type.name === typesActive[mainIndex] ? '#f4edff' : undefined,
+                }}
                 key={type.name}
               >
                 {type.args?.length === 0 && type.args ? (
-                  <>{`${type.name}: ${getTypeName(type.type)}`}</>
+                  <>
+                    <span className="base-color">{type.name}</span>:
+                    <span className="green-color"> {getTypeName(type.type)}</span>
+                  </>
                 ) : (
-                  <>{`${type.name}(...): ${getTypeName(type.type, true)}`}</>
+                  <>
+                    <span className="base-color">{type.name}</span>(...):
+                    <span className="green-color"> {getTypeName(type.type, true)}</span>
+                  </>
                 )}
               </li>
             </div>
           ))}
-        <li>&#125;</li>
+        <li className="mt10">&#125;</li>
       </ul>
     </>
   );

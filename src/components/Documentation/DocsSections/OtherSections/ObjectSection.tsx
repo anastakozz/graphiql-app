@@ -6,7 +6,13 @@ import { ObjectHeader } from './ObjectSections/ObjectHeader';
 import { TypeDetails } from './ObjectSections/TypeDetails';
 import { ArgsDetails } from './ObjectSections/ArgsDetails';
 
-export function ObjectSection({ openedType, setOpenedTypes, mainIndex }: IObjectProps) {
+export function ObjectSection({
+  openedType,
+  setOpenedTypes,
+  mainIndex,
+  typesActive,
+  setTypesActive,
+}: IObjectProps) {
   const [data, setData] = useState<IDocsData | null>(null);
   const fields = getTypeFields(openedType.type);
   const { localData } = useContext(userContext);
@@ -21,19 +27,23 @@ export function ObjectSection({ openedType, setOpenedTypes, mainIndex }: IObject
   return (
     <div className="docs-section-content">
       <ObjectHeader openedType={openedType} />
-      <p style={{ marginBottom: '30px' }}>{openedType.description}</p>
+      <p className="description">{openedType.description}</p>
       <TypeDetails
         openedType={openedType}
         setOpenedTypes={setOpenedTypes}
         fields={fields}
         data={data}
         mainIndex={mainIndex}
+        typesActive={typesActive}
+        setTypesActive={setTypesActive}
       />
       <ArgsDetails
         openedType={openedType}
         setOpenedTypes={setOpenedTypes}
         data={data}
         mainIndex={mainIndex}
+        typesActive={typesActive}
+        setTypesActive={setTypesActive}
       />
     </div>
   );

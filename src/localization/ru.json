@@ -26,7 +26,7 @@
     "variables": "Переменные",
     "headers": "Заголовки",
     "docs": {
-      "button": "ДОКУМЕНТАЦИЯ",
+      "button": "Документация",
       "queries": "ЗАПРОСЫ",
       "mutations": "МУТАЦИИ",
       "subscriptions": "ПОДПИСКИ",
@@ -47,8 +47,8 @@
     "buttonText": "Перезагрузить страницу"
   },
   "signInPage": {
-    "signInTitle": "Войти в аккаунт",
-    "account": "Еще не аккаунта?",
+    "signInTitle": "Войти",
+    "account": "Еще нет аккаунта?",
     "error": "Неверный логин или пароль!"
   },
   "signUpPage": {

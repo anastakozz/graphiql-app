@@ -6,10 +6,16 @@
   height: 50px;
   transition: 300ms;
   overflow: hidden;
+  @media screen and (max-width: $tablet) {
+    height: 30px;
+  }
 }
 
 .bottom-console-open {
   height: 240px;
+  @media screen and (max-width: $tablet) {
+    height: 100px;
+  }
 }
 
 .bottom-console__header {
@@ -19,12 +25,18 @@
   padding: 10px;
   border-top: 1px solid $base-color;
   background: #fbf9ff96;
+  @media screen and (max-width: $tablet) {
+    height: 30px;
+  }
 }
 
 .bottom-console__inner {
   display: block;
   position: relative;
   height: calc(100% - 50px);
+  @media screen and (max-width: $tablet) {
+    height: calc(100% - 30px);
+  }
 
   textarea {
     width: 100%;

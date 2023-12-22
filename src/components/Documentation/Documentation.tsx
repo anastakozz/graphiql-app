@@ -1,4 +1,4 @@
-import { IDocumentation, IOfType, ITypeObject } from './documentation.types';
+import { IDocumentation, IGraphQL, IOfType, ITypeObject } from './documentation.types';
 import { useAppSelector } from '../../hooks';
 import { useEffect, useState } from 'react';
 import { buildClientSchema } from 'graphql/utilities';
@@ -13,6 +13,31 @@ function Documentation({ showDocs, setIsSchemaLoaded, isSchemaLoaded }: IDocumen
   const [queries, setQueries] = useState<GraphQLFieldMap<ITypeObject, IOfType>>();
   const [mutations, setMutations] = useState<GraphQLFieldMap<ITypeObject, IOfType>>();
   const [subscriptions, setSubscriptions] = useState<GraphQLFieldMap<ITypeObject, IOfType>>();
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [typeActive, setTypeActive] = useState<IGraphQL>();
+  const [typesActive, setTypesActive] = useState<Array<string>>([]);
+  const documentationWidth = (openedTypes.length + 1) * 350;
+
+  function getWidth() {
+    if (!showDocs) return '0';
+    if (documentationWidth < screenWidth) return `${documentationWidth}px`;
+    return '100vw';
+  }
+
+  const dynamicStyles = {
+    width: getWidth(),
+    top: documentationWidth >= screenWidth ? 0 : undefined,
+    right: 0,
+    bottom: documentationWidth >= screenWidth ? 0 : undefined,
+    left: documentationWidth >= screenWidth ? 0 : undefined,
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', () => setScreenWidth(window.innerWidth));
+    return () => {
+      window.removeEventListener('resize', () => setScreenWidth(window.innerWidth));
+    };
+  }, []);
 
   useEffect(() => {
     setOpenedTypes([]);
@@ -35,20 +60,35 @@ function Documentation({ showDocs, setIsSchemaLoaded, isSchemaLoaded }: IDocumen
     parseSchema(apiUrl);
   }, [apiUrl, setIsSchemaLoaded]);
   if (!isSchemaLoaded) return;
+
   return (
-    <div className={`docs-section ${showDocs ? 'docs-section-open' : ''}`}>
+    <div style={dynamicStyles} className={`docs-section ${showDocs ? 'docs-section-open' : ''}`}>
       <div className="docs-section-content">
         {queries && (
-          <MainSectionList type={queries} setOpenedTypes={setOpenedTypes} header="queries" />
+          <MainSectionList
+            type={queries}
+            setOpenedTypes={setOpenedTypes}
+            header="queries"
+            typeActive={typeActive}
+            setTypeActive={setTypeActive}
+          />
         )}
         {mutations && (
-          <MainSectionList type={mutations} setOpenedTypes={setOpenedTypes} header="mutations" />
+          <MainSectionList
+            type={mutations}
+            setOpenedTypes={setOpenedTypes}
+            header="mutations"
+            typeActive={typeActive}
+            setTypeActive={setTypeActive}
+          />
         )}
         {subscriptions && (
           <MainSectionList
             type={subscriptions}
             setOpenedTypes={setOpenedTypes}
             header="subscriptions"
+            typeActive={typeActive}
+            setTypeActive={setTypeActive}
           />
         )}
       </div>
@@ -60,6 +100,8 @@ function Documentation({ showDocs, setIsSchemaLoaded, isSchemaLoaded }: IDocumen
             key={index}
             openedType={type}
             setOpenedTypes={setOpenedTypes}
+            typesActive={typesActive}
+            setTypesActive={setTypesActive}
           />
         ))}
     </div>

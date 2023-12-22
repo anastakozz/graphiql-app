@@ -8,21 +8,41 @@
   background: $header-background;
   border-radius: 5px;
   z-index: 2;
-
-  .logo-link {
-    font-family: $font-montserrat;
-    font-weight: 300;
-    text-decoration: none;
-    padding: 10px 20px;
-    font-size: 20px;
+  @media screen and (max-width: $additional-size) {
+    flex-direction: column;
+    justify-content: center;
   }
+}
 
-  .header-right-part {
-    @include flex-row(center, space-between);
+.logo-link {
+  font-family: $font-montserrat;
+  font-weight: 300;
+  text-decoration: none;
+  color: $base-color;
+  padding: 10px 20px;
+  font-size: 20px;
+  transition: 300ms;
+  cursor: pointer;
+
+  &:hover {
+    color: darken($color: $base-color, $amount: 20);
   }
+  @media screen and (max-width: $additional-size) {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  @media screen and (max-width: $mobile) {
+    font-size: 16px;
+  }
+}
+.header-right-part {
+  @include flex-row(center, space-between);
+}
 
-  .logout-button {
-    margin-left: 20px;
+.logout-button {
+  margin-left: 20px;
+  @media screen and (max-width: $additional-size) {
+    font-size: 10px;
   }
 }
 
