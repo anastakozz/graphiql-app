@@ -28,15 +28,11 @@ export function MainSectionList({
         {type &&
           Object.values(type).map((type, index) => (
             <li
-              className="list-item"
+              className={`list-item ${index === activeItem && typeActive === type && 'active'}`}
               onClick={() => {
                 setOpenedTypes([type]);
                 setActiveItem(index === activeItem ? null : index);
                 setTypeActive(type);
-              }}
-              style={{
-                backgroundColor:
-                  index === activeItem && typeActive === type ? '#f4edff' : undefined,
               }}
               key={index}
             >

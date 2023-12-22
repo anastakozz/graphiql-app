@@ -16,7 +16,7 @@ export function ArgsDetails({
           <h2>{data?.arguments}</h2>
           {openedType.args.map((arg) => (
             <div
-              className="list-item"
+              className={`list-item ${arg.name === typesActive[mainIndex] && 'active'}`}
               key={arg.name}
               onClick={() => {
                 setOpenedTypes((prevOpenedTypes) => {
@@ -27,9 +27,6 @@ export function ArgsDetails({
                   const newTypeActive = prevTypesActive.slice(0, mainIndex);
                   return [...newTypeActive, arg.name];
                 });
-              }}
-              style={{
-                backgroundColor: arg.name === typesActive[mainIndex] ? '#f4edff' : undefined,
               }}
             >
               <span className="base-color">{arg.name}</span>:

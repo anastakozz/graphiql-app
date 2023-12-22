@@ -27,7 +27,7 @@ export function TypeDetails({
                 <li className="deprecated">#Deprecated: {type.deprecationReason}</li>
               )}
               <li
-                className="list-item types-item"
+                className={`list-item types-item ${type.name === typesActive[mainIndex] && 'active'}`}
                 onClick={() => {
                   setOpenedTypes((prevOpenedTypes): ITypeObject[] => {
                     const newArr = prevOpenedTypes.slice(0, mainIndex + 1);
@@ -38,9 +38,6 @@ export function TypeDetails({
                     const newTypeActive = prevTypesActive.slice(0, mainIndex);
                     return [...newTypeActive, type.name];
                   });
-                }}
-                style={{
-                  backgroundColor: type.name === typesActive[mainIndex] ? '#f4edff' : undefined,
                 }}
                 key={type.name}
               >
