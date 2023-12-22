@@ -1,8 +1,7 @@
 .bottom-console {
-  position: absolute;
-  bottom: 16px;
-  left: 10px;
-  width: calc(100% - 20px);
+  background: #fbf9ff;
+  border-radius: 0 0 8px 8px;
+  width: full;
   height: 50px;
   transition: 300ms;
   overflow: hidden;

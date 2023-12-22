@@ -10,9 +10,10 @@
   }
 }
 .request-section {
+  @include flex-colum(stretch, space-between);
   height: 100%;
   width: 50%;
-  padding: 10px 10px;
+  padding: 10px 10px 15px 10px;
   position: relative;
   @media screen and (max-width: $tablet) {
     width: 100%;
@@ -21,7 +22,7 @@
 .response-section {
   height: 100%;
   width: 50%;
-  padding: 10px 10px;
+  padding: 10px 10px 15px 10px;
   @media screen and (max-width: $tablet) {
     width: 100%;
   }
@@ -33,14 +34,14 @@
   width: 100%;
   padding: 10px;
   background: #fbf9ff;
-  border-radius: 8px;
+  border-radius: 8px 8px 0 0;
   border: 0;
   outline: none;
   overflow: scroll;
 }
 
 .json-output {
-  height: calc(100% - 5px);
+  height: 100%;
   width: 100%;
   padding: 10px;
   background: lighten($mian-background, $amount: 8);
