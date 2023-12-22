@@ -65,10 +65,25 @@
   border: 0;
   transition: 300ms;
   text-decoration: none;
+
+  &:hover {
+    background: lighten($color: $base-color, $amount: 10%);
+  }
+}
+
+.link-button__filled {
   background: $base-color;
   color: $white;
 
   &:hover {
     background: lighten($color: $base-color, $amount: 10%);
+  }
+}
+
+.link-button__empty {
+  color: $base-color;
+  background: transparent;
+  &:hover {
+    background: $base-background-light;
   }
 }

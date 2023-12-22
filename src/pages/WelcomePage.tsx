@@ -1,14 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ABOUT_US, setAuthListener, userContext } from '../lib';
-import { Button, TeamBlock } from '../components';
+import { TeamBlock } from '../components';
 import { pageData } from '../lib/commonTypes/interfaces';
 
 export default function WelcomePage() {
   const { localData } = useContext(userContext);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [data, setData] = useState<pageData | null>(null);
-  const navigate = useNavigate();
 
   useEffect(() => setAuthListener({ setIsUserLoggedIn }), []);
   useEffect(() => {
@@ -25,17 +24,18 @@ export default function WelcomePage() {
           <div className="sign-links-container text-center">
             {!isUserLoggedIn ? (
               <>
-                <Button onClick={() => navigate('/sign-in')} className="" variant="link">
-                  {data.signIn}
-                </Button>
-                <Button onClick={() => navigate('/sign-up')} className="" variant="link">
-                  {data.signUp}
-                </Button>
+                <Link className="link-button link-button__empty " to="/sign-in">
+                  <p>{data.signIn}</p>
+                </Link>
+
+                <Link className="link-button link-button__empty" to="/sign-up">
+                  <p>{data.signUp}</p>
+                </Link>
               </>
             ) : (
-              <Button onClick={() => navigate('/main')} className="" variant="link">
-                {data.toMain}
-              </Button>
+              <Link className="link-button link-button__empty " to="/main">
+                <p>{data.toMain}</p>
+              </Link>
             )}
           </div>
 
