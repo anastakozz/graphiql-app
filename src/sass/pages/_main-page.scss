@@ -37,7 +37,7 @@
 
 .json-input {
   margin-top: 10px;
-  height: 100%;
+  flex-grow: 1;
   padding: 10px;
   background: $input-color;
   color: $text-color-2;
