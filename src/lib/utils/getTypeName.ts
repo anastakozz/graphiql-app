@@ -1,5 +1,6 @@
 import { IOfType } from '../../components/Documentation/documentation.types.ts';
 import { Maybe } from 'graphql/jsutils/Maybe';
+import { GraphQLList, GraphQLNonNull } from 'graphql/type';
 
 export function getTypeName(
   obj: IOfType | undefined,
@@ -14,11 +15,9 @@ export function getTypeName(
     return obj[typeName] ? obj[typeName] : getTypeName(obj.ofType, isJustName, typeName);
   }
 
-  const objType = obj?.constructor.name;
-
-  if (objType === 'GraphQLList') {
+  if (obj instanceof GraphQLList) {
     return `[${getTypeName(obj.ofType)}]`;
-  } else if (objType === 'GraphQLNonNull') {
+  } else if (obj instanceof GraphQLNonNull) {
     return `${getTypeName(obj.ofType)}!`;
   }
   return obj[typeName] || '';

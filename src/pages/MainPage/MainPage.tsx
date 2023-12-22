@@ -38,9 +38,7 @@ export default function MainPage() {
             setIsSchemaLoaded={setIsSchemaLoaded}
           />
         </Suspense>
-        <div onClick={() => isSchemaLoaded && setShowDocs(!showDocs)} className="docs-badge">
-          <p>{data.button}</p>
-        </div>
+        <button onClick={() => isSchemaLoaded && setShowDocs(!showDocs)} className="docs-badge">{data.button}</button>
       </div>
     )
   );

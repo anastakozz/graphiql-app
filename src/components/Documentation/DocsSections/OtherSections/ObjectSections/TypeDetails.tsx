@@ -17,9 +17,7 @@ export function TypeDetails({
       <ul className="types-list">
         <li className="mb10">
           <span className="base-color">type </span>
-          <span className="red-color">
-            {openedType.type && getTypeName(openedType.type, true)}
-          </span>{' '}
+          <span className="red-color">{openedType.type && getTypeName(openedType.type, true)}</span>
           &#123;
         </li>
         {fields &&

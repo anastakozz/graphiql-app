@@ -83,6 +83,7 @@
   top: 100px;
   right: -52px;
   width: 140px;
+  border: 0;
   border-radius: 5px 5px 0px 0px;
   background-color: $main-button-color;
   color: $white;
@@ -91,6 +92,7 @@
   cursor: pointer;
   transition: 300ms;
   z-index: 10;
+  font-size: 16px;
   &:hover {
     background-color: lighten($color: $main-button-color, $amount: 10%);
   }
@@ -109,7 +111,7 @@
   height: 100%;
   padding: 0;
   flex-shrink: 0;
-  transition: 300ms;
+  transition: width 300ms;
   background: $transparent-dark;
   border-radius: 10px;
 

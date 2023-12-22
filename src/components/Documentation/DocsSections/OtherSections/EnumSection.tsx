@@ -17,11 +17,8 @@ export function EnumSection({ openedType }: IScalarSection) {
   return (
     <div className="docs-section-content">
       <div className="header-name">
-        <span className="red-color">{openedType?.name}</span>:{' '}
-        <span className="green-color">
-          {' '}
-          {openedType.type && getTypeName(openedType.type, true)}
-        </span>
+        <span className="red-color">{openedType?.name}</span>:
+        <span className="green-color">{openedType.type && getTypeName(openedType.type, true)}</span>
       </div>
       <h2>{data?.typeDetails}</h2>
       <p className="description">{getTypeName(openedType.type, true, 'description')}</p>
