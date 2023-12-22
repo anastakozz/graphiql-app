@@ -3,11 +3,13 @@ import userContext from '../../lib/context.ts';
 import { pageData } from '../../lib/commonTypes/interfaces.ts';
 import { ApiErrorPopup, JsonEditor, URLInput } from '../../components/index.ts';
 import RequestBlock from './RequestBlock.tsx/RequestBlock.tsx';
+import { useAppSelector } from '../../hooks.ts';
 
 export default function MainPage() {
   const { localData } = useContext(userContext);
   const [data, setData] = useState<pageData | null>(null);
   const [showDocs, setShowDocs] = useState<boolean>(false);
+  const response = useAppSelector((state) => state.editor.jsonResponse);
 
   useEffect(() => {
     if (localData) {
@@ -24,10 +26,10 @@ export default function MainPage() {
           <URLInput />
           <RequestBlock />
         </div>
-
         <div className="response-section">
-          <JsonEditor viewMode={true} />
+          <JsonEditor readOnly={true} value={response} language="json" className="json-output" />
         </div>
+
         <div className={`docs-section ${showDocs ? 'docs-section-open' : ''}`}>
           <div className="docs-section-content">
             <h2>{data.docs}</h2>

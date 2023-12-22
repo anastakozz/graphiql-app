@@ -19,7 +19,7 @@
 }
 
 .bottom-console__header {
-  @include flex-row(center, flex-start);
+  @include flex-row(center, space-between);
   width: 100%;
   height: 50px;
   padding: 10px;
@@ -48,6 +48,8 @@
 
 .expand-button {
   cursor: pointer;
+  border: none;
+  background: none;
 
   svg {
     transition: 300ms;

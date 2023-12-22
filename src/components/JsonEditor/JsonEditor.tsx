@@ -1,43 +1,39 @@
-import { useAppSelector } from '../../hooks';
 import CodeMirror from '@uiw/react-codemirror';
 import { jsonLanguage } from '@codemirror/lang-json';
 import { materialLightInit } from '@uiw/codemirror-themes-all';
 import { settingsCodemirror } from '../../lib/constants';
-import { graphql } from 'cm6-graphql';
+import { graphqlLanguage } from 'cm6-graphql';
 
-type Props = {
-  viewMode: boolean;
-  value: string;
-  onChange: (value: string) => void;
+const languages = {
+  json: jsonLanguage,
+  graphql: graphqlLanguage,
 };
 
-export default function JsonEditor({ viewMode = false, value, onChange }: Partial<Props>) {
-  const response = useAppSelector((state) => state.editor.jsonResponse);
+type Props = {
+  language: keyof typeof languages;
+  value: string;
+  className: string;
+  readOnly?: boolean;
+  onChange?: (value: string) => void;
+};
 
-  if (viewMode) {
-    return (
-      <CodeMirror
-        className="json-output"
-        theme={materialLightInit({
-          settings: settingsCodemirror,
-        })}
-        readOnly={true}
-        value={response}
-        extensions={[jsonLanguage]}
-      />
-    );
-  }
-
+export default function JsonEditor({
+  readOnly = false,
+  value,
+  onChange,
+  language,
+  className,
+}: Props) {
   return (
     <CodeMirror
       theme={materialLightInit({
         settings: settingsCodemirror,
       })}
       value={value}
-      readOnly={false}
-      className="json-input"
+      readOnly={readOnly}
+      className={className}
       onChange={(value) => onChange && onChange(value)}
-      extensions={[graphql()]}
+      extensions={[languages[language]]}
     />
   );
 }
