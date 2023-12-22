@@ -33,7 +33,8 @@
   height: calc(100% - 50px);
   width: 100%;
   padding: 10px;
-  background: #fbf9ff;
+  background: $input-color;
+  color: $text-color-2;
   border-radius: 8px 8px 0 0;
   border: 0;
   outline: none;
@@ -58,7 +59,7 @@
   width: 40px;
   height: 40px;
   border-radius: 40px;
-  border: 3px solid #fff;
+  border: 3px solid $white;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1882352941);
   cursor: pointer;
   transition: 300ms;
@@ -66,16 +67,16 @@
 
 .run-button {
   top: 70px;
-  background: #45d1b5;
+  background: $main-button-color;
   &:hover {
-    background: lighten($color: #45d1b5, $amount: 10);
+    background: lighten($color: $main-button-color, $amount: 10);
   }
 }
 .prettyfy-button {
   top: 118px;
-  background: #4484ff;
+  background: $additional-button-color;
   &:hover {
-    background: lighten($color: #4484ff, $amount: 10);
+    background: lighten($color: $additional-button-color, $amount: 10);
   }
 }
 
@@ -85,15 +86,15 @@
   right: -52px;
   width: 140px;
   border-radius: 5px 5px 0px 0px;
-  background-color: #45d1b5;
-  color: #fff;
+  background-color: $main-button-color;
+  color: $white;
   padding: 10px 15px;
   transform: rotate(-90deg);
   cursor: pointer;
   transition: 300ms;
   z-index: 10;
   &:hover {
-    background-color: lighten($color: #45d1b5, $amount: 10%);
+    background-color: lighten($color: $main-button-color, $amount: 10%);
   }
   @media screen and (max-width: $tablet) {
     top: 450px;
@@ -131,7 +132,7 @@
 .docs-section-content {
   width: 380px;
   height: 100%;
-  background-color: #fff;
+  background-color: $white;
   border-radius: 8px;
   padding: 20px;
   @media screen and (max-width: $tablet) {
