@@ -29,19 +29,24 @@ export function prettifyString(input: string): string {
   for (let i = 0; i < jsonString.length; i++) {
     const char = jsonString[i];
 
-    if (char === '{') {
-      formattedJson += ' {\n' + '  '.repeat(indentationLevel + 1);
+    if (char === '{' || char === '[') {
+      const chunk = `${char}\n` + '  '.repeat(indentationLevel + 1);
+      formattedJson += chunk;
       indentationLevel++;
       continue;
-    } else if (char === '}') {
+    } else if (char === '}' || char === ']') {
       indentationLevel--;
-      formattedJson += '\n' + '  '.repeat(indentationLevel) + '}';
-      if (jsonString[i + 1] !== '}') {
-        formattedJson += '\n';
+      formattedJson += '\n' + '  '.repeat(indentationLevel) + `${char}`;
+
+      if (jsonString[i + 1] !== '}' && jsonString[i + 1] !== ']' && jsonString[i + 1] !== ',') {
+        formattedJson += '\n' + '  '.repeat(indentationLevel);
       }
       continue;
-    } else if (char === ':' && jsonString[i + 1] !== '{') {
+    } else if (char === ':') {
       formattedJson += ': ';
+      continue;
+    } else if (char === ',') {
+      formattedJson += ',' + '\n' + '  '.repeat(indentationLevel);
       continue;
     }
 
@@ -52,10 +57,6 @@ export function prettifyString(input: string): string {
     }
 
     formattedJson += char;
-
-    if (char === '}' && jsonString[i + 1] !== '}') {
-      formattedJson += '\n' + '  '.repeat(indentationLevel);
-    }
   }
 
   return checkKeyWords(formattedJson.trim());
