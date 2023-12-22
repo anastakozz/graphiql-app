@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { EnterIcon } from '../../assets/icons/enter-icon';
+import EnterIcon from '../../assets/icons/enter-icon';
 import { useAppDispatch } from '../../hooks';
 import { introspectApi } from '../../services/api.service';
 import Button from '../Button/Button';
