@@ -48,6 +48,9 @@ export function prettifyString(input: string): string {
     } else if (char === ',') {
       formattedJson += ',' + '\n' + '  '.repeat(indentationLevel);
       continue;
+    } else if (jsonString[i + 1] === '{') {
+      formattedJson += char + ' ';
+      continue;
     }
 
     if (char === '\n') {
