@@ -27,10 +27,12 @@
 
   &:hover {
     background: $base-background-light;
+    transition: 300ms;
   }
 
   &:active {
     transform: scale(0.95);
+    transition: 300ms;
   }
 
 }
