@@ -27,7 +27,16 @@ export default function MainPage() {
           <RequestBlock />
         </div>
         <div className="response-section">
-          <JsonEditor readOnly={true} value={response} language="json" className="json-output" />
+          <div className="output-wrapper">
+            {response.length !== 0 && (
+              <JsonEditor
+                readOnly={true}
+                value={response}
+                language="json"
+                className="json-output"
+              />
+            )}
+          </div>
         </div>
 
         <div className={`docs-section ${showDocs ? 'docs-section-open' : ''}`}>
