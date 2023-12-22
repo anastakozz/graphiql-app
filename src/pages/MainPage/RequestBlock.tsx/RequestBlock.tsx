@@ -1,7 +1,5 @@
 import { useContext, useState } from 'react';
-import { CodeIcon } from '../../../assets/icons/code-icon';
-import { PlayIcon } from '../../../assets/icons/play-icon';
-import { BottomConsole, JsonEditor } from '../../../components';
+import { BottomConsole, JsonEditor, PlayButton, PrettifyButton } from '../../../components';
 import { userContext } from '../../../lib';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { introspectApi, makeRequest } from '../../../services/api.service';
@@ -48,12 +46,8 @@ export default function RequestBlock() {
   return (
     <>
       <JsonEditor value={query} onChange={handleChange} />
-      <div className="action-button run-button" onClick={sendRequest}>
-        <PlayIcon />
-      </div>
-      <div className="action-button prettyfy-button" onClick={prettify}>
-        <CodeIcon />
-      </div>
+      <PlayButton onClick={sendRequest} />
+      <PrettifyButton onClick={prettify} />
       <BottomConsole
         headers={headers}
         variables={variables}
