@@ -4,7 +4,7 @@ import userContext from './context';
 import { Language } from './commonTypes/enum';
 import { auth } from './firebaseConfig';
 import router from './router';
-import { getJSON } from './utils';
+import getJSON from './utils/getJson';
 import { validationSchema, combinedSchema } from './validationSchema';
 
 export {

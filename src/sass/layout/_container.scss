@@ -42,10 +42,6 @@
   text-align: right;
 }
 
-.spacer {
-  flex: 1;
-}
-
 .main-inner {
   @include flex-colum();
   position: relative;

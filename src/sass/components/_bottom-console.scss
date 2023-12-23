@@ -1,8 +1,7 @@
 .bottom-console {
-  position: absolute;
-  bottom: 16px;
-  left: 10px;
-  width: calc(100% - 20px);
+  background: $input-color;
+  border-radius: 0 0 8px 8px;
+  width: full;
   height: 50px;
   transition: 300ms;
   overflow: hidden;
@@ -19,12 +18,11 @@
 }
 
 .bottom-console__header {
-  @include flex-row(center, flex-start);
+  @include flex-row(center, space-between);
   width: 100%;
   height: 50px;
   padding: 10px;
   border-top: 1px solid $base-color;
-  background: #fbf9ff96;
   @media screen and (max-width: $tablet) {
     height: 30px;
   }
@@ -49,6 +47,8 @@
 
 .expand-button {
   cursor: pointer;
+  border: none;
+  background: none;
 
   svg {
     transition: 300ms;
