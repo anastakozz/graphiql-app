@@ -4,34 +4,25 @@ import { Language } from '../../lib';
 
 export default function LanguageSelect() {
   const { localData, changeLocalData } = useContext(userContext);
-  return changeLocalData ? (
-    <div className="language-select">
-      <button
-        className={`language-button ${
-          localData && localData.language.code == 'ru' ? ' language-button-active' : ''
-        }`}
-        onClick={() => changeLocalData(Language.ru)}
-      >
-        RU
-      </button>
-      <button
-        className={`language-button ${
-          localData && localData.language.code == 'en' ? ' language-button-active' : ''
-        }`}
-        onClick={() => changeLocalData(Language.en)}
-      >
-        EN
-      </button>
-      <button
-        className={`language-button ${
-          localData && localData.language.code == 'es' ? ' language-button-active' : ''
-        }`}
-        onClick={() => changeLocalData(Language.es)}
-      >
-        ES
-      </button>
-    </div>
-  ) : (
-    <></>
+  const languages = Object.values(Language);
+  return (
+    !!changeLocalData && (
+      <div className="language-select">
+        {languages.map((item) => {
+          return (
+            <>
+              <button
+                className={`language-button ${
+                  localData && localData.language.code == item ? ' language-button-active' : ''
+                }`}
+                onClick={() => changeLocalData(Language[item])}
+              >
+                {item.toUpperCase()}
+              </button>
+            </>
+          );
+        })}
+      </div>
+    )
   );
 }
