@@ -8,14 +8,14 @@ import { userContext } from '../../lib';
 import { updateEditorResponse } from '../../store/jsonSlice';
 
 export default function URLInput() {
-  const { localData } = useContext(userContext);
+  const errorMessages = useContext(userContext).localData?.apiResponse;
   const dispatch = useAppDispatch();
   const [value, setValue] = useState('');
 
   const checkApi = async () => {
     const data = await introspectApi(value);
     if (data instanceof Error) {
-      dispatch(updateApiError(localData && localData.apiResponse.invalidUrl));
+      dispatch(updateApiError(errorMessages && errorMessages.invalidUrl));
     } else {
       dispatch(updateApiUrl(value));
     }

@@ -1,30 +1,23 @@
-import { useContext, useEffect, useState } from 'react';
-import { pageData } from '../lib/commonTypes/interfaces';
+import { useContext } from 'react';
 import { userContext } from '../lib';
 import { Link } from 'react-router-dom';
 import { Button } from '../components';
 import wrongImage from '../assets/wrong-icon.png';
 
 export default function ErrorPage() {
-  const { localData } = useContext(userContext);
-  const [data, setData] = useState<pageData | null>(null);
+  const dictionary = useContext(userContext).localData?.errorPage;
 
   const handleClick = () => {
     window.location.reload();
   };
-  useEffect(() => {
-    if (localData) {
-      const data = localData['errorPage'];
-      setData(data);
-    }
-  }, [localData]);
+
   return (
-    data && (
+    dictionary && (
       <div className="error-page main-inner">
         <img src={wrongImage} alt="" />
-        <h2 className="not-found-subtitle">{data.message}</h2>
+        <h2 className="not-found-subtitle">{dictionary.message}</h2>
         <Link to="/">
-          <Button onClick={handleClick}>{data.buttonText}</Button>
+          <Button onClick={handleClick}>{dictionary.buttonText}</Button>
         </Link>
       </div>
     )

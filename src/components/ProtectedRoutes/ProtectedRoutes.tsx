@@ -7,6 +7,7 @@ export const ProtectedRoute: FC<Props> = ({ children, isAuthPath }) => {
   const [hasCheckedAuth, setHasCheckedAuth] = useState(false);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   useEffect(() => setAuthListener({ setIsUserLoggedIn, setHasCheckedAuth }), []);
+
   if (!hasCheckedAuth) return null;
 
   if (isAuthPath) {

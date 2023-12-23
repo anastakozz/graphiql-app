@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
-import { pageData } from '../../lib/commonTypes/interfaces';
+import { useContext, useState } from 'react';
 import Button from '../Button/Button';
 import { userContext } from '../../lib';
 import JsonEditor from '../JsonEditor/JsonEditor';
@@ -18,17 +17,10 @@ export default function BottomConsole({
   headers,
   setHeaders,
 }: BottomConsoleProps) {
-  const { localData } = useContext(userContext);
+  const dictionary = useContext(userContext).localData?.mainPage;
 
-  const [data, setData] = useState<pageData>();
   const [open, setOpen] = useState(false);
   const [selectedTab, setSelectedTab] = useState(1);
-
-  useEffect(() => {
-    if (localData) {
-      setData(localData.mainPage);
-    }
-  }, [localData]);
 
   function handleVariables() {
     setOpen(true);
@@ -40,7 +32,7 @@ export default function BottomConsole({
     setSelectedTab(2);
   }
   return (
-    data && (
+    dictionary && (
       <div className={`bottom-console ${open ? 'bottom-console-open' : ''}`}>
         <div className="bottom-console__header">
           <div>
@@ -49,14 +41,14 @@ export default function BottomConsole({
               onClick={handleVariables}
               className={`${selectedTab == 1 ? 'button-link_active' : ''}`}
             >
-              {data.variables}
+              {dictionary.variables}
             </Button>
             <Button
               variant="button-link"
               onClick={handleHeaders}
               className={`${selectedTab == 2 ? 'button-link_active' : ''}`}
             >
-              {data.headers}
+              {dictionary.headers}
             </Button>
           </div>
 
