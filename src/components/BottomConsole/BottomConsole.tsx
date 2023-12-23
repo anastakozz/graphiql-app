@@ -19,18 +19,24 @@ export default function BottomConsole({
 }: BottomConsoleProps) {
   const dictionary = useContext(userContext).localData?.mainPage;
 
+  enum tabs {
+    headers,
+    variables,
+  }
+
   const [open, setOpen] = useState(false);
-  const [selectedTab, setSelectedTab] = useState(1);
+  const [selectedTab, setSelectedTab] = useState(tabs.headers);
 
   function handleVariables() {
     setOpen(true);
-    setSelectedTab(1);
+    setSelectedTab(tabs.variables);
   }
 
   function handleHeaders() {
     setOpen(true);
-    setSelectedTab(2);
+    setSelectedTab(tabs.headers);
   }
+
   return (
     dictionary && (
       <div className={`bottom-console ${open ? 'bottom-console-open' : ''}`}>
@@ -39,14 +45,14 @@ export default function BottomConsole({
             <Button
               variant="button-link"
               onClick={handleVariables}
-              className={`${selectedTab == 1 ? 'button-link_active' : ''}`}
+              className={`${selectedTab === tabs.variables ? 'button-link_active' : ''}`}
             >
               {dictionary.variables}
             </Button>
             <Button
               variant="button-link"
               onClick={handleHeaders}
-              className={`${selectedTab == 2 ? 'button-link_active' : ''}`}
+              className={`${selectedTab === tabs.headers ? 'button-link_active' : ''}`}
             >
               {dictionary.headers}
             </Button>
@@ -61,7 +67,7 @@ export default function BottomConsole({
         </div>
 
         <div className="bottom-console__inner">
-          {selectedTab == 1 && (
+          {selectedTab === tabs.variables && (
             <JsonEditor
               value={variables}
               language="json"
@@ -69,7 +75,7 @@ export default function BottomConsole({
               onChange={(value) => setVariables(value)}
             />
           )}
-          {selectedTab == 2 && (
+          {selectedTab === tabs.headers && (
             <JsonEditor
               value={headers}
               language="json"
