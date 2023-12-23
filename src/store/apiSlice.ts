@@ -19,6 +19,9 @@ const apiSlice = createSlice({
     updateApiUrl(state, action: PayloadAction<string>) {
       state.apiUrl = action.payload;
     },
+    updateApiSchema(state, action: PayloadAction<object>) {
+      state.apiSchema = action.payload;
+    },
     updateApiError(state, action: PayloadAction<string | null | undefined>) {
       if (action.payload !== undefined) {
         state.apiError = action.payload;
@@ -29,6 +32,6 @@ const apiSlice = createSlice({
   },
 });
 
-export const { updateApiUrl, updateApiError } = apiSlice.actions;
+export const { updateApiUrl, updateApiSchema, updateApiError } = apiSlice.actions;
 
 export default apiSlice.reducer;
