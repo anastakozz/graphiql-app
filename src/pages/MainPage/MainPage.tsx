@@ -10,6 +10,7 @@ export default function MainPage() {
   const [data, setData] = useState<pageData | null>(null);
   const [showDocs, setShowDocs] = useState<boolean>(false);
   const response = useAppSelector((state) => state.editor.jsonResponse);
+  const url = useAppSelector((state) => state.api.apiUrl);
 
   useEffect(() => {
     if (localData) {
@@ -28,7 +29,7 @@ export default function MainPage() {
         </div>
         <div className="response-section">
           <div className="output-wrapper">
-            {response.length !== 0 && (
+            {response.length !== 0 && url.length !== 0 && (
               <JsonEditor
                 readOnly={true}
                 value={response}

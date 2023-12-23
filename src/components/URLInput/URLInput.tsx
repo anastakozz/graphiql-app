@@ -5,6 +5,7 @@ import { introspectApi } from '../../services/api.service';
 import Button from '../Button/Button';
 import { updateApiUrl, updateApiError } from '../../store/apiSlice';
 import { userContext } from '../../lib';
+import { updateEditorResponse } from '../../store/jsonSlice';
 
 export default function URLInput() {
   const { localData } = useContext(userContext);
@@ -23,6 +24,7 @@ export default function URLInput() {
   const updateValue = (value: string) => {
     setValue(value);
     dispatch(updateApiUrl(''));
+    dispatch(updateEditorResponse(''));
   };
   return (
     <div className="url-component">
