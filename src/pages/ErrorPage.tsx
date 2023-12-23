@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import { userContext } from '../lib';
-import { Link } from 'react-router-dom';
 import { Button } from '../components';
 import wrongImage from '../assets/wrong-icon.png';
 
@@ -16,9 +15,7 @@ export default function ErrorPage() {
       <div className="error-page main-inner">
         <img src={wrongImage} alt="" />
         <h2 className="not-found-subtitle">{dictionary.message}</h2>
-        <Link to="/">
-          <Button onClick={handleClick}>{dictionary.buttonText}</Button>
-        </Link>
+        <Button onClick={handleClick}>{dictionary.buttonText}</Button>
       </div>
     )
   );

@@ -1,12 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ABOUT_US, setAuthListener, userContext } from '../lib';
-import { Button, TeamBlock } from '../components';
+import { TeamBlock } from '../components';
 
 export default function WelcomePage() {
   const dictionary = useContext(userContext).localData?.welcomePage;
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => setAuthListener({ setIsUserLoggedIn }), []);
 
@@ -16,17 +15,18 @@ export default function WelcomePage() {
         <div className="container900 welcome-section">
           <div className="sign-links-container text-center">
             {isUserLoggedIn ? (
-              <Button onClick={() => navigate('/main')} className="" variant="link">
-                {dictionary.toMain}
-              </Button>
+              <Link className="link-button link-button__empty " to="/main">
+              <p>{dictionary.toMain}</p>
+            </Link>
             ) : (
               <>
-                <Button onClick={() => navigate('/sign-in')} className="" variant="link">
-                  {dictionary.signIn}
-                </Button>
-                <Button onClick={() => navigate('/sign-up')} className="" variant="link">
-                  {dictionary.signUp}
-                </Button>
+                <Link className="link-button link-button__empty " to="/sign-in">
+                  <p>{dictionary.signIn}</p>
+                </Link>
+
+                <Link className="link-button link-button__empty" to="/sign-up">
+                  <p>{dictionary.signUp}</p>
+                </Link>
               </>
             )}
           </div>
