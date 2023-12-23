@@ -15,7 +15,11 @@ export default function WelcomePage() {
       <main>
         <div className="container900 welcome-section">
           <div className="sign-links-container text-center">
-            {!isUserLoggedIn ? (
+            {isUserLoggedIn ? (
+              <Button onClick={() => navigate('/main')} className="" variant="link">
+                {dictionary.toMain}
+              </Button>
+            ) : (
               <>
                 <Button onClick={() => navigate('/sign-in')} className="" variant="link">
                   {dictionary.signIn}
@@ -24,10 +28,6 @@ export default function WelcomePage() {
                   {dictionary.signUp}
                 </Button>
               </>
-            ) : (
-              <Button onClick={() => navigate('/main')} className="" variant="link">
-                {dictionary.toMain}
-              </Button>
             )}
           </div>
 
