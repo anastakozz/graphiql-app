@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { updateApiError } from '../../store/apiSlice';
-import { Button } from '../../components';
+import { ErrorPopUp } from '../../components';
 
 export default function ApiErrorPopup() {
   const dispatch = useAppDispatch();
@@ -10,17 +10,5 @@ export default function ApiErrorPopup() {
     dispatch(updateApiError(null));
   };
 
-  return (
-    error && (
-      <>
-        <div className="popup-shade" onClick={closeError}></div>
-        <div className="popup">
-          <Button onClick={closeError} className="error-button">
-            x
-          </Button>
-          <div>{error}</div>
-        </div>
-      </>
-    )
-  );
+  return error && <ErrorPopUp error={error} onClick={closeError} />;
 }

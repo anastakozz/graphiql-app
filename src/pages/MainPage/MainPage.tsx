@@ -1,8 +1,9 @@
 import { useContext, useState } from 'react';
 import userContext from '../../lib/context.ts';
-import { ApiErrorPopup, JsonEditor, URLInput } from '../../components/index.ts';
+import { JsonEditor, URLInput } from '../../components/index.ts';
 import RequestBlock from './RequestBlock.tsx/RequestBlock.tsx';
 import { useAppSelector } from '../../hooks.ts';
+import ApiErrorPopup from '../../components/ApiErrorPopup/ApiErrorPopup.tsx';
 
 export default function MainPage() {
   const dictionary = useContext(userContext).localData?.mainPage;

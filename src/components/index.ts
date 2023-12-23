@@ -7,7 +7,6 @@ import Email from './AuthInputs/Email.tsx';
 import Password from './AuthInputs/Password.tsx';
 import BottomConsole from './BottomConsole/BottomConsole.tsx';
 import URLInput from './URLInput/URLInput.tsx';
-import ApiErrorPopup from './ApiErrorPopup/ApiErrorPopup.tsx';
 import ErrorPopUp from './ErrorPopUp/ErrorPopUp.tsx';
 import JsonEditor from './JsonEditor/JsonEditor.tsx';
 import PlayButton from './iconButtons/PlayButton.tsx';
@@ -23,7 +22,6 @@ export {
   TeamBlock,
   BottomConsole,
   URLInput,
-  ApiErrorPopup,
   ErrorPopUp,
   JsonEditor,
   PlayButton,
