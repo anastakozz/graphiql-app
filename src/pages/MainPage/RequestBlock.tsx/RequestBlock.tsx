@@ -46,7 +46,7 @@ export default function RequestBlock() {
   return (
     <>
       <JsonEditor value={query} onChange={handleChange} language="graphql" className="json-input" />
-      <PlayButton onClick={sendRequest} />
+      <PlayButton onClick={sendRequest} disabled={url.length === 0} />
       <PrettifyButton onClick={prettify} />
       <BottomConsole
         headers={headers}

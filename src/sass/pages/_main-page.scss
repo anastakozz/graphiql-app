@@ -44,14 +44,14 @@
   border-radius: 8px 8px 0 0;
   border: 0;
   outline: none;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .json-output {
   height: 100%;
   padding: 10px 25px 10px 10px;
   outline: none;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .action-button {
@@ -72,6 +72,11 @@
   background: $main-button-color;
   &:hover {
     background: lighten($color: $main-button-color, $amount: 10);
+  }
+  &:disabled {
+    background: darken($color: $main-button-color, $amount: 10);
+    border-color: darken($color: $white, $amount: 10);
+    cursor: auto;
   }
 }
 .prettyfy-button {

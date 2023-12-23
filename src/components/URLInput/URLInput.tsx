@@ -19,13 +19,18 @@ export default function URLInput() {
       dispatch(updateApiUrl(value));
     }
   };
+
+  const updateValue = (value: string) => {
+    setValue(value);
+    dispatch(updateApiUrl(''));
+  };
   return (
     <div className="url-component">
       <input
         placeholder="https://your-url"
         type="text"
         className="url-input"
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => updateValue(e.target.value)}
       />
       <Button className="input-button" onClick={checkApi} disabled={value.length === 0}>
         <EnterIcon />
