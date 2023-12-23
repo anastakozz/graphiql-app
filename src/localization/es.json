@@ -45,7 +45,8 @@
     "error": "¡Clave o usuario inválido!"
   },
   "signUpPage": {
-    "signUpTitle": "Inscribirse"
+    "signUpTitle": "Inscribirse",
+    "error": "Correo electrónico ya está en uso"
   },
   "authorization": {
     "signIn": "Iniciar sesión",

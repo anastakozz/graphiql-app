@@ -45,7 +45,8 @@
     "error": "Неверный логин или пароль!"
   },
   "signUpPage": {
-    "signUpTitle": "Регистрация"
+    "signUpTitle": "Регистрация",
+    "error": "Адрес электроннй почты уже используется"
   },
   "authorization": {
     "signIn": "Войти",

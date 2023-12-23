@@ -45,7 +45,8 @@
     "error": "Invalid login or password!"
   },
   "signUpPage": {
-    "signUpTitle": "Sign Up"
+    "signUpTitle": "Sign Up",
+    "error": "Email is already in use!"
   },
   "authorization": {
     "signIn": "Sign in",
