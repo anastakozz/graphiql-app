@@ -8,18 +8,17 @@ export default function LanguageSelect() {
   return (
     !!changeLocalData && (
       <div className="language-select">
-        {languages.map((item) => {
+        {languages.map((item, index) => {
           return (
-            <>
-              <button
-                className={`language-button ${
-                  localData && localData.language.code == item ? ' language-button-active' : ''
-                }`}
-                onClick={() => changeLocalData(Language[item])}
-              >
-                {item.toUpperCase()}
-              </button>
-            </>
+            <button
+              key={`language-button-${index}`}
+              className={`language-button ${
+                localData && localData.language.code == item ? ' language-button-active' : ''
+              }`}
+              onClick={() => changeLocalData(Language[item])}
+            >
+              {item.toUpperCase()}
+            </button>
           );
         })}
       </div>
