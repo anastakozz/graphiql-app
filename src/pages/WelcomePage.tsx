@@ -16,8 +16,8 @@ export default function WelcomePage() {
           <div className="sign-links-container text-center">
             {isUserLoggedIn ? (
               <Link className="link-button link-button__empty " to="/main">
-              <p>{dictionary.toMain}</p>
-            </Link>
+                <p>{dictionary.toMain}</p>
+              </Link>
             ) : (
               <>
                 <Link className="link-button link-button__empty " to="/sign-in">
