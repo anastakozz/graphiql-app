@@ -48,10 +48,10 @@ export default function SignInPage() {
             </Button>
           </form>
         </div>
-        <Link to="/sign-up" className="link-to-registration">
+        <Link to="/sign-up" className="account-link">
           <p>{dictionary.account}</p>
         </Link>
-        {error.length ? <ErrorPopUp onClick={handleError} error={error} /> : <></>}
+        {error.length !== 0 && <ErrorPopUp onClick={handleError} error={error} />}
       </div>
     )
   );

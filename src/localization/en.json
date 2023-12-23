@@ -46,6 +46,7 @@
   },
   "signUpPage": {
     "signUpTitle": "Sign Up",
+    "account": "Already have an account?",
     "error": "Email is already in use!"
   },
   "authorization": {

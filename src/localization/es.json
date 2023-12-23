@@ -46,6 +46,7 @@
   },
   "signUpPage": {
     "signUpTitle": "Inscribirse",
+    "account": "¿Ya tienes una cuenta?",
     "error": "Correo electrónico ya está en uso"
   },
   "authorization": {

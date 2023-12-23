@@ -46,6 +46,7 @@
   },
   "signUpPage": {
     "signUpTitle": "Регистрация",
+    "account": "Уже есть аккаунт?",
     "error": "Адрес электроннй почты уже используется"
   },
   "authorization": {

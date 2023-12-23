@@ -6,7 +6,7 @@ import ConfirmPassword from '../components/AuthInputs/ConfirmPassword';
 import { useContext, useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, userContext, combinedSchema } from '../lib';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function SignUpPage() {
   const dictionary = useContext(userContext).localData?.signUpPage;
@@ -54,7 +54,10 @@ export default function SignUpPage() {
             </Button>
           </form>
         </div>
-        {error.length ? <ErrorPopUp onClick={handleError} error={error} /> : <></>}
+        <Link to="/sign-in" className="account-link">
+          <p>{dictionary.account}</p>
+        </Link>
+        {error.length !== 0 && <ErrorPopUp onClick={handleError} error={error} />}
       </div>
     )
   );
