@@ -6,7 +6,7 @@ import { fetchSchema } from '../../services/api.service';
 import { OtherSectionsBlock } from './DocsSections/OtherSections/OtherSectionsBlock';
 import { MainSectionList } from './DocsSections/MainSection/MainSectionList';
 import { GraphQLFieldMap} from 'graphql/type';
-import { updateApiSchema } from '../../store/apiSlice.ts';
+import { updateApiSchema } from '../../store/apiSlice';
 
 function Documentation({ showDocs, apiUrl }: IDocumentation) {
   const [openedTypes, setOpenedTypes] = useState<Array<ITypeObject>>([]);

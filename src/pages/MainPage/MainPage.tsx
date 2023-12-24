@@ -4,7 +4,7 @@ import { pageData } from '../../lib/commonTypes/interfaces';
 import { ApiErrorPopup, JsonEditor, URLInput } from '../../components/index';
 import RequestBlock from './RequestBlock.tsx/RequestBlock';
 import { lazy, Suspense } from 'react';
-import { useAppSelector } from "../../hooks.ts";
+import { useAppSelector } from "../../hooks";
 
 export default function MainPage() {
   const { localData } = useContext(userContext);
@@ -57,7 +57,7 @@ export default function MainPage() {
             />
           </Suspense>
         )}
-        <button onClick={() => setShowDocs(!showDocs)} className={isUrlValid ? "docs-badge" : "docs-badge not-hover"}>{data.button}</button>
+        <button onClick={() => isUrlValid && setShowDocs(!showDocs)} className={isUrlValid ? "docs-badge" : "docs-badge not-hover"}>{data.button}</button>
       </div>
     )
   );
