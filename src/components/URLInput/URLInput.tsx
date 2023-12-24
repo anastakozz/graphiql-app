@@ -3,7 +3,7 @@ import { EnterIcon } from '../../assets/icons/enter-icon';
 import { useAppDispatch } from '../../hooks';
 import { introspectApi } from '../../services/api.service';
 import Button from '../Button/Button';
-import { updateApiSchema, updateApiUrl, updateApiError } from '../../store/apiSlice';
+import { updateApiUrl, updateApiError } from '../../store/apiSlice';
 import { userContext } from '../../lib';
 
 export default function URLInput() {
@@ -16,7 +16,6 @@ export default function URLInput() {
     if (data instanceof Error) {
       dispatch(updateApiError(localData && localData.apiResponse.invalidUrl));
     } else {
-      dispatch(updateApiSchema(data));
       dispatch(updateApiUrl(value));
     }
   };

@@ -2,8 +2,7 @@ import React from 'react';
 
 export interface IDocumentation {
   showDocs: boolean;
-  isSchemaLoaded: boolean;
-  setIsSchemaLoaded: React.Dispatch<React.SetStateAction<boolean>>;
+  apiUrl: string;
 }
 
 export interface IDocsData {
@@ -91,3 +90,19 @@ export interface ITypeDetailsProps {
   typesActive: string[];
   setTypesActive: React.Dispatch<React.SetStateAction<Array<string>>>;
 }
+
+export interface ISchema {
+  data: {
+    __schema: {
+      queryType: {
+        kind: "OBJECT";
+        name: string;
+      }
+      mutationType: { kind: "OBJECT"; name: string };
+      subscriptionType: { kind: "OBJECT"; name: string };
+      types: [];
+      directives: [];
+    }
+  }
+}
+
