@@ -29,3 +29,10 @@ export const ABOUT_US: AboutUsType[] = [
     bioKey: 'vyacheslavBio',
   },
 ];
+
+export const settingsCodemirror = {
+  caret: '',
+  lineHighlight: '',
+  gutterBackground: '',
+  background: '',
+};

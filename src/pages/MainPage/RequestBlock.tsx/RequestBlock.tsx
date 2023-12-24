@@ -1,13 +1,11 @@
 import { useContext, useState } from 'react';
-import { CodeIcon } from '../../../assets/icons/code-icon';
-import { PlayIcon } from '../../../assets/icons/play-icon';
-import { BottomConsole, JsonEditor } from '../../../components';
+import { BottomConsole, JsonEditor, PlayButton, PrettifyButton } from '../../../components';
 import { userContext } from '../../../lib';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { introspectApi, makeRequest } from '../../../services/api.service';
 import { updateApiError } from '../../../store/apiSlice';
 import { updateEditorResponse } from '../../../store/jsonSlice';
-import { prettifyString } from '../../../lib/utils/prettify';
+import { prettifyString } from '../../../lib/utils/prettifyString';
 
 export default function RequestBlock() {
   const { localData } = useContext(userContext);
@@ -41,19 +39,15 @@ export default function RequestBlock() {
     }
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setQuery(event.target.value);
+  const handleChange = (value: string) => {
+    setQuery(value);
   };
 
   return (
     <>
-      <JsonEditor value={query} onChange={handleChange} />
-      <div className="action-button run-button" onClick={sendRequest}>
-        <PlayIcon />
-      </div>
-      <div className="action-button prettyfy-button" onClick={prettify}>
-        <CodeIcon />
-      </div>
+      <JsonEditor value={query} onChange={handleChange} language="graphql" className="json-input" />
+      <PlayButton onClick={sendRequest} disabled={url.length === 0} />
+      <PrettifyButton onClick={prettify} />
       <BottomConsole
         headers={headers}
         variables={variables}

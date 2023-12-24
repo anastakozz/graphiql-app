@@ -10,9 +10,10 @@
   }
 }
 .request-section {
+  @include flex-colum(stretch, space-between);
   height: 100%;
   width: 50%;
-  padding: 10px 10px;
+  padding: 10px 10px 15px 10px;
   position: relative;
   @media screen and (max-width: $tablet) {
     width: 100%;
@@ -21,33 +22,36 @@
 .response-section {
   height: 100%;
   width: 50%;
-  padding: 10px 10px;
+  padding: 10px 10px 15px 10px;
   @media screen and (max-width: $tablet) {
     width: 100%;
   }
 }
 
+.output-wrapper {
+  background: lighten($mian-background, $amount: 8);
+  border-radius: 8px;
+  height: 100%;
+  width: full;
+}
+
 .json-input {
   margin-top: 10px;
-  height: calc(100% - 51px);
-  width: 100%;
+  flex-grow: 1;
   padding: 10px;
   background: $input-color;
   color: $text-color-2;
-  border-radius: 8px;
+  border-radius: 8px 8px 0 0;
   border: 0;
-  outline: 0;
+  outline: none;
+  overflow-y: scroll;
 }
 
 .json-output {
-  height: calc(100% - 3px);
-  width: 100%;
-  padding: 10px;
-  background: $output-color;
-  color: $text-color-3;
-  border-radius: 8px;
-  border: 0;
-  outline: 0;
+  height: 100%;
+  padding: 10px 25px 10px 10px;
+  outline: none;
+  overflow-y: scroll;
 }
 
 .action-button {
@@ -68,6 +72,11 @@
   background: $main-button-color;
   &:hover {
     background: lighten($color: $main-button-color, $amount: 10);
+  }
+  &:disabled {
+    background: darken($color: $main-button-color, $amount: 10);
+    border-color: darken($color: $white, $amount: 10);
+    cursor: auto;
   }
 }
 .prettyfy-button {

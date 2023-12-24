@@ -1,17 +1,39 @@
-import { useAppSelector } from '../../hooks';
+import CodeMirror from '@uiw/react-codemirror';
+import { jsonLanguage } from '@codemirror/lang-json';
+import { materialLightInit } from '@uiw/codemirror-themes-all';
+import { settingsCodemirror } from '../../lib/constants';
+import { graphqlLanguage } from 'cm6-graphql';
 
-type Props = {
-  viewMode: boolean;
-  value: string;
-  onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+const languages = {
+  json: jsonLanguage,
+  graphql: graphqlLanguage,
 };
 
-export default function JsonEditor({ viewMode = false, value, onChange }: Partial<Props>) {
-  const response = useAppSelector((state) => state.editor.jsonResponse);
+type Props = {
+  language: keyof typeof languages;
+  value: string;
+  className: string;
+  readOnly?: boolean;
+  onChange?: (value: string) => void;
+};
 
-  if (viewMode) {
-    return <textarea value={response} readOnly name="response" className="json-output" />;
-  }
-
-  return <textarea value={value} name="request" className="json-input" onChange={onChange} />;
+export default function JsonEditor({
+  readOnly = false,
+  value,
+  onChange,
+  language,
+  className,
+}: Props) {
+  return (
+    <CodeMirror
+      theme={materialLightInit({
+        settings: settingsCodemirror,
+      })}
+      value={value}
+      readOnly={readOnly}
+      className={className}
+      onChange={(value) => onChange && onChange(value)}
+      extensions={[languages[language]]}
+    />
+  );
 }

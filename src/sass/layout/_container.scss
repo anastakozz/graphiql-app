@@ -42,10 +42,6 @@
   text-align: right;
 }
 
-.spacer {
-  flex: 1;
-}
-
 .main-inner {
   @include flex-colum();
   position: relative;
@@ -55,5 +51,35 @@
   }
   @media screen and (max-width: $mobile) {
     height: calc(100vh - 138px);
+  }
+}
+
+.link-button {
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 0;
+  transition: 300ms;
+  text-decoration: none;
+
+  &:hover {
+    background: lighten($color: $base-color, $amount: 10%);
+  }
+}
+
+.link-button__filled {
+  background: $base-color;
+  color: $white;
+
+  &:hover {
+    background: lighten($color: $base-color, $amount: 10%);
+  }
+}
+
+.link-button__empty {
+  color: $base-color;
+  background: transparent;
+  &:hover {
+    background: $base-background-light;
   }
 }

@@ -10,13 +10,14 @@ export default function MainPage() {
   const { localData } = useContext(userContext);
   const [data, setData] = useState<pageData | null>(null);
   const [showDocs, setShowDocs] = useState<boolean>(false);
+  const response = useAppSelector((state) => state.editor.jsonResponse);
+  const url = useAppSelector((state) => state.api.apiUrl);
   const DocumentationLazy = lazy(() => import('../../components/Documentation/Documentation'));
   const [isUrlValid, setIsUrlValid] = useState(false);
-  const apiUrl = useAppSelector((state) => state.api.apiUrl);
 
   useEffect(() => {
-    apiUrl === '' ? setIsUrlValid(false) : setIsUrlValid(true);
-  }, [apiUrl]);
+    url === '' ? setIsUrlValid(false) : setIsUrlValid(true);
+  }, [url]);
 
   useEffect(() => {
     if (localData) {
@@ -33,18 +34,26 @@ export default function MainPage() {
           <URLInput />
           <RequestBlock />
         </div>
-
         <div className="response-section">
-          <JsonEditor viewMode={true} />
+          <div className="output-wrapper">
+            {response.length !== 0 && url.length !== 0 && (
+              <JsonEditor
+                readOnly={true}
+                value={response}
+                language="json"
+                className="json-output"
+              />
+            )}
+          </div>
         </div>
-        {showDocs && apiUrl !== '' && (
+        {showDocs && isUrlValid && (
           <Suspense fallback={<div className="loader-wrapper">
             <div className="loader"></div>
           </div>
          }>
             <DocumentationLazy
               showDocs={showDocs}
-              apiUrl={apiUrl}
+              apiUrl={url}
             />
           </Suspense>
         )}
