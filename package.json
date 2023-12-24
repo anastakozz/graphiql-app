@@ -52,6 +52,7 @@
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.1",
+    "firestore-jest-mock": "^0.21.0",
     "husky": "^8.0.0",
     "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
