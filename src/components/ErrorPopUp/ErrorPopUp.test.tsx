@@ -1,5 +1,5 @@
 import { render, fireEvent } from '@testing-library/react';
-import ErrorPopUp from './ErrorPopUp'; // Update the import path based on your project structure
+import ErrorPopUp from './ErrorPopUp';
 
 const onClickMock = vi.fn();
 

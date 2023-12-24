@@ -10,6 +10,7 @@
     "lint:fix": "eslint --fix **/*.{ts,tsx} && stylelint **/*.scss --fix",
     "format": "prettier . --write",
     "test": "vitest",
+    "coverage": "vitest run --coverage",
     "preview": "vite preview",
     "prepare": "husky install && npx husky add .husky/pre-commit \"npm run format & npm run lint\" && npx husky add .husky/pre-push \"npm run test -- --watch=false\""
   },

@@ -7,21 +7,21 @@ export interface pageData {
 
 export interface LocalizationData {
   language: { code: string };
-  header: {
+  header?: {
     signOut: string;
     welcomePage: string;
   };
-  welcomePage: pageData;
-  mainPage: {
+  welcomePage?: pageData;
+  mainPage?: {
     variables: string;
     headers: string;
     docs: string;
   };
-  notFoundPage: pageData;
-  errorPage: pageData;
-  signInPage: pageData;
-  signUpPage: pageData;
-  authorization: {
+  notFoundPage?: pageData;
+  errorPage?: pageData;
+  signInPage?: pageData;
+  signUpPage?: pageData;
+  authorization?: {
     signIn: string;
     signUp: string;
     inputsTitle: pageData;
@@ -31,7 +31,7 @@ export interface LocalizationData {
       confirmPassword: pageData;
     };
   };
-  apiResponse: {
+  apiResponse?: {
     invalidUrl: string;
   };
 }
