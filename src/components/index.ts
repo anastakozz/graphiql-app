@@ -11,6 +11,7 @@ import ErrorPopUp from './ErrorPopUp/ErrorPopUp.tsx';
 import JsonEditor from './JsonEditor/JsonEditor.tsx';
 import PlayButton from './iconButtons/PlayButton.tsx';
 import PrettifyButton from './iconButtons/PrettifyButton.tsx';
+import AutorizationLinks from './AutorizationLinks/AutorizationLinks.tsx';
 
 export {
   Footer,
@@ -26,4 +27,5 @@ export {
   JsonEditor,
   PlayButton,
   PrettifyButton,
+  AutorizationLinks,
 };
