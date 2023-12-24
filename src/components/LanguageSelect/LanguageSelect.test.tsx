@@ -4,6 +4,8 @@ import userContext from '../../lib/context';
 import { render, screen, fireEvent } from '@testing-library/react';
 import LanguageSelect from './LanguageSelect';
 
+import en from '../../localization/en.json';
+
 const customRender = (
   ui: ReactNode,
   { providerProps, ...renderOptions }: { providerProps: { value: ContextProps } }
@@ -16,7 +18,7 @@ const customRender = (
 
 describe('LanguageSelect component', () => {
   const mockContext: ContextProps = {
-    localData: { language: { code: 'en' } },
+    localData: en,
     changeLocalData: vi.fn(),
   };
 
