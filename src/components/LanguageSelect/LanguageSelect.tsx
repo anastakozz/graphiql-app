@@ -5,7 +5,7 @@ import { Language } from '../../lib';
 export default function LanguageSelect() {
   const { localData, changeLocalData } = useContext(userContext);
   return changeLocalData ? (
-    <div className="language-select">
+    <div className="language-select" data-testid="language-select">
       <button
         className={`language-button ${
           localData && localData.language.code == 'ru' ? ' language-button-active' : ''

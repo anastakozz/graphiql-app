@@ -20,9 +20,9 @@ export default function Header() {
   };
 
   useEffect(() => {
-    document.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
-      document.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -45,7 +45,7 @@ export default function Header() {
 
   return (
     data && (
-      <header className={`header ${scrolled ? 'header-scroll' : ''}`}>
+      <header data-testid="header" className={`header ${scrolled ? 'header-scroll' : ''}`}>
         <Link className="logo-link" to="/">
           {data.welcomePage}
         </Link>
