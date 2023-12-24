@@ -1,15 +1,13 @@
 import { useContext, useState } from 'react';
 import userContext from '../../lib/context.ts';
-import { JsonEditor, URLInput } from '../../components/index.ts';
+import { URLInput } from '../../components/index.ts';
 import RequestBlock from './RequestBlock.tsx/RequestBlock.tsx';
-import { useAppSelector } from '../../hooks.ts';
 import ApiErrorPopup from '../../components/ApiErrorPopup/ApiErrorPopup.tsx';
+import ResponseBlock from './ResponseBlock.tsx/ResponseBlock.tsx';
 
 export default function MainPage() {
   const dictionary = useContext(userContext).localData?.mainPage;
   const [showDocs, setShowDocs] = useState<boolean>(false);
-  const response = useAppSelector((state) => state.editor.jsonResponse);
-  const url = useAppSelector((state) => state.api.apiUrl);
 
   return (
     dictionary && (
@@ -20,16 +18,7 @@ export default function MainPage() {
           <RequestBlock />
         </div>
         <div className="response-section">
-          <div className="output-wrapper">
-            {response.length !== 0 && url.length !== 0 && (
-              <JsonEditor
-                readOnly={true}
-                value={response}
-                language="json"
-                className="json-output"
-              />
-            )}
-          </div>
+          <ResponseBlock />
         </div>
 
         <div className={`docs-section ${showDocs ? 'docs-section-open' : ''}`}>
