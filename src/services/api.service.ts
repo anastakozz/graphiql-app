@@ -1,3 +1,5 @@
+import { getIntrospectionQuery } from 'graphql';
+
 export const makeRequest = async (
   apiUrl: string,
   query: string,
@@ -54,4 +56,17 @@ export const introspectApi = async (apiUrl: string) => {
   } catch (error) {
     return error;
   }
+};
+
+export const fetchSchema = async (urlApi: string) => {
+  if (!urlApi) return;
+  const response = await fetch(urlApi, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ query: getIntrospectionQuery() }),
+  });
+
+  return await response.json();
 };

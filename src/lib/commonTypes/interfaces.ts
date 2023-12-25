@@ -5,6 +5,19 @@ export interface pageData {
   [key: string]: string;
 }
 
+export interface IMainPage {
+  variables: string;
+  headers: string;
+  docs: {
+    button: string;
+    queries: string;
+    typeDetails: string;
+    arguments: string;
+    mutations: string;
+    subscriptions: string;
+  };
+}
+
 export interface LocalizationData {
   language: { code: string };
   header: {
@@ -12,11 +25,7 @@ export interface LocalizationData {
     welcomePage: string;
   };
   welcomePage: pageData;
-  mainPage: {
-    variables: string;
-    headers: string;
-    docs: string;
-  };
+  mainPage: IMainPage;
   notFoundPage: pageData;
   errorPage: pageData;
   signInPage: pageData;

@@ -1,14 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ISchema } from "../components/Documentation/documentation.types.ts";
 
 interface apiProps {
   apiUrl: string;
-  apiSchema: object;
+  apiSchema: ISchema | null;
   apiError: string | null;
 }
 
 const initialState: apiProps = {
   apiUrl: '',
-  apiSchema: {},
+  apiSchema: null,
   apiError: null,
 };
 
@@ -19,7 +20,7 @@ const apiSlice = createSlice({
     updateApiUrl(state, action: PayloadAction<string>) {
       state.apiUrl = action.payload;
     },
-    updateApiSchema(state, action: PayloadAction<object>) {
+    updateApiSchema(state, action: PayloadAction<ISchema>) {
       state.apiSchema = action.payload;
     },
     updateApiError(state, action: PayloadAction<string | null | undefined>) {

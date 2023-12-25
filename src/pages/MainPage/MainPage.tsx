@@ -1,13 +1,22 @@
-import { useContext, useState } from 'react';
-import userContext from '../../lib/context.ts';
-import { URLInput } from '../../components/index.ts';
-import RequestBlock from './RequestBlock.tsx/RequestBlock.tsx';
+import { useContext, useEffect, useState } from 'react';
+import userContext from '../../lib/context';
+import { URLInput } from '../../components/index';
+import RequestBlock from './RequestBlock.tsx/RequestBlock';
+import { lazy, Suspense } from 'react';
+import { useAppSelector } from "../../hooks";
 import ApiErrorPopup from '../../components/ApiErrorPopup/ApiErrorPopup.tsx';
 import ResponseBlock from './ResponseBlock.tsx/ResponseBlock.tsx';
 
 export default function MainPage() {
   const dictionary = useContext(userContext).localData?.mainPage;
   const [showDocs, setShowDocs] = useState<boolean>(false);
+  const url = useAppSelector((state) => state.api.apiUrl);
+  const DocumentationLazy = lazy(() => import('../../components/Documentation/Documentation'));
+  const [isUrlValid, setIsUrlValid] = useState(false);
+  console.log(dictionary);
+  useEffect(() => {
+    url === '' ? setIsUrlValid(false) : setIsUrlValid(true);
+  }, [url]);
 
   return (
     dictionary && (
@@ -20,16 +29,18 @@ export default function MainPage() {
         <div className="response-section">
           <ResponseBlock />
         </div>
-
-        <div className={`docs-section ${showDocs ? 'docs-section-open' : ''}`}>
-          <div className="docs-section-content">
-            <h2>{dictionary.docs}</h2>
-            <p>some contents here...</p>
+        {showDocs && isUrlValid && (
+          <Suspense fallback={<div className="loader-wrapper">
+            <div className="loader"></div>
           </div>
-        </div>
-        <div onClick={() => setShowDocs(!showDocs)} className="docs-badge">
-          <p>{dictionary.docs}</p>
-        </div>
+         }>
+            <DocumentationLazy
+              showDocs={showDocs}
+              apiUrl={url}
+            />
+          </Suspense>
+        )}
+        <button onClick={() => isUrlValid && setShowDocs(!showDocs)} className={isUrlValid ? "docs-badge" : "docs-badge not-hover"}>{dictionary.docs.button}</button>
       </div>
     )
   );

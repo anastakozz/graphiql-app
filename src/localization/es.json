@@ -25,7 +25,14 @@
   "mainPage": {
     "variables": "Variables",
     "headers": "Encabezadas",
-    "docs": "Documentos"
+    "docs": {
+      "button": "Documentación",
+      "queries": "CONSULTAS",
+      "mutations": "MUTACIONES",
+      "subscriptions": "SUSCRIPCIONES",
+      "typeDetails": "DETALLES DEL TIPO",
+      "arguments": "ARGUMENTS"
+    }
   },
   "header": {
     "welcomePage": "GraphiQL | a la Página de bienvenida",
