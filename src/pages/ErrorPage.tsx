@@ -12,7 +12,7 @@ export default function ErrorPage() {
 
   return (
     dictionary && (
-      <div className="error-page main-inner">
+      <div className="error-page main-inner" role="error-page">
         <img src={wrongImage} alt="" />
         <h2 className="not-found-subtitle">{dictionary.message}</h2>
         <Button onClick={handleClick}>{dictionary.buttonText}</Button>
