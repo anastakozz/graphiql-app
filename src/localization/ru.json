@@ -45,7 +45,9 @@
     "error": "Неверный логин или пароль!"
   },
   "signUpPage": {
-    "signUpTitle": "Регистрация"
+    "signUpTitle": "Регистрация",
+    "account": "Уже есть аккаунт?",
+    "error": "Адрес электроннй почты уже используется"
   },
   "authorization": {
     "signIn": "Войти",
@@ -75,6 +77,7 @@
     }
   },
   "apiResponse": {
-    "invalidUrl": "Пожалуйста, укажите действительный GraphQL URL"
+    "invalidUrl": "Пожалуйста, укажите действительный GraphQL URL",
+    "syntaxError": "Пожалуйста, проверьте ваш запрос!"
   }
 }

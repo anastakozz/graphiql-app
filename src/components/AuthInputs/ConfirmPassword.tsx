@@ -18,9 +18,6 @@ export default function ConfirmPassword({ register, error, setValue }: InputProp
 
   return (
     <div className="input-field">
-      <div className="error-message">
-        {currentError ? '⚠' : ''} {currentError}
-      </div>
       <div className="input-row">
         <label htmlFor="confirmPassword" className="label">
           {labelName}
@@ -32,6 +29,9 @@ export default function ConfirmPassword({ register, error, setValue }: InputProp
           id="confirmPassword"
           onChange={(e) => setValue('confirmPassword', e.target.value, { shouldValidate: true })}
         />
+      </div>
+      <div className="error-message">
+        {currentError ? '⚠' : ''} {currentError}
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { BottomConsole, JsonEditor, PlayButton, PrettifyButton } from '../../../components';
 import { userContext } from '../../../lib';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
-import { introspectApi, makeRequest } from '../../../services/api.service';
+import { makeRequest } from '../../../services/api.service';
 import { updateApiError } from '../../../store/apiSlice';
 import { updateEditorResponse } from '../../../store/jsonSlice';
 import { prettifyString } from '../../../lib/utils/prettifyString';
@@ -29,11 +29,14 @@ export default function RequestBlock() {
   };
 
   const sendRequest = async () => {
-    const data = await introspectApi(url);
-    if (data instanceof Error) {
-      dispatch(updateApiError(localData && localData.apiResponse.invalidUrl));
+    const response = await makeRequest(url, query, variables, headers);
+    if (response instanceof Error) {
+      dispatch(
+        updateApiError(
+          `${localData?.apiResponse.syntaxError} ${response.name}: ${response.message}`
+        )
+      );
     } else {
-      const response = await makeRequest(url, query, variables, headers);
       const prettyResponse = prettifyString(JSON.stringify(response));
       dispatch(updateEditorResponse(prettyResponse));
     }
