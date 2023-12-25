@@ -37,7 +37,7 @@ export default function Header() {
 
   return (
     dictionary && (
-      <header className={`header ${scrolled ? 'header-scroll' : ''}`}>
+      <header data-testid="header" className={`header ${scrolled ? 'header-scroll' : ''}`}>
         <Link className="logo-link" to="/">
           {dictionary.welcomePage}
         </Link>

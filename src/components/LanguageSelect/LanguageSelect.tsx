@@ -5,9 +5,10 @@ import { Language } from '../../lib';
 export default function LanguageSelect() {
   const { localData, changeLocalData } = useContext(userContext);
   const languages = Object.values(Language);
+
   return (
     !!changeLocalData && (
-      <div className="language-select">
+      <div className="language-select" data-testid="language-select">
         {languages.map((item, index) => {
           return (
             <button
