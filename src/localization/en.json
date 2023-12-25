@@ -45,7 +45,9 @@
     "error": "Invalid login or password!"
   },
   "signUpPage": {
-    "signUpTitle": "Sign Up"
+    "signUpTitle": "Sign Up",
+    "account": "Already have an account?",
+    "error": "Email is already in use!"
   },
   "authorization": {
     "signIn": "Sign in",
@@ -75,6 +77,7 @@
     }
   },
   "apiResponse": {
-    "invalidUrl": "Please, provide valid GraphQL URL"
+    "invalidUrl": "Please, provide valid GraphQL URL",
+    "syntaxError": "Please, check your request!"
   }
 }

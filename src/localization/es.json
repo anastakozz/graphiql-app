@@ -45,7 +45,9 @@
     "error": "¡Clave o usuario inválido!"
   },
   "signUpPage": {
-    "signUpTitle": "Inscribirse"
+    "signUpTitle": "Inscribirse",
+    "account": "¿Ya tienes una cuenta?",
+    "error": "Correo electrónico ya está en uso"
   },
   "authorization": {
     "signIn": "Iniciar sesión",
@@ -75,6 +77,7 @@
     }
   },
   "apiResponse": {
-    "invalidUrl": "Por favor, proporcione una URL válida de GraphQL"
+    "invalidUrl": "Por favor, proporcione una URL válida de GraphQL",
+    "syntaxError": "¡Por favor, compruebe sus datos!"
   }
 }

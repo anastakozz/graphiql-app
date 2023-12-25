@@ -5,7 +5,7 @@
 
 .sign-container {
   @include flex-colum(center, center);
-  padding: 10px 20px 20px;
+  padding: 20px;
   background: $base-background-light;
   border-radius: 8px;
   border: 3px solid $base-color;
@@ -19,6 +19,7 @@
   margin: 5px 0;
   font-size: 12px;
   height: 15px;
+  text-align: end;
 }
 
 .label {
@@ -44,7 +45,7 @@
     width: 150px;
   }
 }
-.link-to-registration {
+.account-link {
   margin-top: 10px;
 
   text-decoration: none;

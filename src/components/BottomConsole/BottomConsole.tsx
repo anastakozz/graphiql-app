@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
-import { pageData } from '../../lib/commonTypes/interfaces';
+import { useContext, useState } from 'react';
 import Button from '../Button/Button';
 import { userContext } from '../../lib';
 import JsonEditor from '../JsonEditor/JsonEditor';
@@ -18,45 +17,44 @@ export default function BottomConsole({
   headers,
   setHeaders,
 }: BottomConsoleProps) {
-  const { localData } = useContext(userContext);
+  const dictionary = useContext(userContext).localData?.mainPage;
 
-  const [data, setData] = useState<pageData>();
+  enum tabs {
+    headers,
+    variables,
+  }
+
   const [open, setOpen] = useState(false);
-  const [selectedTab, setSelectedTab] = useState(1);
-
-  useEffect(() => {
-    if (localData) {
-      setData(localData.mainPage);
-    }
-  }, [localData]);
+  const [selectedTab, setSelectedTab] = useState(tabs.headers);
 
   function handleVariables() {
     setOpen(true);
-    setSelectedTab(1);
+    setSelectedTab(tabs.variables);
   }
 
   function handleHeaders() {
     setOpen(true);
-    setSelectedTab(2);
+    setSelectedTab(tabs.headers);
   }
+
   return (
-    data && (
+    dictionary && (
       <div className={`bottom-console ${open ? 'bottom-console-open' : ''}`}>
         <div className="bottom-console__header">
           <div>
             <Button
               variant="button-link"
               onClick={handleVariables}
-              className={`${selectedTab == 1 ? 'button-link_active' : ''}`}
+              className={`${selectedTab === tabs.variables ? 'button-link_active' : ''}`}
             >
-              {data.variables}
+              {dictionary.variables}
             </Button>
             <Button
               variant="button-link"
               onClick={handleHeaders}
-              className={`${selectedTab == 2 ? 'button-link_active' : ''}`}
+              className={`${selectedTab === tabs.headers ? 'button-link_active' : ''}`}
             >
-              {data.headers}
+              {dictionary.headers}
             </Button>
           </div>
 
@@ -69,7 +67,7 @@ export default function BottomConsole({
         </div>
 
         <div className="bottom-console__inner">
-          {selectedTab == 1 && (
+          {selectedTab === tabs.variables && (
             <JsonEditor
               value={variables}
               language="json"
@@ -77,7 +75,7 @@ export default function BottomConsole({
               onChange={(value) => setVariables(value)}
             />
           )}
-          {selectedTab == 2 && (
+          {selectedTab === tabs.headers && (
             <JsonEditor
               value={headers}
               language="json"

@@ -10,13 +10,6 @@ import { useEffect, useState } from 'react';
 export default function App() {
   const [localData, setLocalData] = useState(null);
 
-  useEffect(() => {
-    const getData = async () => {
-      await changeLocalData(Language.en);
-    };
-    getData();
-  }, []);
-
   const changeLocalData = async (language: string) => {
     const data = await getJSON(language);
 
@@ -24,6 +17,13 @@ export default function App() {
       setLocalData(data);
     }
   };
+
+  useEffect(() => {
+    const getData = async () => {
+      await changeLocalData(Language.en);
+    };
+    getData();
+  }, []);
 
   return (
     <userContext.Provider value={{ localData, changeLocalData }}>

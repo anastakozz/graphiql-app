@@ -16,9 +16,6 @@ export default function Email({ register, error, setValue }: InputProps) {
 
   return (
     <div>
-      <div className="error-message">
-        {currentError ? '⚠' : ''} {currentError}
-      </div>
       <div className="input-row">
         <label htmlFor="email" className="label">
           {labelName}
@@ -30,6 +27,9 @@ export default function Email({ register, error, setValue }: InputProps) {
           id="email"
           onChange={(e) => setValue('email', e.target.value, { shouldValidate: true })}
         />
+      </div>
+      <div className="error-message">
+        {currentError ? '⚠' : ''} {currentError}
       </div>
     </div>
   );

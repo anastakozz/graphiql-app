@@ -36,5 +36,18 @@
 }
 
 .button-top-spacer {
-  margin-top: 20px;
+  margin-top: 10px;
+}
+
+.rotating-element {
+  animation: rotate 1s linear infinite;
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 }
