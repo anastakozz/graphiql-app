@@ -13,6 +13,8 @@ export interface IMainPage {
     queries: string;
     typeDetails: string;
     arguments: string;
+    mutations: string;
+    subscriptions: string;
   };
 }
 

@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from 'react';
-import { IDocsData, IMainSection } from '../../documentation.types';
+import { useContext, useState } from 'react';
+import { IMainSection } from '../../documentation.types';
 import userContext from '../../../../lib/context';
 import { getTypeName } from '../../../../lib/utils/getTypeName';
 
@@ -10,20 +10,12 @@ export function MainSectionList({
   typeActive,
   setTypeActive,
 }: IMainSection) {
-  const [docsData, setDocsData] = useState<IDocsData | null>(null);
   const [activeItem, setActiveItem] = useState<number | null>(null);
-  const { localData } = useContext(userContext);
-
-  useEffect(() => {
-    if (localData) {
-      const data = localData.mainPage.docs;
-      setDocsData(data);
-    }
-  }, [localData]);
+  const dictionary = useContext(userContext).localData?.mainPage.docs;
 
   return (
     <>
-      <h2>{docsData && docsData[header]}</h2>
+      <h2>{dictionary && dictionary[header]}</h2>
       <ul>
         {type &&
           Object.values(type).map((type, index) => (

@@ -64,10 +64,12 @@ export interface IGraphQL {
   };
 }
 
+export type TypeOptions = "queries" | "mutations" | "subscriptions";
+
 export interface IMainSection {
   type: IGraphQL;
   setOpenedTypes: React.Dispatch<React.SetStateAction<Array<ITypeObject>>>;
-  header: 'queries' | 'mutations' | 'subscriptions';
+  header: TypeOptions;
   typeActive: IGraphQL | undefined;
   setTypeActive: React.Dispatch<React.SetStateAction<IGraphQL | undefined>>;
 }
@@ -76,7 +78,7 @@ export interface IArgsProps {
   openedType: ITypeObject;
   setOpenedTypes: React.Dispatch<React.SetStateAction<ITypeObject[]>>;
   mainIndex: number;
-  data: IDocsData | null;
+  data: IDocsData | undefined;
   typesActive: string[];
   setTypesActive: React.Dispatch<React.SetStateAction<Array<string>>>;
 }
@@ -85,7 +87,7 @@ export interface ITypeDetailsProps {
   openedType: ITypeObject;
   setOpenedTypes: React.Dispatch<React.SetStateAction<ITypeObject[]>>;
   mainIndex: number;
-  data: IDocsData | null;
+  data: IDocsData | undefined;
   fields: IOfType | string;
   typesActive: string[];
   setTypesActive: React.Dispatch<React.SetStateAction<Array<string>>>;

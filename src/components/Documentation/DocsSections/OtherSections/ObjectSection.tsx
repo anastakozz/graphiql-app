@@ -1,5 +1,5 @@
-import { IDocsData, IObjectProps } from '../../documentation.types';
-import { useContext, useEffect, useState } from 'react';
+import { IObjectProps } from '../../documentation.types';
+import { useContext } from 'react';
 import { getTypeFields } from '../../../../lib/utils/getTypeFields';
 import userContext from '../../../../lib/context';
 import { ObjectHeader } from './ObjectSections/ObjectHeader';
@@ -13,16 +13,8 @@ export function ObjectSection({
   typesActive,
   setTypesActive,
 }: IObjectProps) {
-  const [data, setData] = useState<IDocsData | null>(null);
   const fields = getTypeFields(openedType.type);
-  const { localData } = useContext(userContext);
-
-  useEffect(() => {
-    if (localData) {
-      const data: IDocsData = localData.mainPage.docs;
-      setData(data);
-    }
-  }, [localData]);
+  const dictionary = useContext(userContext).localData?.mainPage.docs;
 
   return (
     <div className="docs-section-content">
@@ -32,7 +24,7 @@ export function ObjectSection({
         openedType={openedType}
         setOpenedTypes={setOpenedTypes}
         fields={fields}
-        data={data}
+        data={dictionary}
         mainIndex={mainIndex}
         typesActive={typesActive}
         setTypesActive={setTypesActive}
@@ -40,7 +32,7 @@ export function ObjectSection({
       <ArgsDetails
         openedType={openedType}
         setOpenedTypes={setOpenedTypes}
-        data={data}
+        data={dictionary}
         mainIndex={mainIndex}
         typesActive={typesActive}
         setTypesActive={setTypesActive}
