@@ -38,9 +38,7 @@ export interface LocalizationData {
       confirmPassword: pageData;
     };
   };
-  apiResponse: {
-    invalidUrl: string;
-  };
+  apiResponse: pageData;
 }
 
 export interface InputData {

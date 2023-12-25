@@ -16,9 +16,6 @@ export default function Password({ register, error, setValue }: InputProps) {
 
   return (
     <div className="input-field">
-      <div className="error-message">
-        {currentError ? '⚠' : ''} {currentError}
-      </div>
       <div className="input-row">
         <label htmlFor="password" className="label">
           {labelName}
@@ -30,6 +27,9 @@ export default function Password({ register, error, setValue }: InputProps) {
           id="password"
           onChange={(e) => setValue('password', e.target.value, { shouldValidate: true })}
         />
+      </div>
+      <div className="error-message">
+        {currentError ? '⚠' : ''} {currentError}
       </div>
     </div>
   );
