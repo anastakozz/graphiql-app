@@ -1,4 +1,4 @@
-import { IDocumentation, IGraphQL, IOfType, ITypeObject } from './documentation.types';
+import { IDocumentation, IGraphQL, IOfType, ITypeData, ITypeObject } from './documentation.types';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { useEffect, useState } from 'react';
 import { buildClientSchema } from 'graphql/utilities';
@@ -67,37 +67,29 @@ function Documentation({ showDocs, apiUrl }: IDocumentation) {
     parseSchema(apiUrl);
   }, [apiUrl, dispatch, schema]);
 
+  const typeData: ITypeData[] = [
+    { type: queries, header: 'queries' },
+    { type: mutations, header: 'mutations' },
+    { type: subscriptions, header: 'subscriptions' },
+  ];
+
   return (
     <div style={dynamicStyles} className={`docs-section ${showDocs ? 'docs-section-open' : ''}`}>
       {isSchemaLoaded ? (
         <>
           <div className="docs-section-content">
-            {queries && (
-              <MainSectionList
-                type={queries}
-                setOpenedTypes={setOpenedTypes}
-                header="queries"
-                typeActive={typeActive}
-                setTypeActive={setTypeActive}
-              />
-            )}
-            {mutations && (
-              <MainSectionList
-                type={mutations}
-                setOpenedTypes={setOpenedTypes}
-                header="mutations"
-                typeActive={typeActive}
-                setTypeActive={setTypeActive}
-              />
-            )}
-            {subscriptions && (
-              <MainSectionList
-                type={subscriptions}
-                setOpenedTypes={setOpenedTypes}
-                header="subscriptions"
-                typeActive={typeActive}
-                setTypeActive={setTypeActive}
-              />
+            {typeData.map(
+              ({ type, header }) =>
+                type && (
+                  <MainSectionList
+                    key={header}
+                    type={type}
+                    setOpenedTypes={setOpenedTypes}
+                    header={header}
+                    typeActive={typeActive}
+                    setTypeActive={setTypeActive}
+                  />
+                )
             )}
           </div>
 

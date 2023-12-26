@@ -1,4 +1,5 @@
 import React from 'react';
+import { GraphQLFieldMap } from 'graphql/type';
 
 export interface IDocumentation {
   showDocs: boolean;
@@ -65,6 +66,11 @@ export interface IGraphQL {
 }
 
 export type TypeOptions = 'queries' | 'mutations' | 'subscriptions';
+
+export interface ITypeData {
+  type: GraphQLFieldMap<ITypeObject, IOfType> | undefined;
+  header: TypeOptions;
+}
 
 export interface IMainSection {
   type: IGraphQL;
