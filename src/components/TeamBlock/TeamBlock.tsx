@@ -5,7 +5,7 @@ export default function TeamBlock({ data, item, index }: ITeamBlock) {
   return (
     <div
       data-testid="team-block"
-      className={`our-team-section__item ${index % 2 != 0 ? ' our-team-section__item_revert' : ''}`}
+      className={`our-team-section-item ${index % 2 != 0 ? ' our-team-section__item_revert' : ''}`}
     >
       <div className="photo-container">
         <img className="team-mate-photo" src={item.img} alt="team-mate" />

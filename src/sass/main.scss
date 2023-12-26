@@ -1,15 +1,11 @@
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
-@import 'abstracts/placeholders';
-
 @import 'base/reset';
 @import 'base/typography';
 @import 'base/codemirror-reset';
-
 @import 'layout/container';
 @import 'layout/header';
 @import 'layout/footer';
-
 @import 'components/button';
 @import 'components/language-select';
 @import 'components/team-block';
@@ -17,7 +13,6 @@
 @import 'components/url-input';
 @import 'components/error-popup';
 @import 'components/documentation';
-
 @import 'pages/error-page';
 @import 'pages/main-page';
 @import 'pages/not-found-page';

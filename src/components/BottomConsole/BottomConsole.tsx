@@ -40,19 +40,19 @@ export default function BottomConsole({
   return (
     dictionary && (
       <div className={`bottom-console ${open ? 'bottom-console-open' : ''}`}>
-        <div className="bottom-console__header">
+        <div className="bottom-console-header">
           <div>
             <Button
               variant="button-link"
               onClick={handleVariables}
-              className={`${selectedTab === tabs.variables ? 'button-link_active' : ''}`}
+              className={`${selectedTab === tabs.variables ? 'button-link-active' : ''}`}
             >
               {dictionary.variables}
             </Button>
             <Button
               variant="button-link"
               onClick={handleHeaders}
-              className={`${selectedTab === tabs.headers ? 'button-link_active' : ''}`}
+              className={`${selectedTab === tabs.headers ? 'button-link-active' : ''}`}
             >
               {dictionary.headers}
             </Button>
@@ -66,7 +66,7 @@ export default function BottomConsole({
           </button>
         </div>
 
-        <div className="bottom-console__inner">
+        <div className="bottom-console-inner">
           {selectedTab === tabs.variables && (
             <JsonEditor
               value={variables}

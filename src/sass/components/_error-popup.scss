@@ -1,13 +1,14 @@
 .popup {
   @include flex-row(center, flex-start);
-  min-width: 200px;
-  min-height: 100px;
+
   position: absolute;
   z-index: 4;
-  background-color: $white;
+  min-width: 200px;
+  min-height: 100px;
   margin: auto;
-  border-radius: 5px;
   padding: 5px 10px;
+  border-radius: 5px;
+  background-color: $white;
 }
 
 .popup-shade {

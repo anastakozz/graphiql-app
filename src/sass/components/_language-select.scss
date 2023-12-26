@@ -1,10 +1,10 @@
 .language-select {
-  @include flex-row();
+  @include flex-row;
 }
 
 .language-button {
-  background: transparent;
   border: 0;
+  background: transparent;
   cursor: pointer;
   transition: 0.3s;
 
@@ -14,7 +14,7 @@
 }
 
 .language-button-active {
-  color: $base-color;
   border-bottom: 1px solid $base-color;
+  color: $base-color;
   cursor: auto;
 }
