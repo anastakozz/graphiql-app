@@ -22,7 +22,11 @@
 
 .main-title {
   margin: 30px 0;
-  background: linear-gradient(200deg, color.adjust($base-color, $lightness: 30%) 20%, $base-color 80%);
+  background: linear-gradient(
+    200deg,
+    color.adjust($base-color, $lightness: 30%) 20%,
+    $base-color 80%
+  );
   background-clip: text;
   font-size: 40px;
   -webkit-text-fill-color: transparent;

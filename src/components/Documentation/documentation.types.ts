@@ -64,7 +64,7 @@ export interface IGraphQL {
   };
 }
 
-export type TypeOptions = "queries" | "mutations" | "subscriptions";
+export type TypeOptions = 'queries' | 'mutations' | 'subscriptions';
 
 export interface IMainSection {
   type: IGraphQL;
@@ -97,14 +97,13 @@ export interface ISchema {
   data: {
     __schema: {
       queryType: {
-        kind: "OBJECT";
+        kind: 'OBJECT';
         name: string;
-      }
-      mutationType: { kind: "OBJECT"; name: string };
-      subscriptionType: { kind: "OBJECT"; name: string };
+      };
+      mutationType: { kind: 'OBJECT'; name: string };
+      subscriptionType: { kind: 'OBJECT'; name: string };
       types: [];
       directives: [];
-    }
-  }
+    };
+  };
 }
-

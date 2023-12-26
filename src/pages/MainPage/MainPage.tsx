@@ -3,7 +3,7 @@ import userContext from '../../lib/context';
 import { URLInput } from '../../components/index';
 import RequestBlock from './RequestBlock.tsx/RequestBlock';
 import { lazy, Suspense } from 'react';
-import { useAppSelector } from "../../hooks";
+import { useAppSelector } from '../../hooks';
 import ApiErrorPopup from '../../components/ApiErrorPopup/ApiErrorPopup.tsx';
 import ResponseBlock from './ResponseBlock.tsx/ResponseBlock.tsx';
 
@@ -30,17 +30,22 @@ export default function MainPage() {
           <ResponseBlock />
         </div>
         {showDocs && isUrlValid && (
-          <Suspense fallback={<div className="loader-wrapper">
-            <div className="loader"></div>
-          </div>
-         }>
-            <DocumentationLazy
-              showDocs={showDocs}
-              apiUrl={url}
-            />
+          <Suspense
+            fallback={
+              <div className="loader-wrapper">
+                <div className="loader"></div>
+              </div>
+            }
+          >
+            <DocumentationLazy showDocs={showDocs} apiUrl={url} />
           </Suspense>
         )}
-        <button onClick={() => isUrlValid && setShowDocs(!showDocs)} className={isUrlValid ? "docs-badge" : "docs-badge not-hover"}>{dictionary.docs.button}</button>
+        <button
+          onClick={() => isUrlValid && setShowDocs(!showDocs)}
+          className={isUrlValid ? 'docs-badge' : 'docs-badge not-hover'}
+        >
+          {dictionary.docs.button}
+        </button>
       </div>
     )
   );
