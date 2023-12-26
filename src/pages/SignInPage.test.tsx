@@ -64,7 +64,7 @@ describe('SignInPage component', () => {
     expect(window.location.pathname).toBe('/sign-up');
   });
 
-  it('validation work', async () => {
+  it('validation work', () => {
     const MAIL = 'lol@mail';
     const PASS = '123';
     customRender(<SignInPage />, { providerProps: { value: mockContext } });
@@ -74,7 +74,7 @@ describe('SignInPage component', () => {
 
     const passwordInput = screen.getByLabelText(/Password/i);
     user.type(passwordInput, PASS);
-    expect(await screen.getAllByRole('error-message').length).toBe(2);
+    expect(screen.getAllByRole('error-message').length).toBe(2);
     const signInButton = screen.getByRole('button', { name: /Sign In/i });
     expect(signInButton).toBeDisabled;
   });
