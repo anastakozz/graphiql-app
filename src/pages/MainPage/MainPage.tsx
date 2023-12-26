@@ -13,9 +13,9 @@ export default function MainPage() {
   const url = useAppSelector((state) => state.api.apiUrl);
   const DocumentationLazy = lazy(() => import('../../components/Documentation/Documentation'));
   const [isUrlValid, setIsUrlValid] = useState(false);
-  console.log(dictionary);
+
   useEffect(() => {
-    url === '' ? setIsUrlValid(false) : setIsUrlValid(true);
+    setIsUrlValid(url !== '');
   }, [url]);
 
   return (
