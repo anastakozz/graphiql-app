@@ -1,5 +1,6 @@
 .not-found-page {
   @include flex-colum(center, center);
+
   height: 100vh;
   background: $base-background-light;
 }

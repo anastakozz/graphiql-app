@@ -21,9 +21,9 @@
 .list-item {
   margin: 7px 0;
   padding: 5px 0 5px 10px;
+  border-radius: 10px;
   color: $red-shade;
   cursor: pointer;
-  border-radius: 10px;
 
   &:hover {
     background: $base-background-light;
@@ -31,10 +31,9 @@
   }
 
   &:active {
-    transform: scale(0.95);
     transition: 300ms;
+    transform: scale(0.95);
   }
-
 }
 
 .description {

@@ -1,13 +1,17 @@
+@use 'sass:color';
+
 .header {
   @include flex-row(center, space-between);
-  padding: 10px 20px;
+
   position: sticky;
-  top: 0px;
-  backdrop-filter: blur(10px);
-  transition: 0.3s;
-  background: $header-background;
-  border-radius: 5px;
+  top: 0;
   z-index: 2;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: $header-background;
+  transition: 0.3s;
+  backdrop-filter: blur(10px);
+
   @media screen and (max-width: $additional-size) {
     flex-direction: column;
     justify-content: center;
@@ -15,41 +19,45 @@
 }
 
 .logo-link {
-  font-family: $font-montserrat;
-  font-weight: 300;
-  text-decoration: none;
-  color: $base-color;
   padding: 10px 20px;
+  color: $base-color;
+  font-weight: 300;
   font-size: 20px;
-  transition: 300ms;
+  font-family: $font-montserrat;
+  text-decoration: none;
   cursor: pointer;
+  transition: 300ms;
 
-  &:hover {
-    color: darken($color: $base-color, $amount: 20);
-  }
   @media screen and (max-width: $additional-size) {
     margin-bottom: 10px;
     text-align: center;
   }
+
   @media screen and (max-width: $mobile) {
     font-size: 16px;
   }
+
+  &:hover {
+    color: color.adjust($color: $base-color, $lightness: 20);
+  }
 }
+
 .header-right-part {
   @include flex-row(center, space-between);
 }
 
 .logout-button {
   margin-left: 20px;
+
   @media screen and (max-width: $additional-size) {
     font-size: 10px;
   }
 }
 
 .header-scroll {
+  margin: 0;
   padding: 5px 10px;
-  margin: 0px;
-  border-radius: 0px;
+  border-radius: 0;
 
   .logo-link {
     font-size: 18px;

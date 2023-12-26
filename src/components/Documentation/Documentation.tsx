@@ -1,11 +1,11 @@
-import { IDocumentation, IGraphQL, IOfType, ITypeObject } from "./documentation.types";
+import { IDocumentation, IGraphQL, IOfType, ITypeData, ITypeObject } from './documentation.types';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { useEffect, useState } from 'react';
-import { buildClientSchema } from "graphql/utilities";
+import { buildClientSchema } from 'graphql/utilities';
 import { fetchSchema } from '../../services/api.service';
 import { OtherSectionsBlock } from './DocsSections/OtherSections/OtherSectionsBlock';
 import { MainSectionList } from './DocsSections/MainSection/MainSectionList';
-import { GraphQLFieldMap} from 'graphql/type';
+import { GraphQLFieldMap } from 'graphql/type';
 import { updateApiSchema } from '../../store/apiSlice';
 
 function Documentation({ showDocs, apiUrl }: IDocumentation) {
@@ -16,7 +16,7 @@ function Documentation({ showDocs, apiUrl }: IDocumentation) {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [typeActive, setTypeActive] = useState<IGraphQL>();
   const [typesActive, setTypesActive] = useState<Array<string>>([]);
-  const schema = useAppSelector(state => state.api.apiSchema);
+  const schema = useAppSelector((state) => state.api.apiSchema);
   const [isSchemaLoaded, setIsSchemaLoaded] = useState(false);
   const dispatch = useAppDispatch();
   const documentationWidth = (openedTypes.length + 1) * 350;
@@ -43,7 +43,7 @@ function Documentation({ showDocs, apiUrl }: IDocumentation) {
 
   useEffect(() => {
     setOpenedTypes([]);
-    setIsSchemaLoaded(false)
+    setIsSchemaLoaded(false);
     const parseSchema = async (apiUrl: string) => {
       let graphSchemaObject;
       if (schema) graphSchemaObject = buildClientSchema(schema.data);
@@ -51,7 +51,7 @@ function Documentation({ showDocs, apiUrl }: IDocumentation) {
         const introspectionData = await fetchSchema(apiUrl);
         if (!introspectionData?.data) return;
         graphSchemaObject = introspectionData?.data && buildClientSchema(introspectionData.data);
-        dispatch(updateApiSchema(introspectionData))
+        dispatch(updateApiSchema(introspectionData));
       }
       const queryType = graphSchemaObject?.getQueryType();
       const mutationType = graphSchemaObject?.getMutationType();
@@ -62,57 +62,52 @@ function Documentation({ showDocs, apiUrl }: IDocumentation) {
       setQueries(queries);
       setMutations(mutations);
       setSubscriptions(subscriptions);
-      setIsSchemaLoaded(true)
+      setIsSchemaLoaded(true);
     };
     parseSchema(apiUrl);
   }, [apiUrl, dispatch, schema]);
 
+  const typeData: ITypeData[] = [
+    { type: queries, header: 'queries' },
+    { type: mutations, header: 'mutations' },
+    { type: subscriptions, header: 'subscriptions' },
+  ];
+
   return (
     <div style={dynamicStyles} className={`docs-section ${showDocs ? 'docs-section-open' : ''}`}>
-      {isSchemaLoaded ? <>
-        <div className="docs-section-content">
-          {queries && (
-            <MainSectionList
-              type={queries}
-              setOpenedTypes={setOpenedTypes}
-              header="queries"
-              typeActive={typeActive}
-              setTypeActive={setTypeActive}
-            />
-          )}
-          {mutations && (
-            <MainSectionList
-              type={mutations}
-              setOpenedTypes={setOpenedTypes}
-              header="mutations"
-              typeActive={typeActive}
-              setTypeActive={setTypeActive}
-            />
-          )}
-          {subscriptions && (
-            <MainSectionList
-              type={subscriptions}
-              setOpenedTypes={setOpenedTypes}
-              header="subscriptions"
-              typeActive={typeActive}
-              setTypeActive={setTypeActive}
-            />
-          )}
-        </div>
+      {isSchemaLoaded ? (
+        <>
+          <div className="docs-section-content">
+            {typeData.map(
+              ({ type, header }) =>
+                type && (
+                  <MainSectionList
+                    key={header}
+                    type={type}
+                    setOpenedTypes={setOpenedTypes}
+                    header={header}
+                    typeActive={typeActive}
+                    setTypeActive={setTypeActive}
+                  />
+                )
+            )}
+          </div>
 
-        {openedTypes.length > 0 &&
-          openedTypes.map((type, index) => (
-            <OtherSectionsBlock
-              mainIndex={index}
-              key={index}
-              openedType={type}
-              setOpenedTypes={setOpenedTypes}
-              typesActive={typesActive}
-              setTypesActive={setTypesActive}
-            />
-          ))}
-      </> :
-        <div className="loader"></div>}
+          {openedTypes.length > 0 &&
+            openedTypes.map((type, index) => (
+              <OtherSectionsBlock
+                mainIndex={index}
+                key={index}
+                openedType={type}
+                setOpenedTypes={setOpenedTypes}
+                typesActive={typesActive}
+                setTypesActive={setTypesActive}
+              />
+            ))}
+        </>
+      ) : (
+        <div className="loader"></div>
+      )}
     </div>
   );
 }
