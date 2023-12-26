@@ -1,4 +1,5 @@
 import React from 'react';
+import { GraphQLFieldMap } from 'graphql/type';
 
 export interface IDocumentation {
   showDocs: boolean;
@@ -64,7 +65,12 @@ export interface IGraphQL {
   };
 }
 
-export type TypeOptions = "queries" | "mutations" | "subscriptions";
+export type TypeOptions = 'queries' | 'mutations' | 'subscriptions';
+
+export interface ITypeData {
+  type: GraphQLFieldMap<ITypeObject, IOfType> | undefined;
+  header: TypeOptions;
+}
 
 export interface IMainSection {
   type: IGraphQL;
@@ -97,14 +103,13 @@ export interface ISchema {
   data: {
     __schema: {
       queryType: {
-        kind: "OBJECT";
+        kind: 'OBJECT';
         name: string;
-      }
-      mutationType: { kind: "OBJECT"; name: string };
-      subscriptionType: { kind: "OBJECT"; name: string };
+      };
+      mutationType: { kind: 'OBJECT'; name: string };
+      subscriptionType: { kind: 'OBJECT'; name: string };
       types: [];
       directives: [];
-    }
-  }
+    };
+  };
 }
-

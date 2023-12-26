@@ -1,68 +1,78 @@
+@use 'sass:color';
+
 .main-section {
-  @include flex-row();
+  @include flex-row;
+
   position: relative;
   height: calc(100vh - 114px);
   background: $mian-background;
+
   @media screen and (max-width: $tablet) {
     flex-direction: column;
     justify-content: center;
     height: 100vh;
   }
 }
+
 .request-section {
   @include flex-colum(stretch, space-between);
-  height: 100%;
-  width: 50%;
-  padding: 10px 10px 15px 10px;
+
   position: relative;
+  width: 50%;
+  height: 100%;
+  padding: 10px 10px 15px;
+
   @media screen and (max-width: $tablet) {
     width: 100%;
   }
 }
+
 .response-section {
-  height: 100%;
   width: 50%;
-  padding: 10px 10px 15px 10px;
+  height: 100%;
+  padding: 10px 10px 15px;
+
   @media screen and (max-width: $tablet) {
     width: 100%;
   }
 }
 
 .output-wrapper {
-  background: lighten($mian-background, $amount: 8);
-  border-radius: 8px;
-  height: 100%;
   width: full;
+  height: 100%;
+  border-radius: 8px;
+  background: color.adjust($mian-background, $lightness: 8);
 }
 
 .json-input {
-  margin-top: 10px;
   flex-grow: 1;
+  overflow-y: scroll;
+  margin-top: 10px;
   padding: 10px;
+  border: 0;
+  border-radius: 8px 8px 0 0;
   background: $input-color;
   color: $text-color-2;
-  border-radius: 8px 8px 0 0;
-  border: 0;
   outline: none;
-  overflow-y: scroll;
 }
 
 .json-output {
+  overflow-y: scroll;
   height: 100%;
   padding: 10px 25px 10px 10px;
   outline: none;
-  overflow-y: scroll;
 }
 
 .action-button {
   @include flex-row(center, center);
+
   position: absolute;
   right: 20px;
   width: 40px;
   height: 40px;
-  border-radius: 40px;
   border: 3px solid $white;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1882352941);
+  border-radius: 40px;
+  box-shadow: 2px 2px 2px rgb(0 0 0 / 18.8%);
   cursor: pointer;
   transition: 300ms;
 }
@@ -70,20 +80,24 @@
 .run-button {
   top: 70px;
   background: $main-button-color;
+
   &:hover {
-    background: lighten($color: $main-button-color, $amount: 10);
+    background: color.adjust($color: $main-button-color, $lightness: 10);
   }
+
   &:disabled {
-    background: darken($color: $main-button-color, $amount: 10);
-    border-color: darken($color: $white, $amount: 10);
+    border-color: color.adjust($color: $white, $lightness: 10);
+    background: color.adjust($color: $main-button-color, $lightness: 10);
     cursor: auto;
   }
 }
+
 .prettyfy-button {
   top: 118px;
   background: $additional-button-color;
+
   &:hover {
-    background: lighten($color: $additional-button-color, $amount: 10);
+    background: color.adjust($color: $additional-button-color, $lightness: 10);
   }
 }
 
@@ -91,115 +105,137 @@
   position: absolute;
   top: 100px;
   right: -52px;
+  z-index: 2;
   width: 140px;
+  padding: 10px 15px;
   border: 0;
   border-radius: 5px 5px 0 0;
   background-color: $main-button-color;
   color: $white;
-  padding: 10px 15px;
-  transform: rotate(-90deg);
+  font-size: 16px;
   cursor: pointer;
   transition: 300ms;
-  z-index: 2;
-  font-size: 16px;
-  &:hover {
-    background-color: lighten($color: $main-button-color, $amount: 10%);
-  }
+  transform: rotate(-90deg);
+
   @media screen and (max-width: $tablet) {
     top: 450px;
+  }
+
+  &:hover {
+    background-color: color.adjust($color: $main-button-color, $lightness: 10%);
   }
 }
 
 .not-hover {
+  cursor: auto;
+
   &:hover {
     background-color: $main-button-color;
   }
-  cursor: auto;
 }
 
 .docs-section {
   position: absolute;
   right: 0;
   display: flex;
+  flex-shrink: 0;
   align-items: stretch;
-  width: 0;
   overflow: hidden;
+  width: 0;
   height: 100%;
   padding: 0;
-  flex-shrink: 0;
-  transition: width 300ms;
-  background: $transparent-dark;
   border-radius: 10px;
-
+  background: $transparent-dark;
+  transition: width 300ms;
 
   &.docs-section-open {
-    padding: 10px;
     overflow: auto;
+    padding: 10px;
   }
 
   .docs-section-content {
     min-width: 300px;
     max-width: 300px;
     height: fit-content;
-    background-color: $white;
-    border-radius: 8px;
     margin-right: 10px;
     padding: 20px;
+    border-radius: 8px;
+    background-color: $white;
     white-space: normal;
   }
 }
 
+%docs-section {
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-shrink: 0;
+  align-items: stretch;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  padding: 0;
+  border-radius: 10px;
+  background: $transparent-dark;
+  transition: width 300ms;
+}
+
+%docs-section-open {
+  overflow: auto;
+  padding: 10px;
+}
+
 .loader-wrapper {
-  @extend .docs-section;
-  @extend .docs-section-open;
+  @extend %docs-section;
+  @extend %docs-section-open;
+
   width: 350px;
 }
 
 .loader {
-  margin: 0 auto;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
   width: 48px;
   height: 48px;
-  border-radius: 50%;
-  display: inline-block;
-  position: relative;
+  margin: 0 auto;
   border: 3px solid;
-  border-color: #FFF #FFF transparent;
-  box-sizing: border-box;
+  border-color: #fff #fff transparent;
+  border-radius: 50%;
   animation: rotation 1s linear infinite;
 }
+
 .loader::after {
   content: '';
-  box-sizing: border-box;
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  inset: 0;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
   margin: auto;
   border: 3px solid;
   border-color: transparent $main-button-color $main-button-color;
-  width: 24px;
-  height: 24px;
   border-radius: 50%;
-  animation: rotationBack 0.5s linear infinite;
   transform-origin: center center;
+  animation: rotation-back 0.5s linear infinite;
 }
 
 @keyframes rotation {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
 
-@keyframes rotationBack {
+@keyframes rotation-back {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(-360deg);
   }
 }
-

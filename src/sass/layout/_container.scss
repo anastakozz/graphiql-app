@@ -1,37 +1,44 @@
-.container {
-  margin: 0 auto;
-  width: 1200px;
+@use 'sass:color';
 
-  @media (max-width: 1200px) {
-    margin: 0 auto;
+.container {
+  width: 1200px;
+  margin: 0 auto;
+
+  @media (width <= 1200px) {
     width: calc(100% - 40px);
+    margin: 0 auto;
   }
 }
-.container900 {
-  margin: 0 auto;
-  width: 900px;
 
-  @media (max-width: 900px) {
-    margin: 0 auto;
+.container900 {
+  width: 900px;
+  margin: 0 auto;
+
+  @media (width <= 900px) {
     width: calc(100% - 40px);
+    margin: 0 auto;
   }
 }
 
 .main-title {
-  font-size: 40px;
-  margin: 30px 0px;
-  background: -webkit-linear-gradient(200deg, lighten($base-color, 30%) 20%, $base-color 80%);
+  margin: 30px 0;
+  background: linear-gradient(
+    200deg,
+    color.adjust($base-color, $lightness: 30%) 20%,
+    $base-color 80%
+  );
   background-clip: text;
-  -webkit-background-clip: text;
+  font-size: 40px;
   -webkit-text-fill-color: transparent;
+
   @media (max-width: $additional-size) {
     font-size: 35px;
   }
 }
 
 .secondary-title {
+  margin: 20px 0;
   font-size: 20px;
-  margin: 20px 0px;
 }
 
 .text-center {
@@ -43,42 +50,46 @@
 }
 
 .main-inner {
-  @include flex-colum();
+  @include flex-colum;
+
   position: relative;
   height: calc(100vh - 114px);
+
   @media screen and (max-width: $additional-size) {
     height: calc(100vh - 142px);
   }
+
   @media screen and (max-width: $mobile) {
     height: calc(100vh - 138px);
   }
 }
 
 .link-button {
-  cursor: pointer;
   padding: 5px 10px;
-  border-radius: 5px;
   border: 0;
-  transition: 300ms;
+  border-radius: 5px;
   text-decoration: none;
+  cursor: pointer;
+  transition: 300ms;
 
   &:hover {
-    background: lighten($color: $base-color, $amount: 10%);
+    background: color.adjust($color: $base-color, $lightness: 10%);
   }
 }
 
-.link-button__filled {
+.link-button-filled {
   background: $base-color;
   color: $white;
 
   &:hover {
-    background: lighten($color: $base-color, $amount: 10%);
+    background: color.adjust($color: $base-color, $lightness: 10%);
   }
 }
 
-.link-button__empty {
-  color: $base-color;
+.link-button-empty {
   background: transparent;
+  color: $base-color;
+
   &:hover {
     background: $base-background-light;
   }

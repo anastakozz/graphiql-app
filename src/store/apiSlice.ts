@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ISchema } from "../components/Documentation/documentation.types.ts";
+import { ISchema } from '../components/Documentation/documentation.types.ts';
 
 interface apiProps {
   apiUrl: string;

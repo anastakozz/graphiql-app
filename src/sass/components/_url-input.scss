@@ -5,10 +5,10 @@
 .url-input {
   width: 100%;
   padding: 10px;
+  border: 0;
+  border-radius: 8px;
   background: $input-color;
   color: $text-color-1;
-  border-radius: 8px;
-  border: 0;
   outline: 0;
 }
 
