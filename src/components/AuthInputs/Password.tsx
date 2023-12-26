@@ -28,7 +28,7 @@ export default function Password({ register, error, setValue }: InputProps) {
           onChange={(e) => setValue('password', e.target.value, { shouldValidate: true })}
         />
       </div>
-      <div className="error-message">
+      <div className="error-message" role="error-message">
         {currentError ? '⚠' : ''} {currentError}
       </div>
     </div>

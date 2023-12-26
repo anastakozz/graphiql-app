@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ReactNode } from 'react';
 import userContext, { ContextProps } from '../lib/context';
 import en from '../localization/en.json';
+import user from '@testing-library/user-event';
 
 const customRender = (
   ui: ReactNode,
@@ -61,5 +62,34 @@ describe('SignInPage component', () => {
     fireEvent.click(signUpLink);
 
     expect(window.location.pathname).toBe('/sign-up');
+  });
+
+  it('validation work', async () => {
+    const MAIL = 'lol@mail';
+    const PASS = '123';
+    customRender(<SignInPage />, { providerProps: { value: mockContext } });
+
+    const emailInput = screen.getByLabelText(/E-mail/i);
+    user.type(emailInput, MAIL);
+
+    const passwordInput = screen.getByLabelText(/Password/i);
+    user.type(passwordInput, PASS);
+    expect(await screen.getAllByRole('error-message').length).toBe(2);
+    const signInButton = screen.getByRole('button', { name: /Sign In/i });
+    expect(signInButton).toBeDisabled;
+  });
+
+  it('validation', () => {
+    const MAIL = 'lol@mail.com';
+    const PASS = '123yY$';
+    customRender(<SignInPage />, { providerProps: { value: mockContext } });
+
+    const emailInput = screen.getByLabelText(/E-mail/i);
+    user.type(emailInput, MAIL);
+
+    const passwordInput = screen.getByLabelText(/Password/i);
+    user.type(passwordInput, PASS);
+    const signInButton = screen.getByRole('button', { name: /Sign In/i });
+    expect(signInButton).toBeEnabled;
   });
 });

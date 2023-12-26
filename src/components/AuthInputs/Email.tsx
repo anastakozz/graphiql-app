@@ -28,7 +28,7 @@ export default function Email({ register, error, setValue }: InputProps) {
           onChange={(e) => setValue('email', e.target.value, { shouldValidate: true })}
         />
       </div>
-      <div className="error-message">
+      <div className="error-message" role="error-message">
         {currentError ? '⚠' : ''} {currentError}
       </div>
     </div>
