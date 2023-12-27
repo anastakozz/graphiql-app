@@ -1,12 +1,12 @@
 import CodeMirror from '@uiw/react-codemirror';
-import { jsonLanguage } from '@codemirror/lang-json';
+import { langs } from '@uiw/codemirror-extensions-langs';
 import { materialLightInit } from '@uiw/codemirror-themes-all';
 import { settingsCodemirror } from '../../lib/constants';
-import { graphqlLanguage } from 'cm6-graphql';
+import { graphql } from 'cm6-graphql';
 
 const languages = {
-  json: jsonLanguage,
-  graphql: graphqlLanguage,
+  json: langs.json(),
+  graphql: graphql(),
 };
 
 type Props = {
@@ -32,7 +32,7 @@ export default function JsonEditor({
       value={value}
       readOnly={readOnly}
       className={className}
-      onChange={(value) => onChange && onChange(value)}
+      onChange={(value: string) => onChange && onChange(value)}
       extensions={[languages[language]]}
     />
   );
