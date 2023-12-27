@@ -30,7 +30,7 @@ export default function ConfirmPassword({ register, error, setValue }: InputProp
           onChange={(e) => setValue('confirmPassword', e.target.value, { shouldValidate: true })}
         />
       </div>
-      <div className="error-message">
+      <div className="error-message" role="error-message">
         {currentError ? '⚠' : ''} {currentError}
       </div>
     </div>

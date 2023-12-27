@@ -3,7 +3,6 @@ import Header from './Header';
 import userContext, { ContextProps } from '../../lib/context';
 import { act } from 'react-dom/test-utils';
 import { ReactNode } from 'react';
-
 import en from '../../localization/en.json';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -26,7 +25,6 @@ vi.mock('react-router-dom', async () => {
   return {
     ...actual,
     useNavigate: () => mockNavigate,
-    // your mocked methods
   };
 });
 

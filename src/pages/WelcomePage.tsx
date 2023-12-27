@@ -6,7 +6,7 @@ export default function WelcomePage() {
   const dictionary = useContext(userContext).localData?.welcomePage;
 
   return (
-    <main>
+    <main role="welcome-page">
       <div className="container900 welcome-section">
         <AutorizationLinks />
         {dictionary && (

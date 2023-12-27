@@ -37,7 +37,7 @@ export default function SignInPage() {
 
   return (
     dictionary && (
-      <div className="container main-inner">
+      <div className="container main-inner" role="sign-in-page">
         <h1 className="main-title title-spacer text-center">{dictionary.signInTitle}</h1>
         <div className="sign-container">
           <form onSubmit={handleSubmit(onSubmit)} noValidate={true}>
