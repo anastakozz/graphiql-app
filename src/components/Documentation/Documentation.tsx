@@ -7,6 +7,7 @@ import { OtherSectionsBlock } from './DocsSections/OtherSections/OtherSectionsBl
 import { MainSectionList } from './DocsSections/MainSection/MainSectionList';
 import { GraphQLFieldMap } from 'graphql/type';
 import { updateApiSchema } from '../../store/apiSlice';
+import { Loader } from '../Loader/Loader.tsx';
 
 function Documentation({ showDocs, apiUrl }: IDocumentation) {
   const [openedTypes, setOpenedTypes] = useState<Array<ITypeObject>>([]);
@@ -74,10 +75,14 @@ function Documentation({ showDocs, apiUrl }: IDocumentation) {
   ];
 
   return (
-    <div style={dynamicStyles} className={`docs-section ${showDocs ? 'docs-section-open' : ''}`}>
+    <div
+      data-testid="docs-wrapper"
+      style={dynamicStyles}
+      className={`docs-section ${showDocs ? 'docs-section-open' : ''}`}
+    >
       {isSchemaLoaded ? (
         <>
-          <div className="docs-section-content">
+          <div data-testid="docs-section-wrapper" className="docs-section-content">
             {typeData.map(
               ({ type, header }) =>
                 type && (
@@ -92,21 +97,22 @@ function Documentation({ showDocs, apiUrl }: IDocumentation) {
                 )
             )}
           </div>
-
-          {openedTypes.length > 0 &&
-            openedTypes.map((type, index) => (
-              <OtherSectionsBlock
-                mainIndex={index}
-                key={index}
-                openedType={type}
-                setOpenedTypes={setOpenedTypes}
-                typesActive={typesActive}
-                setTypesActive={setTypesActive}
-              />
-            ))}
+          <div className="docs-section-content">
+            {openedTypes.length > 0 &&
+              openedTypes.map((type, index) => (
+                <OtherSectionsBlock
+                  mainIndex={index}
+                  key={index}
+                  openedType={type}
+                  setOpenedTypes={setOpenedTypes}
+                  typesActive={typesActive}
+                  setTypesActive={setTypesActive}
+                />
+              ))}
+          </div>
         </>
       ) : (
-        <div className="loader"></div>
+        <Loader />
       )}
     </div>
   );

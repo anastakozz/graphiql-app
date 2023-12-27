@@ -17,7 +17,7 @@ export function ObjectSection({
   const dictionary = useContext(userContext).localData?.mainPage.docs;
 
   return (
-    <div className="docs-section-content">
+    <>
       <ObjectHeader openedType={openedType} />
       <p className="description">{openedType.description}</p>
       <TypeDetails
@@ -37,6 +37,6 @@ export function ObjectSection({
         typesActive={typesActive}
         setTypesActive={setTypesActive}
       />
-    </div>
+    </>
   );
 }

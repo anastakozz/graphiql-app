@@ -12,7 +12,7 @@ export function TypeDetails({
 }: ITypeDetailsProps) {
   return (
     <>
-      <h2>{data?.typeDetails}</h2>
+      <h2 role="header">{data?.typeDetails}</h2>
       <p className="description">{getTypeName(openedType.type, true, 'description')}</p>
       <ul className="types-list">
         <li className="mb10">
@@ -57,7 +57,9 @@ export function TypeDetails({
               </li>
             </div>
           ))}
-        <li className="mt10">&#125;</li>
+        <li role="closeBracket" className="mt10">
+          &#125;
+        </li>
       </ul>
     </>
   );

@@ -9,7 +9,10 @@ export function ScalarSection({ openedType }: IScalarSection) {
   return (
     <div className="docs-section-content">
       <div className="header-name">
-        <span className="red-color">{openedType?.name}</span>:
+        <span role="headerName" className="red-color">
+          {openedType?.name}
+        </span>
+        :
         <span className="green-color">
           {' '}
           {openedType.type && getTypeName(openedType.type, true)}

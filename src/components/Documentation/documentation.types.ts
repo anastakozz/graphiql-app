@@ -31,7 +31,7 @@ export interface ITypeObject {
   name: string;
   type?: IOfType;
   description: string;
-  args: Array<ITypeObject>;
+  args: Array<ITypeObject> | null;
 }
 
 export interface IObjectProps {

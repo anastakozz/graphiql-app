@@ -13,7 +13,6 @@ export function OtherSectionsBlock({
 }: IDocsSection) {
   if (!openedType.type) return;
   const graphqlType = getGraphQLType(openedType.type);
-
   return (
     <>
       {!['GraphQLScalarType', 'GraphQLEnumType'].includes(graphqlType) && (
