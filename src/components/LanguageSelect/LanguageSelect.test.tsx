@@ -1,20 +1,8 @@
-import { ReactNode } from 'react';
 import { ContextProps } from '../../lib/context';
-import userContext from '../../lib/context';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import LanguageSelect from './LanguageSelect';
-
 import en from '../../localization/en.json';
-
-const customRender = (
-  ui: ReactNode,
-  { providerProps, ...renderOptions }: { providerProps: { value: ContextProps } }
-) => {
-  return render(
-    <userContext.Provider {...providerProps}>{ui}</userContext.Provider>,
-    renderOptions
-  );
-};
+import { customRender } from '../../lib/utils/testUtils';
 
 describe('LanguageSelect component', () => {
   const mockContext: ContextProps = {

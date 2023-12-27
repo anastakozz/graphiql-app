@@ -4,7 +4,7 @@ import { ITeamBlock } from '../../lib/commonTypes/interfaces';
 export default function TeamBlock({ data, item, index }: ITeamBlock) {
   return (
     <div
-      data-testid="team-block"
+      role="team-block"
       className={`our-team-section-item ${index % 2 != 0 ? ' our-team-section__item_revert' : ''}`}
     >
       <div className="photo-container">
@@ -13,7 +13,7 @@ export default function TeamBlock({ data, item, index }: ITeamBlock) {
           className="github-link"
           target="_blank"
           rel="noreferrer"
-          data-testid="github-link"
+          role="github-link"
           href={item.github}
         >
           <GithubLogo width="20px" />
