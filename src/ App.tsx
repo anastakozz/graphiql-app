@@ -1,7 +1,7 @@
 import { RouterProvider } from 'react-router-dom';
 import ErrorBoundary from './components/ErrorBoundary';
 import { ErrorPage } from './pages';
-import { router } from './lib';
+import router from './lib/router';
 import store from './store';
 import { Provider } from 'react-redux';
 import { Language, getJSON, userContext } from './lib';
