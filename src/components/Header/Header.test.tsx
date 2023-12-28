@@ -1,6 +1,5 @@
-import { screen, fireEvent } from '@testing-library/react';
+import { screen, fireEvent, waitFor } from '@testing-library/react';
 import Header from './Header';
-import { act } from 'react-dom/test-utils';
 import en from '../../localization/en.json';
 import { customRender } from '../../lib/utils/testUtils';
 
@@ -49,16 +48,16 @@ describe('Header component', () => {
     expect(screen.getByRole('language-select')).toBeInTheDocument();
   });
 
-  it('changes header style on scroll', () => {
+  it('changes header style on scroll', async () => {
     customRender(<Header />, { providerProps: { value: mockContext } });
 
     expect(screen.getByRole('header')).not.toHaveClass('header-scroll');
 
-    act(() => {
-      window.scrollY = 50;
-      fireEvent.scroll(window);
-    });
+    window.scrollY = 50;
+    fireEvent.scroll(window);
 
-    expect(screen.getByRole('header')).toHaveClass('header-scroll');
+    await waitFor(() => {
+      expect(screen.getByRole('header')).toHaveClass('header-scroll');
+    });
   });
 });
