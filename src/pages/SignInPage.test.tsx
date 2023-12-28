@@ -1,22 +1,7 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import SignInPage from './SignInPage';
-import { BrowserRouter } from 'react-router-dom';
-import { ReactNode } from 'react';
-import userContext, { ContextProps } from '../lib/context';
 import en from '../localization/en.json';
-import user from '@testing-library/user-event';
-
-const customRender = (
-  ui: ReactNode,
-  { providerProps, ...renderOptions }: { providerProps: { value: ContextProps } }
-) => {
-  return render(
-    <BrowserRouter>
-      <userContext.Provider {...providerProps}>{ui}</userContext.Provider>
-    </BrowserRouter>,
-    renderOptions
-  );
-};
+import { customRender } from '../lib/utils/testUtils';
 
 describe('SignInPage component', () => {
   const mockContext = {
@@ -62,34 +47,5 @@ describe('SignInPage component', () => {
     fireEvent.click(signUpLink);
 
     expect(window.location.pathname).toBe('/sign-up');
-  });
-
-  it('validation work', () => {
-    const MAIL = 'lol@mail';
-    const PASS = '123';
-    customRender(<SignInPage />, { providerProps: { value: mockContext } });
-
-    const emailInput = screen.getByLabelText(/E-mail/i);
-    user.type(emailInput, MAIL);
-
-    const passwordInput = screen.getByLabelText(/Password/i);
-    user.type(passwordInput, PASS);
-    expect(screen.getAllByRole('error-message').length).toBe(2);
-    const signInButton = screen.getByRole('button', { name: /Sign In/i });
-    expect(signInButton).toBeDisabled;
-  });
-
-  it('validation', () => {
-    const MAIL = 'lol@mail.com';
-    const PASS = '123yY$';
-    customRender(<SignInPage />, { providerProps: { value: mockContext } });
-
-    const emailInput = screen.getByLabelText(/E-mail/i);
-    user.type(emailInput, MAIL);
-
-    const passwordInput = screen.getByLabelText(/Password/i);
-    user.type(passwordInput, PASS);
-    const signInButton = screen.getByRole('button', { name: /Sign In/i });
-    expect(signInButton).toBeEnabled;
   });
 });

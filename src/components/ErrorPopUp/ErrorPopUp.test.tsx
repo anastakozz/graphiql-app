@@ -26,13 +26,13 @@ describe('ErrorPopUp component', () => {
     expect(errorMessage).toBeNull;
   });
   it('click on close button close pop up', () => {
-    const { getByText, getByTestId } = render(
+    const { getByText, getByRole } = render(
       <ErrorPopUp onClick={onClickMock} error="An error occurred" />
     );
 
     const closeButton = getByText('x');
     const errorMessage = getByText('An error occurred');
-    const shade = getByTestId('shade');
+    const shade = getByRole('shade');
 
     expect(closeButton).toBeInTheDocument();
     expect(errorMessage).toBeInTheDocument();
