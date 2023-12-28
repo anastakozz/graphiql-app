@@ -38,7 +38,7 @@
   }
 
   &:hover {
-    color: color.adjust($color: $base-color, $lightness: 20);
+    color: color.adjust($color: $base-color, $lightness: 20%);
   }
 }
 

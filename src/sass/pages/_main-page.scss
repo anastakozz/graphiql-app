@@ -41,7 +41,7 @@
   width: full;
   height: 100%;
   border-radius: 8px;
-  background: color.adjust($mian-background, $lightness: 8);
+  background: color.adjust($mian-background, $lightness: 8%);
 }
 
 .json-input {
@@ -82,12 +82,12 @@
   background: $main-button-color;
 
   &:hover {
-    background: color.adjust($color: $main-button-color, $lightness: 10);
+    background: color.adjust($color: $main-button-color, $lightness: 10%);
   }
 
   &:disabled {
-    border-color: color.adjust($color: $white, $lightness: 10);
-    background: color.adjust($color: $main-button-color, $lightness: 10);
+    border-color: color.adjust($color: $white, $lightness: 10%);
+    background: color.adjust($color: $main-button-color, $lightness: 10%);
     cursor: auto;
   }
 }
@@ -97,7 +97,7 @@
   background: $additional-button-color;
 
   &:hover {
-    background: color.adjust($color: $additional-button-color, $lightness: 10);
+    background: color.adjust($color: $additional-button-color, $lightness: 10%);
   }
 }
 
