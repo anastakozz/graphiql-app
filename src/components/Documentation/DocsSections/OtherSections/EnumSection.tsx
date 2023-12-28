@@ -7,9 +7,12 @@ export function EnumSection({ openedType }: IScalarSection) {
   const dictionary = useContext(userContext).localData?.mainPage.docs;
 
   return (
-    <div className="docs-section-content">
+    <>
       <div className="header-name">
-        <span className="red-color">{openedType?.name}</span>:
+        <span role="headerName" className="red-color">
+          {openedType?.name}
+        </span>
+        :
         <span className="green-color">{openedType.type && getTypeName(openedType.type, true)}</span>
       </div>
       <h2>{dictionary?.typeDetails}</h2>
@@ -27,6 +30,6 @@ export function EnumSection({ openedType }: IScalarSection) {
         ))}
         <li className="mt10">&#125;</li>
       </ul>
-    </div>
+    </>
   );
 }

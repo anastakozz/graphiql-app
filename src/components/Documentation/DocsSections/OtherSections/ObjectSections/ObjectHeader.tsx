@@ -6,7 +6,10 @@ export function ObjectHeader({ openedType }: { openedType: ITypeObject }) {
     <div className="header-name">
       {openedType.args?.length === 0 || !openedType.args ? (
         <>
-          <span className="red-color">{openedType.name}</span>:&#160;
+          <span data-testid="objectTypeName" className="red-color">
+            {openedType.name}
+          </span>
+          :&#160;
           <span className="green-color">{openedType.type && getTypeName(openedType.type)}</span>
         </>
       ) : (
@@ -22,7 +25,10 @@ export function ObjectHeader({ openedType }: { openedType: ITypeObject }) {
           ))}
           <div className="mt10">
             ):
-            <span className="green-color"> {openedType.type && getTypeName(openedType.type)}</span>
+            <span data-testid="objectTypeType" className="green-color">
+              {' '}
+              {openedType.type && getTypeName(openedType.type)}
+            </span>
           </div>
         </>
       )}

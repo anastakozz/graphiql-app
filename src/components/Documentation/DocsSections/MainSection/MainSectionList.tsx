@@ -12,7 +12,6 @@ export function MainSectionList({
 }: IMainSection) {
   const [activeItem, setActiveItem] = useState<number | null>(null);
   const dictionary = useContext(userContext).localData?.mainPage.docs;
-
   return (
     <>
       <h2>{dictionary && dictionary[header]}</h2>
