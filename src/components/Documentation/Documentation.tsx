@@ -97,19 +97,17 @@ function Documentation({ showDocs, apiUrl }: IDocumentation) {
                 )
             )}
           </div>
-          <div className="docs-section-content">
-            {openedTypes.length > 0 &&
-              openedTypes.map((type, index) => (
-                <OtherSectionsBlock
-                  mainIndex={index}
-                  key={index}
-                  openedType={type}
-                  setOpenedTypes={setOpenedTypes}
-                  typesActive={typesActive}
-                  setTypesActive={setTypesActive}
-                />
-              ))}
-          </div>
+          {openedTypes.length > 0 &&
+            openedTypes.map((type, index) => (
+              <OtherSectionsBlock
+                mainIndex={index}
+                key={index}
+                openedType={type}
+                setOpenedTypes={setOpenedTypes}
+                typesActive={typesActive}
+                setTypesActive={setTypesActive}
+              />
+            ))}
         </>
       ) : (
         <Loader />

@@ -15,7 +15,7 @@ describe('Type details', () => {
         setTypesActive={vi.fn}
       />
     );
-    const header = screen.getByRole('header');
+    const header = screen.getByRole('heading');
     const closeBracket = screen.getByRole('closeBracket');
     expect(header).toBeInTheDocument();
     expect(closeBracket).toBeInTheDocument();

@@ -14,7 +14,7 @@ export function OtherSectionsBlock({
   if (!openedType.type) return;
   const graphqlType = getGraphQLType(openedType.type);
   return (
-    <>
+    <div className="docs-section-content">
       {!['GraphQLScalarType', 'GraphQLEnumType'].includes(graphqlType) && (
         <ObjectSection
           openedType={openedType}
@@ -26,6 +26,6 @@ export function OtherSectionsBlock({
       )}
       {graphqlType === 'GraphQLScalarType' && <ScalarSection openedType={openedType} />}
       {graphqlType === 'GraphQLEnumType' && <EnumSection openedType={openedType} />}
-    </>
+    </div>
   );
 }
