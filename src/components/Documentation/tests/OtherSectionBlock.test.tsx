@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { OtherSectionsBlock } from './OtherSectionsBlock';
+import { OtherSectionsBlock } from '../DocsSections/OtherSections/OtherSectionsBlock.tsx';
 
 describe('OtherSectionsBlock', () => {
   const mockOpenedType = {
@@ -14,7 +14,7 @@ describe('OtherSectionsBlock', () => {
   };
 
   it('renders ObjectSection when graphqlType is not GraphQLScalarType or GraphQLEnumType', () => {
-    vi.mock('../../../../lib/utils/getGraphQLType', () => ({
+    vi.mock('../../../lib/utils/getGraphQLType', () => ({
       getGraphQLType: vi.fn(() => 'GraphQLObjectType'),
     }));
 
@@ -32,7 +32,7 @@ describe('OtherSectionsBlock', () => {
   });
 
   it('renders ScalarSection when graphqlType is GraphQLScalarType', () => {
-    vi.mock('../../../../lib/utils/getGraphQLType', () => ({
+    vi.mock('../../../lib/utils/getGraphQLType', () => ({
       getGraphQLType: vi.fn(() => 'GraphQLScalarType'),
     }));
     render(
@@ -44,7 +44,6 @@ describe('OtherSectionsBlock', () => {
         setTypesActive={vi.fn}
       />
     );
-    screen.debug();
     const headerName = screen.getByRole('headerName');
     expect(headerName).toBeInTheDocument();
   });

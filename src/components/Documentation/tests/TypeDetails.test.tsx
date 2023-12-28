@@ -1,30 +1,12 @@
 import { render, screen } from '@testing-library/react';
-import { TypeDetails } from './TypeDetails.tsx';
+import { TypeDetails } from '../DocsSections/OtherSections/ObjectSections/TypeDetails.tsx';
+import { mockData, mockFields, openedTypeMock } from './mocks.ts';
 
 describe('Type details', () => {
   it('should render type details header', () => {
-    const mockOpenedType = {
-      name: 'name',
-      description: 'description',
-      args: null,
-      deprecationReason: 'reason',
-    };
-
-    const mockFields = {
-      _fields: mockOpenedType,
-      name: '',
-      description: '',
-    };
-
-    const mockData = {
-      typeDetails: 'details',
-      button: 'button',
-      arguments: 'args',
-    };
-
     render(
       <TypeDetails
-        openedType={mockOpenedType}
+        openedType={openedTypeMock}
         setOpenedTypes={vi.fn}
         mainIndex={0}
         data={mockData}

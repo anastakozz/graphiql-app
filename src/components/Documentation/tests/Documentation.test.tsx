@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
-import Documentation from './Documentation.tsx';
-import { renderWithProviders } from '../../lib/utils/testUtils.tsx';
-import { setupStore } from '../../store';
+import Documentation from '../Documentation.tsx';
+import { renderWithProviders } from '../../../lib/utils/testUtils.tsx';
+import { setupStore } from '../../../store';
 
 describe('Documentation', () => {
   const store = setupStore();

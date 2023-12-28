@@ -1,16 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import { MainSectionList } from './MainSectionList';
+import { MainSectionList } from '../DocsSections/MainSection/MainSectionList.tsx';
+import { mockType } from './mocks.ts';
 
 describe('Main section list', () => {
   it('renders MainSectionList correctly', () => {
-    const mockType = {
-      name: 'Type1',
-      ofType: {
-        name: 'String',
-        description: 'Some description',
-      },
-    };
-
     render(
       <MainSectionList
         type={mockType}

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { ObjectSection } from './ObjectSection.tsx';
+import { ObjectSection } from '../DocsSections/OtherSections/ObjectSection.tsx';
 
 describe('Object section', () => {
   it('should render component', () => {
