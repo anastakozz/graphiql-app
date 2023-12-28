@@ -1,21 +1,7 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { screen, fireEvent, waitFor } from '@testing-library/react';
 import Header from './Header';
-import userContext, { ContextProps } from '../../lib/context';
-import { ReactNode } from 'react';
 import en from '../../localization/en.json';
-import { BrowserRouter } from 'react-router-dom';
-
-const customRender = (
-  ui: ReactNode,
-  { providerProps, ...renderOptions }: { providerProps: { value: ContextProps } }
-) => {
-  return render(
-    <BrowserRouter>
-      <userContext.Provider {...providerProps}>{ui}</userContext.Provider>
-    </BrowserRouter>,
-    renderOptions
-  );
-};
+import { customRender } from '../../lib/utils/testUtils';
 
 const mockNavigate = vi.fn();
 
@@ -59,19 +45,19 @@ describe('Header component', () => {
   it('renders LanguageSelect component', () => {
     customRender(<Header />, { providerProps: { value: mockContext } });
 
-    expect(screen.getByTestId('language-select')).toBeInTheDocument();
+    expect(screen.getByRole('language-select')).toBeInTheDocument();
   });
 
   it('changes header style on scroll', async () => {
     customRender(<Header />, { providerProps: { value: mockContext } });
 
-    expect(screen.getByTestId('header')).not.toHaveClass('header-scroll');
+    expect(screen.getByRole('header')).not.toHaveClass('header-scroll');
 
     window.scrollY = 50;
     fireEvent.scroll(window);
 
     await waitFor(() => {
-      expect(screen.getByTestId('header')).toHaveClass('header-scroll');
+      expect(screen.getByRole('header')).toHaveClass('header-scroll');
     });
   });
 });

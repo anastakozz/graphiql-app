@@ -8,7 +8,7 @@ export default function LanguageSelect() {
 
   return (
     !!changeLocalData && (
-      <div className="language-select" data-testid="language-select">
+      <div className="language-select" role="language-select">
         {languages.map((item, index) => {
           return (
             <button
