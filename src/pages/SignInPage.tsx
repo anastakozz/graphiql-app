@@ -35,6 +35,8 @@ export default function SignInPage() {
     }
   };
 
+  console.log(errors);
+
   return (
     dictionary && (
       <div className="container main-inner" role="sign-in-page">

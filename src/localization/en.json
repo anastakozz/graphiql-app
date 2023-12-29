@@ -75,7 +75,7 @@
         "mustHaveNumber": "Password must contains at least one number",
         "mustHaveSpecial": "Password must contains at least one special character",
         "required": "Field is required",
-        "mustHave6Characters": "Password should be at least 6 characters"
+        "mustHave8Characters": "Password should be at least 8 characters"
       },
       "confirmPassword": {
         "mustMatch": "Passwords must match",
