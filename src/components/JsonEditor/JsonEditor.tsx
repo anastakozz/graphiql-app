@@ -34,6 +34,10 @@ export default function JsonEditor({
       className={className}
       onChange={(value: string) => onChange && onChange(value)}
       extensions={[languages[language]]}
+      basicSetup={{
+        defaultKeymap: false,
+        autocompletion: false,
+      }}
     />
   );
 }

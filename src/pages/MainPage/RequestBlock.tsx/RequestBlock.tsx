@@ -18,7 +18,7 @@ export default function RequestBlock() {
   const [headers, setHeaders] = useState('');
 
   const prettify = () => {
-    const prettyQuery = prettifyString(query);
+    const prettyQuery = prettifyString(query, true);
     setQuery(prettyQuery);
 
     const prettyVariables = prettifyString(variables);
