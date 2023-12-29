@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { makeRequest } from '../../../services/api.service';
 import { updateApiError } from '../../../store/apiSlice';
 import { updateEditorResponse } from '../../../store/jsonSlice';
-import { prettifyJson } from '../../../lib/utils/prettifyString';
+import { prettifyString } from '../../../lib/utils/prettifyString';
 
 export default function RequestBlock() {
   const { localData } = useContext(userContext);
@@ -18,13 +18,13 @@ export default function RequestBlock() {
   const [headers, setHeaders] = useState('');
 
   const prettify = () => {
-    const prettyQuery = prettifyJson(query);
+    const prettyQuery = prettifyString(query);
     setQuery(prettyQuery);
 
-    const prettyVariables = prettifyJson(variables);
+    const prettyVariables = prettifyString(variables);
     setVariables(prettyVariables);
 
-    const prettyHeaders = prettifyJson(headers);
+    const prettyHeaders = prettifyString(headers);
     setHeaders(prettyHeaders);
   };
 
@@ -37,7 +37,7 @@ export default function RequestBlock() {
         )
       );
     } else {
-      const prettyResponse = prettifyJson(JSON.stringify(response));
+      const prettyResponse = prettifyString(JSON.stringify(response));
       dispatch(updateEditorResponse(prettyResponse));
     }
   };

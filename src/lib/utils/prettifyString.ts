@@ -1,4 +1,4 @@
-export function prettifyJson(jsonString: string): string {
+export function prettifyString(jsonString: string): string {
   let formattedJson = '';
   let indentationLevel = 0;
 
