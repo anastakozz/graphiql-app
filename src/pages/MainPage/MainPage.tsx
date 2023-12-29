@@ -3,12 +3,14 @@ import userContext from '../../lib/context';
 import { URLInput } from '../../components/index';
 import RequestBlock from './RequestBlock.tsx/RequestBlock';
 import { lazy, Suspense } from 'react';
-import { useAppSelector } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import ApiErrorPopup from '../../components/ApiErrorPopup/ApiErrorPopup.tsx';
 import ResponseBlock from './ResponseBlock.tsx/ResponseBlock.tsx';
 import { Loader } from '../../components/Loader/Loader.tsx';
+import { updateEditorResponse } from '../../store/jsonSlice.ts';
 
 export default function MainPage() {
+  const dispatch = useAppDispatch();
   const dictionary = useContext(userContext).localData?.mainPage;
   const [showDocs, setShowDocs] = useState<boolean>(false);
   const url = useAppSelector((state) => state.api.apiUrl);
@@ -18,6 +20,10 @@ export default function MainPage() {
   useEffect(() => {
     setIsUrlValid(url !== '');
   }, [url]);
+
+  useEffect(() => {
+    dispatch(updateEditorResponse(''));
+  }, [dispatch]);
 
   return (
     <div className="main-section">
