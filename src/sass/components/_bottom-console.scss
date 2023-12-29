@@ -1,6 +1,5 @@
 .bottom-console {
   overflow: hidden;
-  width: full;
   height: 50px;
   border-radius: 0 0 8px 8px;
   background: $input-color;
@@ -64,4 +63,9 @@
   svg {
     transform: rotate(180deg);
   }
+}
+
+.bottom-input {
+  overflow-y: scroll;
+  height: 100%;
 }

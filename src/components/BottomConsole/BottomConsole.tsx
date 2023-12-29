@@ -71,7 +71,7 @@ export default function BottomConsole({
             <JsonEditor
               value={variables}
               language="json"
-              className="vars-input"
+              className="bottom-input"
               onChange={(value) => setVariables(value)}
             />
           )}
@@ -80,7 +80,7 @@ export default function BottomConsole({
               value={headers}
               language="json"
               onChange={(value) => setHeaders(value)}
-              className="headers-input"
+              className="bottom-input"
             />
           )}
         </div>
