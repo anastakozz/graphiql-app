@@ -65,5 +65,5 @@ export function prettifyString(jsonString: string, isQuery = false): string {
     formattedJson += char;
   }
 
-  return isQuery ? checkKeyWords(formattedJson) : formattedJson;
+  return isQuery ? checkKeyWords(formattedJson.trim()) : formattedJson.trim();
 }
