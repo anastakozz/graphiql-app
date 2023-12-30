@@ -36,10 +36,7 @@ export function prettifyString(jsonString: string, isQuery = false): string {
 
     if (char === '\n') {
       continue;
-    } else if (
-      char === ' ' &&
-      (nextChar === ' ' || prevChar === '{' || prevChar === '[' || prevChar === '\n')
-    ) {
+    } else if (char === ' ' && (nextChar === ' ' || prevChar === ' ')) {
       continue;
     } else if (char === '{' || char === '[') {
       const chunk = `${char}\n` + '  '.repeat(indentationLevel + 1);
