@@ -16,7 +16,7 @@
     "anastasiyaBio": "Having an architectural education and extensive experience in digital fabrication, I started coding by writing JavaScript (JS) scripts for Adobe Illustrator and fell in love with the process. I decided to change my career and immersed myself in JS with the help of Rolling Scopes School. I believe that the unique combination of skills and experience possessed by every specialist can shine brightly in its own place, and I hope to find my place in the IT sphere.",
     "vyacheslavName": "Ryshkov Vyacheslav",
     "vyacheslavRole": "Software engineer",
-    "vyacheslavBio": "My previous place of work was a mining and processing plant, where I worked as an electrician on duty for the last seven years. I have a higher education in the specialty of 'Automation of Technological Processes and Production.' For various reasons, I decided to change my job and chose the IT path. Since I already had experience in website administration and promotion, I found Frontend development to be the most appealing. I enjoy it, and I hope to become a skilled specialist.",
+    "vyacheslavBio": "My previous place of work was a mining and processing plant, where I performed maintenance and commissioning of electromechanical equipment. I have a higher education in the specialty of 'Automation of Technological Processes and Production.' For various reasons, I decided to change my job and chose the IT path. Since I already had experience in website administration and promotion, I found Frontend development to be the most appealing. I like it, and I hope to become a highly qualified specialist.",
     "aboutProjectTitle": "Project's description",
     "projectInfo": "The task of the project is to implement an interface for working with GraphQL. The GraphQL playground is an interactive UI where you can build and test queries you want to send to the GraphQL APIs.",
     "aboutCourseTitle": "Course information",
@@ -75,7 +75,7 @@
         "mustHaveNumber": "Password must contains at least one number",
         "mustHaveSpecial": "Password must contains at least one special character",
         "required": "Field is required",
-        "mustHave6Characters": "Password should be at least 6 characters"
+        "mustHave8Characters": "Password should be at least 8 characters"
       },
       "confirmPassword": {
         "mustMatch": "Passwords must match",

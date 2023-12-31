@@ -5,7 +5,7 @@ import { Props } from './protectedRoutes.types';
 
 export const ProtectedRoute: FC<Props> = ({ children, isAuthPath }) => {
   const [hasCheckedAuth, setHasCheckedAuth] = useState(false);
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState<boolean | null>(false);
 
   useEffect(() => setAuthListener({ setIsUserLoggedIn, setHasCheckedAuth }), []);
 

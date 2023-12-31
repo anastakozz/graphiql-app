@@ -3,7 +3,7 @@ import { auth } from '../firebaseConfig';
 import React from 'react';
 
 interface IAuthListener {
-  setIsUserLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsUserLoggedIn: React.Dispatch<React.SetStateAction<boolean | null>>;
   setHasCheckedAuth?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 

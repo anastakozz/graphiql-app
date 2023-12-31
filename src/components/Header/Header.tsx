@@ -7,7 +7,7 @@ import { signOut } from 'firebase/auth';
 
 export default function Header() {
   const dictionary = useContext(userContext).localData?.header;
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState<boolean | null>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
 
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ export default function Header() {
     try {
       await signOut(auth);
       setIsUserLoggedIn(false);
-      navigate('/sign-in');
+      navigate('/');
     } catch (e) {
       console.error(e);
     }
