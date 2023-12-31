@@ -53,6 +53,42 @@
   }
 }
 
+.password {
+  width: 250px;
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+  @media (max-width: $additional-size) {
+    width: 170px;
+  }
+
+  @media (max-width: $mobile) {
+    width: 120px;
+  }
+}
+
+.flex-container {
+  display: flex;
+}
+
+.password-visibility-btn {
+  padding: 5px;
+  border: 1px solid $additional-input-color;
+  border-left: none;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: white;
+  box-shadow: inset 0 -3px 0 rgb(0 0 0 / 5%);
+  outline: none;
+  cursor: pointer;
+  caret-color: $additional-input-color;
+}
+
+.hide {
+  padding: 4.6px 5px;
+}
+
 .account-link {
   margin-top: 10px;
   text-decoration: none;
