@@ -46,13 +46,13 @@
 
 .json-input {
   flex-grow: 1;
+  flex-basis: 200px;
   overflow-y: scroll;
   margin-top: 10px;
   padding: 10px;
   border: 0;
   border-radius: 8px 8px 0 0;
   background: $input-color;
-  color: $text-color-2;
   outline: none;
 }
 

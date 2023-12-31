@@ -1,23 +1,27 @@
-.c2 .cm-gutters {
+/* stylelint-disable selector-class-pattern */
+
+.ͼ2 .cm-gutters {
   background: none;
 }
 
-.c1.cm-editor.cm-focused {
+.ͼ1.cm-editor.cm-focused {
   outline: none;
 }
 
-.c1.cm-focused {
+.ͼ5 .cm-focused {
   outline: none;
 }
 
-.c1.cm-focused .cm-matching-bracket {
+.ͼ5 .cm-focused .cm-matchingBracket {
   background-color: $header-background;
 }
 
-.c2 .cm-active-line {
+.ͼ2 .cm-activeLine {
   background: none;
 }
 
-.c2 .cm-active-line-gutter {
+.ͼ4 .cm-activeLineGutter {
   background: none;
 }
+
+/* stylelint-enable selector-class-pattern */
