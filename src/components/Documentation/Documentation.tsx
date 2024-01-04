@@ -1,6 +1,6 @@
 import { IDocumentation, IGraphQL, IOfType, ITypeData, ITypeObject } from './documentation.types';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { buildClientSchema } from 'graphql/utilities';
 import { fetchSchema } from '../../services/api.service';
 import { OtherSectionsBlock } from './DocsSections/OtherSections/OtherSectionsBlock';
@@ -9,7 +9,7 @@ import { GraphQLFieldMap } from 'graphql/type';
 import { updateApiSchema } from '../../store/apiSlice';
 import { Loader } from '../Loader/Loader.tsx';
 
-function Documentation({ showDocs, apiUrl }: IDocumentation) {
+function Documentation({ showDocs, apiUrl, isUrlChanged, setIsUrlChanged }: IDocumentation) {
   const [openedTypes, setOpenedTypes] = useState<Array<ITypeObject>>([]);
   const [queries, setQueries] = useState<GraphQLFieldMap<ITypeObject, IOfType>>();
   const [mutations, setMutations] = useState<GraphQLFieldMap<ITypeObject, IOfType>>();
@@ -18,6 +18,7 @@ function Documentation({ showDocs, apiUrl }: IDocumentation) {
   const [typeActive, setTypeActive] = useState<IGraphQL>();
   const [typesActive, setTypesActive] = useState<Array<string>>([]);
   const schema = useAppSelector((state) => state.api.apiSchema);
+  const prevSchema = useRef(schema);
   const [isSchemaLoaded, setIsSchemaLoaded] = useState(false);
   const dispatch = useAppDispatch();
   const documentationWidth = (openedTypes.length + 1) * 350;
@@ -43,16 +44,18 @@ function Documentation({ showDocs, apiUrl }: IDocumentation) {
   }, []);
 
   useEffect(() => {
+    if (prevSchema.current !== schema) return;
     setOpenedTypes([]);
     setIsSchemaLoaded(false);
     const parseSchema = async (apiUrl: string) => {
       let graphSchemaObject;
-      if (schema) graphSchemaObject = buildClientSchema(schema.data);
-      if (!schema) {
+      if (schema && !isUrlChanged) graphSchemaObject = buildClientSchema(schema.data);
+      if (!schema || isUrlChanged) {
         const introspectionData = await fetchSchema(apiUrl);
         if (!introspectionData?.data) return;
         graphSchemaObject = introspectionData?.data && buildClientSchema(introspectionData.data);
         dispatch(updateApiSchema(introspectionData));
+        setIsUrlChanged(false);
       }
       const queryType = graphSchemaObject?.getQueryType();
       const mutationType = graphSchemaObject?.getMutationType();
@@ -66,7 +69,7 @@ function Documentation({ showDocs, apiUrl }: IDocumentation) {
       setIsSchemaLoaded(true);
     };
     parseSchema(apiUrl);
-  }, [apiUrl, dispatch, schema]);
+  }, [apiUrl, dispatch, isUrlChanged, schema, setIsUrlChanged]);
 
   const typeData: ITypeData[] = [
     { type: queries, header: 'queries' },

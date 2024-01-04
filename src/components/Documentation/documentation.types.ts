@@ -4,6 +4,8 @@ import { GraphQLFieldMap } from 'graphql/type';
 export interface IDocumentation {
   showDocs: boolean;
   apiUrl: string;
+  isUrlChanged: boolean;
+  setIsUrlChanged: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface IDocsData {

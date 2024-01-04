@@ -11,19 +11,28 @@ describe('Documentation', () => {
   }));
 
   it('should render documentation container', () => {
-    renderWithProviders(<Documentation showDocs={false} apiUrl={''} />, { store });
+    renderWithProviders(
+      <Documentation showDocs={false} apiUrl={''} isUrlChanged={false} setIsUrlChanged={vi.fn} />,
+      { store }
+    );
     const container = screen.getByTestId('docs-wrapper');
     expect(container).toBeInTheDocument();
   });
 
   it('should have docs-section-open class when showDocs is true', async () => {
-    renderWithProviders(<Documentation showDocs={true} apiUrl={''} />, { store });
+    renderWithProviders(
+      <Documentation showDocs={true} apiUrl={''} isUrlChanged={false} setIsUrlChanged={vi.fn} />,
+      { store }
+    );
     const container = screen.getByTestId('docs-wrapper');
     expect(container).toHaveClass('docs-section-open');
   });
 
   it('should have not docs-section-open class when showDocs is false', () => {
-    renderWithProviders(<Documentation showDocs={false} apiUrl={''} />, { store });
+    renderWithProviders(
+      <Documentation showDocs={false} apiUrl={''} isUrlChanged={false} setIsUrlChanged={vi.fn} />,
+      { store }
+    );
     const container = screen.getByTestId('docs-wrapper');
     expect(container).not.toHaveClass('docs-section-open');
   });
@@ -33,7 +42,10 @@ describe('Documentation', () => {
       fetchSchema: vi.fn(() => {}),
     }));
 
-    renderWithProviders(<Documentation showDocs={false} apiUrl={''} />, { store });
+    renderWithProviders(
+      <Documentation showDocs={false} apiUrl={''} isUrlChanged={false} setIsUrlChanged={vi.fn} />,
+      { store }
+    );
     const loader = screen.getByRole('docsLoader');
     expect(loader).toBeInTheDocument();
   });
