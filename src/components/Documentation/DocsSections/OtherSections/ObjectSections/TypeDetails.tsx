@@ -21,10 +21,12 @@ export function TypeDetails({
           &#123;
         </li>
         {fields &&
-          Object.values(fields).map((type) => (
-            <div key={type.name}>
+          Object.values(fields).map((type, index) => (
+            <div key={index}>
               {type.deprecationReason && (
-                <li className="deprecated">#Deprecated: {type.deprecationReason}</li>
+                <li key={`deprecated-${type.name}`} className="deprecated">
+                  #Deprecated: {type.deprecationReason}
+                </li>
               )}
               <li
                 className={`list-item types-item ${
