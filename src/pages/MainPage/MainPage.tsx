@@ -4,25 +4,29 @@ import { URLInput } from '../../components/index';
 import RequestBlock from './RequestBlock.tsx/RequestBlock';
 import { lazy, Suspense } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import ApiErrorPopup from '../../components/ApiErrorPopup/ApiErrorPopup.tsx';
-import ResponseBlock from './ResponseBlock.tsx/ResponseBlock.tsx';
-import { Loader } from '../../components/Loader/Loader.tsx';
-import { updateEditorResponse } from '../../store/jsonSlice.ts';
+import ApiErrorPopup from '../../components/ApiErrorPopup/ApiErrorPopup';
+import ResponseBlock from './ResponseBlock.tsx/ResponseBlock';
+import { Loader } from '../../components/Loader/Loader';
+import { updateApiUrl } from '../../store/apiSlice';
 
 export default function MainPage() {
-  const dispatch = useAppDispatch();
   const dictionary = useContext(userContext).localData?.mainPage;
   const [showDocs, setShowDocs] = useState<boolean>(false);
   const url = useAppSelector((state) => state.api.apiUrl);
+  const dispatch = useAppDispatch();
+  const [isUrlChanged, setIsUrlChanged] = useState(false);
   const DocumentationLazy = lazy(() => import('../../components/Documentation/Documentation'));
   const [isUrlValid, setIsUrlValid] = useState(false);
 
   useEffect(() => {
     setIsUrlValid(url !== '');
+    setIsUrlChanged(true);
   }, [url]);
 
   useEffect(() => {
-    dispatch(updateEditorResponse(''));
+    return () => {
+      dispatch(updateApiUrl(''));
+    };
   }, [dispatch]);
 
   return (
@@ -43,7 +47,12 @@ export default function MainPage() {
             </div>
           }
         >
-          <DocumentationLazy showDocs={showDocs} apiUrl={url} />
+          <DocumentationLazy
+            showDocs={showDocs}
+            apiUrl={url}
+            isUrlChanged={isUrlChanged}
+            setIsUrlChanged={setIsUrlChanged}
+          />
         </Suspense>
       )}
       <button

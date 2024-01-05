@@ -18,6 +18,12 @@ describe('WelcomePage component', () => {
     },
     changeLocalData: vi.fn(),
   };
+
+  vi.mock('../components/AutorizationLinks/AutorizationLinks', () => ({
+    __esModule: true,
+    default: vi.fn(() => <div data-testid="mocked-autorization-links" />),
+  }));
+
   it('renders WelcomePage with correct content', () => {
     customRender(<WelcomePage />, { providerProps: { value: mockContext } });
 
