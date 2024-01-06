@@ -43,8 +43,8 @@ function checkBrackets(input: string): string {
       if (char === '\n') {
         continue;
       } else if (
-        (char === ' ' && (nextChar === ' ' || nextChar === ']')) ||
-        (prevChar === ' ' && (char === ' ' || char === '['))
+        char === ' ' &&
+        (nextChar === ' ' || nextChar === ']' || prevChar === ' ' || prevChar === '[')
       ) {
         continue;
       }
