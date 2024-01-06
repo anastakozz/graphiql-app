@@ -78,6 +78,9 @@ export function prettifyString(jsonString: string, isQuery = false): string {
     } else if (char === '}' || char === ']') {
       indentationLevel--;
       formattedJson += '\n' + '  '.repeat(indentationLevel) + `${char}`;
+      if (symbols.test(nextChar)) {
+        formattedJson += '\n' + '  '.repeat(indentationLevel);
+      }
       continue;
     } else if (char === ':') {
       formattedJson += ': ';
