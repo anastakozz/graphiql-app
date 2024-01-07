@@ -18,14 +18,26 @@ export default function RequestBlock() {
   const [headers, setHeaders] = useState('');
 
   const prettify = () => {
-    const prettyQuery = prettifyString(query, true);
-    setQuery(prettyQuery);
+    try {
+      const prettyQuery = prettifyString(query, true);
+      setQuery(prettyQuery);
+    } catch (err) {
+      console.error(err);
+    }
 
-    const prettyVariables = prettifyString(variables);
-    setVariables(prettyVariables);
+    try {
+      const prettyVariables = prettifyString(variables);
+      setVariables(prettyVariables);
+    } catch (err) {
+      console.error(err);
+    }
 
-    const prettyHeaders = prettifyString(headers);
-    setHeaders(prettyHeaders);
+    try {
+      const prettyHeaders = prettifyString(headers);
+      setHeaders(prettyHeaders);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const sendRequest = async () => {

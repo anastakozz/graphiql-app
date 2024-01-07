@@ -4,6 +4,7 @@
   @include flex-row;
 
   position: relative;
+  overflow: hidden;
   height: calc(100vh - 114px);
   background: $mian-background;
 
