@@ -21,9 +21,7 @@ export default function Header() {
       await signOut(auth);
       setIsUserLoggedIn(false);
       navigate('/');
-    } catch (e) {
-      console.error(e);
-    }
+    } catch {}
   };
 
   useEffect(() => {
