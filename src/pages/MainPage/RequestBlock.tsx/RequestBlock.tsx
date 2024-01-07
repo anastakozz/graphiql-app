@@ -21,22 +21,22 @@ export default function RequestBlock() {
     try {
       const prettyQuery = prettifyString(query, true);
       setQuery(prettyQuery);
-    } catch (err) {
-      console.error(err);
+    } catch {
+      dispatch(updateApiError(localData?.apiResponse.syntaxError));
     }
 
     try {
       const prettyVariables = prettifyString(variables);
       setVariables(prettyVariables);
-    } catch (err) {
-      console.error(err);
+    } catch {
+      dispatch(updateApiError(localData?.apiResponse.syntaxError));
     }
 
     try {
       const prettyHeaders = prettifyString(headers);
       setHeaders(prettyHeaders);
-    } catch (err) {
-      console.error(err);
+    } catch {
+      dispatch(updateApiError(localData?.apiResponse.syntaxError));
     }
   };
 
