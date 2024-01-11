@@ -56,19 +56,18 @@ function checkBrackets(input: string): string {
   return result;
 }
 
-export function prettifyString(jsonString: string, isQuery = false): string {
+export function prettifyString(inputString: string, isQuery = false): string {
+  const input = inputString.replace(/\t/g, ' ').replace(/\n/g, ' ');
   let formattedJson = '';
   let indentationLevel = 0;
   const symbols = /[a-zA-Z0-9]/;
 
-  for (let i = 0; i < jsonString.length; i++) {
-    const char = jsonString[i];
-    const nextChar = jsonString[i + 1];
+  for (let i = 0; i < input.length; i++) {
+    const char = input[i];
+    const nextChar = input[i + 1];
     const prevChar = formattedJson[formattedJson.length - 1];
 
-    if (char === '\n') {
-      continue;
-    } else if (char === ' ' && (nextChar === ' ' || prevChar === ' ')) {
+    if (char === ' ' && (nextChar === ' ' || prevChar === ' ')) {
       continue;
     } else if (char === '{' || char === '[') {
       const chunk = `${char}\n` + '  '.repeat(indentationLevel + 1);

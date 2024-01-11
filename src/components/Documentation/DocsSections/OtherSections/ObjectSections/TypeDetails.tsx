@@ -15,7 +15,7 @@ export function TypeDetails({
       <h2 role="heading">{data?.typeDetails}</h2>
       <p className="description">{getTypeName(openedType.type, true, 'description')}</p>
       <ul className="types-list">
-        <li className="mb10">
+        <li className="mb10 scroll-x">
           <span className="base-color">type </span>
           <span className="red-color">{openedType.type && getTypeName(openedType.type, true)}</span>
           &#123;
@@ -59,7 +59,7 @@ export function TypeDetails({
               </li>
             </div>
           ))}
-        <li role="closeBracket" className="mt10">
+        <li role="closeBracket" className="mt10 scroll-x">
           &#125;
         </li>
       </ul>
