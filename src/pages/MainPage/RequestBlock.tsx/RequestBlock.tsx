@@ -49,7 +49,9 @@ export default function RequestBlock() {
         )
       );
     } else {
+      console.log('response received');
       const prettyResponse = prettifyString(JSON.stringify(response));
+      console.log('response prettifyed');
       dispatch(updateEditorResponse(prettyResponse));
     }
   };

@@ -14,6 +14,7 @@ const editorSlice = createSlice({
   reducers: {
     updateEditorResponse(state, action: PayloadAction<string>) {
       state.jsonResponse = action.payload;
+      console.log('response received by state');
     },
   },
 });
