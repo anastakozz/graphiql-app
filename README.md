@@ -14,6 +14,8 @@ GraphQL Playground is a custom application designed to facilitate the exploratio
   - response section (query editor / JSON viewer)
   - possibility to change to a different user-specified API endpoint
 
+# The project has been implemented in accordance with [the technical specification](https://github.com/rolling-scopes-school/tasks/blob/master/react/modules/graphiql.md)
+
 ## Technology Stack:
 
 - TypeScript
@@ -40,7 +42,7 @@ To run this project locally, follow these steps:
 
 ## Screenshot
 
-![Screenshot 1](https://private-user-images.githubusercontent.com/117598324/293973544-e943662c-fc38-4d3e-94d3-7a6e45831337.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDUxNjYwMzksIm5iZiI6MTcwNTE2NTczOSwicGF0aCI6Ii8xMTc1OTgzMjQvMjkzOTczNTQ0LWU5NDM2NjJjLWZjMzgtNGQzZS05NGQzLTdhNmU0NTgzMTMzNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMTEzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDExM1QxNzA4NTlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mZDE4NGY5Y2JiNDcyOTNjM2E3NzUwNDc0MDhjYjdhMjY2NDY5YzQ2NmU4NTNmMTM4MDg3Mjg0NTUwZGZlOWU5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.j2gaYzVxXNyz2tT4hF6u5YE2hZS_Z54Fcvwn6CIaxOE)
+![Screenshot 1](./src/assets/mainPageScreenShot.png)
 
 ## Available Scripts
 
