@@ -5,6 +5,7 @@
   margin: 0 auto;
 
   @media (width <= 1200px) {
+    width: 95%;
     width: calc(100% - 40px);
     margin: 0 auto;
   }
@@ -15,6 +16,7 @@
   margin: 0 auto;
 
   @media (width <= 900px) {
+    width: 95%;
     width: calc(100% - 40px);
     margin: 0 auto;
   }
