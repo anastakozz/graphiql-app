@@ -1,0 +1,71 @@
+.bottom-console {
+  overflow: hidden;
+  height: 50px;
+  border-radius: 0 0 8px 8px;
+  background: $input-color;
+  transition: 300ms;
+
+  @media screen and (max-width: $tablet) {
+    height: 30px;
+  }
+}
+
+.bottom-console-open {
+  height: 240px;
+
+  @media screen and (max-width: $tablet) {
+    height: 100px;
+  }
+}
+
+.bottom-console-header {
+  @include flex-row(center, space-between);
+
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  border-top: 1px solid $base-color;
+
+  @media screen and (max-width: $tablet) {
+    height: 30px;
+  }
+}
+
+.bottom-console-inner {
+  position: relative;
+  display: block;
+  height: calc(100% - 50px);
+
+  @media screen and (max-width: $tablet) {
+    height: calc(100% - 30px);
+  }
+
+  textarea {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: 0;
+    outline: 0;
+  }
+}
+
+.expand-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  svg {
+    transition: 300ms;
+  }
+}
+
+.expand-open {
+  svg {
+    transform: rotate(180deg);
+  }
+}
+
+.bottom-input {
+  overflow-y: scroll;
+  height: 100%;
+}

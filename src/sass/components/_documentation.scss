@@ -1,0 +1,74 @@
+.black-color {
+  color: black;
+}
+
+.green-color {
+  color: #45d1b5;
+}
+
+.base-color {
+  color: $base-color;
+}
+
+.red-color {
+  color: $red-shade;
+}
+
+.header-name {
+  margin-bottom: 30px;
+}
+
+.scroll-x {
+  overflow: auto hidden;
+}
+
+.list-item {
+  overflow: auto;
+  margin: 7px 0;
+  padding: 5px 0 5px 10px;
+  border-radius: 10px;
+  color: $red-shade;
+  cursor: pointer;
+
+  &:hover {
+    background: $base-background-light;
+    transition: 300ms;
+  }
+
+  &:active {
+    transition: 300ms;
+    transform: scale(0.95);
+  }
+}
+
+.description {
+  margin: 20px 0;
+  color: $transparent-dark;
+  word-wrap: break-word;
+}
+
+.types-item {
+  overflow: auto;
+  margin: 0;
+  padding: 2px 0 2px 10px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.types-list {
+  margin-bottom: 30px;
+}
+
+.deprecated {
+  font-style: italic;
+}
+
+.active {
+  background-color: $base-background-light;
+}

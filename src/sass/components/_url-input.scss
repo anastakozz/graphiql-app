@@ -1,0 +1,19 @@
+.url-component {
+  position: relative;
+}
+
+.url-input {
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  border-radius: 8px;
+  background: $input-color;
+  color: $text-color-1;
+  outline: 0;
+}
+
+.input-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}

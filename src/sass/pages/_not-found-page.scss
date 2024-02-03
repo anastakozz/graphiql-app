@@ -1,0 +1,14 @@
+.not-found-page {
+  @include flex-colum(center, center);
+
+  background: $base-background-light;
+}
+
+.not-found-title {
+  font-size: 190px;
+}
+
+.not-found-subtitle {
+  margin-bottom: 50px;
+  font-size: 25px;
+}

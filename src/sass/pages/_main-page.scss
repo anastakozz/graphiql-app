@@ -1,0 +1,242 @@
+@use 'sass:color';
+
+.main-section {
+  @include flex-row;
+
+  position: relative;
+  overflow: hidden;
+  height: calc(100vh - 114px);
+  background: $mian-background;
+
+  @media screen and (max-width: $tablet) {
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+  }
+}
+
+.request-section {
+  @include flex-colum(stretch, space-between);
+
+  position: relative;
+  width: 50%;
+  height: 100%;
+  padding: 10px 10px 15px;
+
+  @media screen and (max-width: $tablet) {
+    width: 100%;
+  }
+}
+
+.response-section {
+  width: 50%;
+  height: 100%;
+  padding: 10px 10px 15px;
+
+  @media screen and (max-width: $tablet) {
+    width: 100%;
+  }
+}
+
+.output-wrapper {
+  width: full;
+  height: 100%;
+  border-radius: 8px;
+  background: color.adjust($mian-background, $lightness: 8%);
+}
+
+.json-input {
+  flex-grow: 1;
+  flex-basis: 200px;
+  overflow-y: scroll;
+  margin-top: 10px;
+  padding: 10px;
+  border: 0;
+  border-radius: 8px 8px 0 0;
+  background: $input-color;
+  outline: none;
+}
+
+.json-output {
+  overflow-y: scroll;
+  height: 100%;
+  padding: 10px 25px 10px 10px;
+  outline: none;
+}
+
+.action-button {
+  @include flex-row(center, center);
+
+  position: absolute;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border: 3px solid $white;
+  border-radius: 40px;
+  box-shadow: 2px 2px 2px rgb(0 0 0 / 18.8%);
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.run-button {
+  top: 70px;
+  background: $main-button-color;
+
+  &:hover {
+    background: color.adjust($color: $main-button-color, $lightness: 10%);
+  }
+
+  &:disabled {
+    border-color: color.adjust($color: $white, $lightness: 10%);
+    background: color.adjust($color: $main-button-color, $lightness: 10%);
+    cursor: auto;
+  }
+}
+
+.prettyfy-button {
+  top: 118px;
+  background: $additional-button-color;
+
+  &:hover {
+    background: color.adjust($color: $additional-button-color, $lightness: 10%);
+  }
+}
+
+.docs-badge {
+  position: absolute;
+  top: 100px;
+  right: -52px;
+  z-index: 2;
+  width: 140px;
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 5px 5px 0 0;
+  background-color: $main-button-color;
+  color: $white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 300ms;
+  transform: rotate(-90deg);
+
+  @media screen and (max-width: $tablet) {
+    top: 450px;
+  }
+
+  &:hover {
+    background-color: color.adjust($color: $main-button-color, $lightness: 10%);
+  }
+}
+
+.not-hover {
+  cursor: auto;
+
+  &:hover {
+    background-color: $main-button-color;
+  }
+}
+
+.docs-section {
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-shrink: 0;
+  align-items: stretch;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  padding: 0;
+  border-radius: 10px;
+  background: $transparent-dark;
+  transition: width 300ms;
+
+  &.docs-section-open {
+    overflow: auto;
+    padding: 10px;
+  }
+
+  .docs-section-content {
+    min-width: 300px;
+    max-width: 300px;
+    height: fit-content;
+    margin-right: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: $white;
+    white-space: normal;
+  }
+}
+
+%docs-section {
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-shrink: 0;
+  align-items: stretch;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  padding: 0;
+  border-radius: 10px;
+  background: $transparent-dark;
+  transition: width 300ms;
+}
+
+%docs-section-open {
+  overflow: auto;
+  padding: 10px;
+}
+
+.loader-wrapper {
+  @extend %docs-section;
+  @extend %docs-section-open;
+
+  width: 350px;
+}
+
+.loader {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+  border: 3px solid;
+  border-color: #fff #fff transparent;
+  border-radius: 50%;
+  animation: rotation 1s linear infinite;
+}
+
+.loader::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  margin: auto;
+  border: 3px solid;
+  border-color: transparent $main-button-color $main-button-color;
+  border-radius: 50%;
+  transform-origin: center center;
+  animation: rotation-back 0.5s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotation-back {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}

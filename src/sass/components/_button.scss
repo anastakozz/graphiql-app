@@ -1,0 +1,57 @@
+@use 'sass:color';
+
+.button {
+  padding: 5px 10px;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.button-contained {
+  background: $base-color;
+  color: $white;
+
+  &:hover {
+    background: color.adjust($color: $base-color, $lightness: 10%);
+  }
+
+  &:disabled {
+    background: color.adjust($color: $base-color, $lightness: 30%);
+
+    &:hover {
+      cursor: auto;
+    }
+  }
+}
+
+.button-link {
+  background: transparent;
+  color: $base-color;
+
+  &:hover {
+    background: $base-background-light;
+  }
+}
+
+.button-link-active {
+  background: $base-background-light;
+}
+
+.button-top-spacer {
+  margin-top: 10px;
+}
+
+.rotating-element {
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  animation: rotate 1s linear infinite;
+}

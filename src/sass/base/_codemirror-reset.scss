@@ -1,0 +1,27 @@
+/* stylelint-disable selector-class-pattern */
+
+.ͼ2 .cm-gutters {
+  background: none;
+}
+
+.ͼ1.cm-editor.cm-focused {
+  outline: none;
+}
+
+.ͼ5 .cm-focused {
+  outline: none;
+}
+
+.ͼ5 .cm-focused .cm-matchingBracket {
+  background-color: $header-background;
+}
+
+.ͼ2 .cm-activeLine {
+  background: none;
+}
+
+.ͼ4 .cm-activeLineGutter {
+  background: none;
+}
+
+/* stylelint-enable selector-class-pattern */

@@ -1,0 +1,19 @@
+.footer {
+  @include flex-row(flex-end, space-between);
+
+  padding: 10px;
+  background: $base-background-light;
+
+  .copyright {
+    font-size: 12px;
+    opacity: 0.5;
+  }
+
+  .footer-cta {
+    transition: 300ms;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

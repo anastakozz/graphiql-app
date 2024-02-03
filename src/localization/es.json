@@ -1,0 +1,90 @@
+{
+  "language": {
+    "code": "es"
+  },
+  "welcomePage": {
+    "title": "¡Bienvenido!",
+    "signIn": "Iniciar sesión",
+    "signUp": "Registrarse",
+    "toMain": "A la Página Principal",
+    "aboutUsTitle": "Nuestro equipo",
+    "yuliaName": "Yulia Kuzich",
+    "yuliaRole": "Ingeniera de software",
+    "yuliaBio": "En primer lugar, debo decir que no tengo una educación formal en el campo de TI, pero actualmente estoy tomando algunos de los mejores cursos disponibles. Me gradué en la Universidad Técnica de Brest como especialista en logística y también obtuve una maestría en Economía Mundial. Trabajé como logístico durante tres años. Ahora, mi objetivo es convertirme en un desarrollador front-end capacitado y conseguir un buen trabajo. Mis puntos fuertes incluyen la responsabilidad, la perseverancia, la determinación y la eficiencia. Por el momento no tengo experiencia laboral en el ámbito de TI, pero tengo muchas ganas de adquirirla.",
+    "anastasiyaName": "Kozlova Anastasiya",
+    "anastasiyaRole": "Ingeniera de software líder de equipo",
+    "anastasiyaBio": "Con una educación arquitectónica y una amplia experiencia en fabricación digital, comencé a codificar escribiendo scripts JavaScript (JS) para Adobe Illustrator y me enamoré del proceso. Decidí cambiar mi carrera y me sumergí en JS de la mano de Rolling Scopes School. Creo que la combinación única de habilidades y experiencia que posee cada especialista puede brillar en su propio lugar y espero encontrar mi lugar en el ámbito de las tecnologías de la información.",
+    "vyacheslavName": "Ryshkov Vyacheslav",
+    "vyacheslavRole": "Ingeniero de software",
+    "vyacheslavBio": "Mi lugar de trabajo anterior era una planta de minería y procesamiento, donde realizaba mantenimiento y puesta en marcha de equipos electromecánicos. Tengo estudios superiores en la especialidad de 'Automatización de Procesos Tecnológicos y de Producción'. Por diversas razones, decidí cambiar de trabajo y elegí el camino de TI. Como ya tenía experiencia en administración y promoción de sitios web, el desarrollo Frontend me pareció el más atractivo. Me gusta, y espero convertirme en un especialista altamente calificado.",
+    "aboutProjectTitle": "Descripción del proyecto",
+    "projectInfo": "La tarea del proyecto es implementar una interfaz para trabajar con GraphQL. El área de juegos de GraphQL es una interfaz de usuario interactiva donde puede crear y probar las consultas que desea enviar a las API de GraphQL.",
+    "aboutCourseTitle": "Información del curso",
+    "courseInfo": "RS School es un programa educativo gratuito y comunitario llevado a cabo por la comunidad de desarrolladores de Rolling Scopes desde 2013. Todos pueden estudiar en RS School, independientemente de su edad, empleo profesional o lugar de residencia. Los mentores y formadores de nuestra escuela somos desarrolladores front-end y javascript de diferentes empresas y países."
+  },
+  "mainPage": {
+    "variables": "Variables",
+    "headers": "Encabezadas",
+    "docs": {
+      "button": "Documentación",
+      "queries": "CONSULTAS",
+      "mutations": "MUTACIONES",
+      "subscriptions": "SUSCRIPCIONES",
+      "typeDetails": "DETALLES DEL TIPO",
+      "arguments": "ARGUMENTS"
+    }
+  },
+  "header": {
+    "welcomePage": "GraphiQL | a la Página de bienvenida",
+    "signOut": "Desconectar"
+  },
+  "notFoundPage": {
+    "message": "Página no encontrada",
+    "buttonText": "a la Página de bienvenida"
+  },
+  "errorPage": {
+    "message": "Ups... Algo salió mal",
+    "buttonText": "Recargar la pagina"
+  },
+  "signInPage": {
+    "signInTitle": "Iniciar sesión",
+    "account": "Aún no tienes cuenta?",
+    "error": "¡Clave o usuario inválido!"
+  },
+  "signUpPage": {
+    "signUpTitle": "Inscribirse",
+    "account": "¿Ya tienes una cuenta?",
+    "error": "Correo electrónico ya está en uso"
+  },
+  "authorization": {
+    "signIn": "Iniciar sesión",
+    "signUp": "Regístrate ahora",
+    "inputsTitle": {
+      "email": "Correo electrónico: ",
+      "password": "Contraseña: ",
+      "confirmPassword": "Confirmar contraseña: "
+    },
+    "errors": {
+      "email": {
+        "notValid": "El correo electrónico no es válido",
+        "required": "El campo no debe estar vacío"
+      },
+      "password": {
+        "mustHaveUpperCase": "La contraseña debe contener al menos una letra mayúscula",
+        "mustHaveLowerCase": "La contraseña debe contener al menos una letra minúscula",
+        "mustHaveNumber": "La contraseña debe contener al menos un número",
+        "mustHaveSpecial": "La contraseña debe contener al menos un carácter especial",
+        "required": "El campo no debe estar vacío",
+        "mustHave8Characters": "La contraseña debe tener al menos 8 caracteres"
+      },
+      "confirmPassword": {
+        "mustMatch": "Las contraseñas deben coincidir",
+        "required": "El campo no debe estar vacío"
+      }
+    }
+  },
+  "apiResponse": {
+    "invalidUrl": "Por favor, proporcione una URL válida de GraphQL",
+    "syntaxError": "¡Por favor, compruebe sus datos!"
+  }
+}
